@@ -1,0 +1,842 @@
+[
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/bonuses/accrue-customer-points",
+    "declared_statuses": [
+      201,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      201,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/bonuses/activate-customer-points",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "GET",
+    "path": "/api/v1/accounting-external-api/bonuses/balance",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "GET",
+    "path": "/api/v1/accounting-external-api/bonuses/customer-points-balance",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "GET",
+    "path": "/api/v1/accounting-external-api/bonuses/customer-points-history",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/bonuses/hold",
+    "declared_statuses": [
+      201,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      201,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "PATCH",
+    "path": "/api/v1/accounting-external-api/bonuses/hold/{hold_id}",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/gift-certificates/activate",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/gift-certificates/credit",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/gift-certificates/debit",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/gift-certificates/refund",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/gift-certificates/validate",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "GET",
+    "path": "/api/v1/accounting-external-api/orders",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [
+      200
+    ],
+    "missing_statuses": [
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 1,
+    "example_test": "tests/accounting/test_orders.py::test_list_orders",
+    "example_classification": "business"
+  },
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/orders",
+    "declared_statuses": [
+      201,
+      422
+    ],
+    "observed_statuses": [
+      201
+    ],
+    "missing_statuses": [
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 1,
+    "example_test": "tests/accounting/test_orders.py::test_create_and_update_order",
+    "example_classification": "business"
+  },
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/orders/calculate",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [
+      200
+    ],
+    "missing_statuses": [
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 1,
+    "example_test": "tests/accounting/test_orders.py::test_calculate_order",
+    "example_classification": "business"
+  },
+  {
+    "service": "accounting",
+    "method": "GET",
+    "path": "/api/v1/accounting-external-api/orders/{external_order_id}",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "PATCH",
+    "path": "/api/v1/accounting-external-api/orders/{external_order_id}",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "PATCH",
+    "path": "/api/v1/accounting-external-api/orders/{external_order_id}/items/{external_line_id}",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "GET",
+    "path": "/api/v1/accounting-external-api/product",
+    "declared_statuses": [
+      200,
+      401,
+      422,
+      500
+    ],
+    "observed_statuses": [
+      200
+    ],
+    "missing_statuses": [
+      401,
+      422,
+      500
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 1,
+    "example_test": "tests/accounting/test_products.py::test_list_products",
+    "example_classification": "business"
+  },
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/product",
+    "declared_statuses": [
+      201,
+      400,
+      401,
+      409,
+      422,
+      500
+    ],
+    "observed_statuses": [
+      201
+    ],
+    "missing_statuses": [
+      400,
+      401,
+      409,
+      422,
+      500
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 1,
+    "example_test": "tests/accounting/test_products.py::test_create_product",
+    "example_classification": "business"
+  },
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/product/bulk",
+    "declared_statuses": [
+      200,
+      400,
+      401,
+      422,
+      500
+    ],
+    "observed_statuses": [
+      200
+    ],
+    "missing_statuses": [
+      400,
+      401,
+      422,
+      500
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 1,
+    "example_test": "tests/accounting/test_products.py::test_create_products_bulk",
+    "example_classification": "business"
+  },
+  {
+    "service": "accounting",
+    "method": "GET",
+    "path": "/api/v1/accounting-external-api/product/{product_id}",
+    "declared_statuses": [
+      200,
+      400,
+      401,
+      404,
+      422,
+      500
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      401,
+      404,
+      422,
+      500
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "GET",
+    "path": "/api/v1/accounting-external-api/product_category",
+    "declared_statuses": [
+      200,
+      401,
+      422,
+      500
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401,
+      422,
+      500
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "GET",
+    "path": "/api/v1/accounting-external-api/product_category/{product_category_id}",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/promocodes/assign",
+    "declared_statuses": [
+      200,
+      404,
+      409,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404,
+      409,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/promotions/apply",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/promotions/apply-to-item",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/promotions/available",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/promotions/preview",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "POST",
+    "path": "/api/v1/accounting-external-api/promotions/remove",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "GET",
+    "path": "/api/v1/accounting/ping",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "accounting",
+    "method": "GET",
+    "path": "/health",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "crm",
+    "method": "POST",
+    "path": "/api/v1/crm-external-integrations/campaigns/automatic/send",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "crm",
+    "method": "POST",
+    "path": "/api/v1/crm-external-integrations/customer-actions",
+    "declared_statuses": [
+      201,
+      401,
+      422,
+      429,
+      500
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      201,
+      401,
+      422,
+      429,
+      500
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "crm",
+    "method": "POST",
+    "path": "/api/v1/crm-external-integrations/customer-actions/bulk",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "crm",
+    "method": "PATCH",
+    "path": "/api/v1/crm-external-integrations/customers",
+    "declared_statuses": [
+      200,
+      207,
+      400,
+      401,
+      422,
+      429,
+      500
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      207,
+      400,
+      401,
+      422,
+      429,
+      500
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "crm",
+    "method": "POST",
+    "path": "/api/v1/crm-external-integrations/customers",
+    "declared_statuses": [
+      200,
+      207,
+      400,
+      401,
+      422,
+      429,
+      500
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      207,
+      400,
+      401,
+      422,
+      429,
+      500
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "crm",
+    "method": "POST",
+    "path": "/api/v1/crm-external-integrations/customers/search",
+    "declared_statuses": [
+      200,
+      400,
+      401,
+      422,
+      429,
+      500
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      401,
+      422,
+      429,
+      500
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "crm",
+    "method": "POST",
+    "path": "/api/v1/crm-external-integrations/devices",
+    "declared_statuses": [
+      201,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      201,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "crm",
+    "method": "DELETE",
+    "path": "/api/v1/crm-external-integrations/devices/assign",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "crm",
+    "method": "POST",
+    "path": "/api/v1/crm-external-integrations/devices/assign",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "crm",
+    "method": "GET",
+    "path": "/api/v1/customers/ping",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  },
+  {
+    "service": "crm",
+    "method": "GET",
+    "path": "/health",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null
+  }
+]

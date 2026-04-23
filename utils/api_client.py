@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from time import perf_counter
 from typing import Any
 
 import requests
@@ -15,6 +16,7 @@ DEFAULT_TIMEOUT = 30
 class APIClient:
     settings: APISettings
     timeout: int = DEFAULT_TIMEOUT
+    recorder: Any | None = None
 
     def __post_init__(self) -> None:
         self.session = requests.Session()
@@ -37,6 +39,7 @@ class APIClient:
                     merged_headers.pop(key, None)
                 else:
                     merged_headers[key] = value
+        started_at = perf_counter()
         response = self.session.request(
             method=method.upper(),
             url=url,
@@ -45,6 +48,19 @@ class APIClient:
             json=json,
             timeout=self.timeout,
         )
+        elapsed_ms = (perf_counter() - started_at) * 1000
+        if self.recorder is not None:
+            self.recorder.record(
+                service=self.settings.name,
+                method=method,
+                base_url=self.settings.base_url,
+                path=path,
+                request_headers=merged_headers,
+                params=params,
+                json_body=json,
+                response=response,
+                elapsed_ms=elapsed_ms,
+            )
         return response
 
     def get(

@@ -9,6 +9,8 @@ from dotenv import load_dotenv
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 OPENAPI_DIR = ROOT_DIR / "OpenApi"
+ARTIFACTS_DIR = ROOT_DIR / "artifacts"
+REPORTS_DIR = ROOT_DIR / "reports"
 
 load_dotenv(ROOT_DIR / ".env", override=False)
 

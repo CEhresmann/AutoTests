@@ -1,0 +1,1931 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>DREAMCRM API Observations</title>
+  <style>
+    :root {
+      --bg: #f5f1e8;
+      --panel: #fffdf8;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --line: #ded4c2;
+      --accent: #0f766e;
+      --warn: #b45309;
+      --danger: #b91c1c;
+    }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, #efe4cf 0, transparent 30%),
+        linear-gradient(180deg, #f8f4ec 0%, var(--bg) 100%);
+    }
+    .wrap {
+      width: min(1400px, calc(100% - 48px));
+      margin: 32px auto 48px;
+    }
+    .hero, .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(55, 65, 81, 0.08);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    h1, h2 {
+      margin-top: 0;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      background: #fffaf1;
+    }
+    .stat strong {
+      display: block;
+      font-size: 28px;
+      color: var(--accent);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px 8px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th {
+      color: var(--muted);
+      font-weight: 700;
+    }
+    tr.drift {
+      background: #fff7ed;
+    }
+    .obs-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: #fffefb;
+      margin-bottom: 12px;
+    }
+    .obs-card summary {
+      cursor: pointer;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 12px;
+      font-family: Consolas, monospace;
+    }
+    .status {
+      background: #e0f2fe;
+      color: #075985;
+    }
+    .cls {
+      background: #ecfccb;
+      color: #3f6212;
+    }
+    .mismatch {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+    .muted {
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .mismatch-card {
+      background: #fff8f7;
+    }
+    pre {
+      overflow: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin: 12px 0 0;
+      padding: 12px;
+      background: #faf7f1;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      font-family: Consolas, monospace;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>DREAMCRM API Observation Report</h1>
+      <p>Отчёт строится по фактическим request/response из тестов и помогает одновременно видеть OpenAPI-контракт, покрытие кодов ответа и реальные отклонения стенда.</p>
+      <div class="stats">
+        <div class="stat"><strong>8</strong>Наблюдений запросов</div>
+        <div class="stat"><strong>43</strong>Методов в OpenAPI</div>
+        <div class="stat"><strong>0</strong>Методов с unexpected status</div>
+        <div class="stat"><strong>6</strong>Методов с runtime-данными</div>
+      </div>
+      <p class="muted">Сырые данные: C:\Users\titr\Desktop\[DRM_ISLND]\pytests\artifacts\observed_responses.jsonl | Матрица: C:\Users\titr\Desktop\[DRM_ISLND]\pytests\artifacts\coverage_matrix.json</p>
+    </section>
+    
+                <section class="panel">
+                  <h2>ACCOUNTING</h2>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Method</th>
+                        <th>Path</th>
+                        <th>Declared</th>
+                        <th>Observed</th>
+                        <th>Missing</th>
+                        <th>Unexpected</th>
+                        <th>Obs.</th>
+                        <th>Class</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/bonuses/accrue-customer-points</td>
+                      <td>201, 422</td>
+                      <td>&mdash;</td>
+                      <td>201, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/bonuses/activate-customer-points</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>GET</td>
+                      <td>/api/v1/accounting-external-api/bonuses/balance</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>GET</td>
+                      <td>/api/v1/accounting-external-api/bonuses/customer-points-balance</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>GET</td>
+                      <td>/api/v1/accounting-external-api/bonuses/customer-points-history</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/bonuses/hold</td>
+                      <td>201, 422</td>
+                      <td>&mdash;</td>
+                      <td>201, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>PATCH</td>
+                      <td>/api/v1/accounting-external-api/bonuses/hold/{hold_id}</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/gift-certificates/activate</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/gift-certificates/credit</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/gift-certificates/debit</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/gift-certificates/refund</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/gift-certificates/validate</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>GET</td>
+                      <td>/api/v1/accounting-external-api/orders</td>
+                      <td>200, 422</td>
+                      <td>200</td>
+                      <td>422</td>
+                      <td>&mdash;</td>
+                      <td>1</td>
+                      <td>business</td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/orders</td>
+                      <td>201, 422</td>
+                      <td>201</td>
+                      <td>422</td>
+                      <td>&mdash;</td>
+                      <td>1</td>
+                      <td>business</td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/orders/calculate</td>
+                      <td>200, 422</td>
+                      <td>200</td>
+                      <td>422</td>
+                      <td>&mdash;</td>
+                      <td>1</td>
+                      <td>business</td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>GET</td>
+                      <td>/api/v1/accounting-external-api/orders/{external_order_id}</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>PATCH</td>
+                      <td>/api/v1/accounting-external-api/orders/{external_order_id}</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>PATCH</td>
+                      <td>/api/v1/accounting-external-api/orders/{external_order_id}/items/{external_line_id}</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>GET</td>
+                      <td>/api/v1/accounting-external-api/product</td>
+                      <td>200, 401, 422, 500</td>
+                      <td>200</td>
+                      <td>401, 422, 500</td>
+                      <td>&mdash;</td>
+                      <td>1</td>
+                      <td>business</td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/product</td>
+                      <td>201, 400, 401, 409, 422, 500</td>
+                      <td>201</td>
+                      <td>400, 401, 409, 422, 500</td>
+                      <td>&mdash;</td>
+                      <td>1</td>
+                      <td>business</td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/product/bulk</td>
+                      <td>200, 400, 401, 422, 500</td>
+                      <td>200</td>
+                      <td>400, 401, 422, 500</td>
+                      <td>&mdash;</td>
+                      <td>1</td>
+                      <td>business</td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>GET</td>
+                      <td>/api/v1/accounting-external-api/product/{product_id}</td>
+                      <td>200, 400, 401, 404, 422, 500</td>
+                      <td>&mdash;</td>
+                      <td>200, 400, 401, 404, 422, 500</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>GET</td>
+                      <td>/api/v1/accounting-external-api/product_category</td>
+                      <td>200, 401, 422, 500</td>
+                      <td>&mdash;</td>
+                      <td>200, 401, 422, 500</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>GET</td>
+                      <td>/api/v1/accounting-external-api/product_category/{product_category_id}</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/promocodes/assign</td>
+                      <td>200, 404, 409, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 404, 409, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/promotions/apply</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/promotions/apply-to-item</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/promotions/available</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/promotions/preview</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/accounting-external-api/promotions/remove</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>GET</td>
+                      <td>/api/v1/accounting/ping</td>
+                      <td>200</td>
+                      <td>&mdash;</td>
+                      <td>200</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>GET</td>
+                      <td>/health</td>
+                      <td>200</td>
+                      <td>&mdash;</td>
+                      <td>200</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    </tbody>
+                  </table>
+                </section>
+                
+                <section class="panel">
+                  <h2>CRM</h2>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Method</th>
+                        <th>Path</th>
+                        <th>Declared</th>
+                        <th>Observed</th>
+                        <th>Missing</th>
+                        <th>Unexpected</th>
+                        <th>Obs.</th>
+                        <th>Class</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/crm-external-integrations/campaigns/automatic/send</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/crm-external-integrations/customer-actions</td>
+                      <td>201, 401, 422, 429, 500</td>
+                      <td>&mdash;</td>
+                      <td>201, 401, 422, 429, 500</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/crm-external-integrations/customer-actions/bulk</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>PATCH</td>
+                      <td>/api/v1/crm-external-integrations/customers</td>
+                      <td>200, 207, 400, 401, 422, 429, 500</td>
+                      <td>&mdash;</td>
+                      <td>200, 207, 400, 401, 422, 429, 500</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/crm-external-integrations/customers</td>
+                      <td>200, 207, 400, 401, 422, 429, 500</td>
+                      <td>&mdash;</td>
+                      <td>200, 207, 400, 401, 422, 429, 500</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/crm-external-integrations/customers/search</td>
+                      <td>200, 400, 401, 422, 429, 500</td>
+                      <td>&mdash;</td>
+                      <td>200, 400, 401, 422, 429, 500</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/crm-external-integrations/devices</td>
+                      <td>201, 422</td>
+                      <td>&mdash;</td>
+                      <td>201, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>DELETE</td>
+                      <td>/api/v1/crm-external-integrations/devices/assign</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>POST</td>
+                      <td>/api/v1/crm-external-integrations/devices/assign</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>200, 422</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>GET</td>
+                      <td>/api/v1/customers/ping</td>
+                      <td>200</td>
+                      <td>&mdash;</td>
+                      <td>200</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    <tr class="">
+                      <td>GET</td>
+                      <td>/health</td>
+                      <td>200</td>
+                      <td>&mdash;</td>
+                      <td>200</td>
+                      <td>&mdash;</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    
+                    </tbody>
+                  </table>
+                </section>
+                
+    <section class="panel">
+      <h2>Contract Mismatches</h2>
+      
+                <details class="obs-card mismatch-card">
+                  <summary>
+                    <span>Response does not match OpenAPI schema</span>
+                    <span class="badge mismatch">schema-drift</span>
+                    <span class="muted">tests/accounting/test_products.py::test_list_products</span>
+                  </summary>
+                  <pre>accounting_client = APIClient(settings=APISettings(name=&#x27;accounting&#x27;, base_url=&#x27;https://crmstage-accounting-external-api-di-dev.dreamislan...string&quot;}]}],&quot;total&quot;:5100,&quot;limit&quot;:1,&quot;offset&quot;:0}&#x27;, &#x27;elapsed_ms&#x27;: 8775.49}, classification=&#x27;business&#x27;)], test_reports=[]))
+accounting_openapi = {&#x27;components&#x27;: {&#x27;schemas&#x27;: {&#x27;AccrueCustomerPointsRequestSchema&#x27;: {&#x27;properties&#x27;: {&#x27;amount&#x27;: {&#x27;anyOf&#x27;: [...], &#x27;descripti.....}, &#x27;description&#x27;: &#x27;Successful Response&#x27;}, &#x27;422&#x27;: {&#x27;content&#x27;: {...}, &#x27;description&#x27;: &#x27;Validation Error&#x27;}}, ...}}, ...}}
+
+    @pytest.mark.accounting
+    @pytest.mark.regression
+    def test_list_products(accounting_client, accounting_openapi: dict) -&gt; None:
+        response = accounting_client.get(
+            &quot;/api/v1/accounting-external-api/product&quot;,
+            params={&quot;limit&quot;: 1, &quot;offset&quot;: 0},
+        )
+        assert response.status_code == 200, response.text
+        schema = response_schema(accounting_openapi, &quot;/api/v1/accounting-external-api/product&quot;, &quot;get&quot;, 200)
+&gt;       payload = validate_response_against_openapi(
+            schema_document=accounting_openapi,
+            response=response,
+            schema=schema,
+        )
+
+tests\accounting\test_products.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+utils\validators.py:39: in validate_response_against_openapi
+    validate_instance(schema_document, schema, payload)
+utils\validators.py:19: in validate_instance
+    validator.validate(instance)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Draft202012Validator(schema={&#x27;$ref&#x27;: &#x27;#/components...tPagingSchema&#x27;}, format_checker=None)
+args = ({&#x27;items&#x27;: [{&#x27;category_id&#x27;: None, &#x27;custom_fields&#x27;: [{&#x27;field_name&#x27;: &#x27;Old Price&#x27;, &#x27;field_type&#x27;: &#x27;string&#x27;, &#x27;field_value&#x27;:... &#x27;available&#x27;}], &#x27;external_id&#x27;: &#x27;57_1008_6&#x27;, &#x27;external_system&#x27;: &#x27;ECOM&#x27;, ...}], &#x27;limit&#x27;: 1, &#x27;offset&#x27;: 0, &#x27;total&#x27;: 5100},)
+kwargs = {}
+error = &lt;ValidationError: &quot;&#x27;ECOM&#x27; is not valid under any of the given schemas&quot;&gt;
+
+    def validate(self, *args, **kwargs):
+        for error in self.iter_errors(*args, **kwargs):
+&gt;           raise error
+E           jsonschema.exceptions.ValidationError: &#x27;ECOM&#x27; is not valid under any of the given schemas
+E           
+E           Failed validating &#x27;anyOf&#x27; in schema[&#x27;properties&#x27;][&#x27;items&#x27;][&#x27;items&#x27;][&#x27;properties&#x27;][&#x27;external_system&#x27;]:
+E               {&#x27;anyOf&#x27;: [{&#x27;type&#x27;: &#x27;string&#x27;,
+E                           &#x27;enum&#x27;: [&#x27;ForMailings&#x27;,
+E                                    &#x27;TicketSystem&#x27;,
+E                                    &#x27;Merch&#x27;,
+E                                    &#x27;NPSproduct&#x27;,
+E                                    &#x27;offline&#x27;,
+E                                    &#x27;Ecom&#x27;,
+E                                    &#x27;GiftCards&#x27;]},
+E                          {&#x27;type&#x27;: &#x27;null&#x27;}],
+E                &#x27;title&#x27;: &#x27;External System&#x27;}
+E           
+E           On instance[&#x27;items&#x27;][0][&#x27;external_system&#x27;]:
+E               &#x27;ECOM&#x27;
+
+..\..\..\AppData\Local\Programs\Python\Python311\Lib\site-packages\jsonschema\validators.py:450: ValidationError</pre>
+                </details>
+                
+                <details class="obs-card mismatch-card">
+                  <summary>
+                    <span>Response does not match OpenAPI schema</span>
+                    <span class="badge mismatch">schema-drift</span>
+                    <span class="muted">tests/accounting/test_products.py::test_create_product</span>
+                  </summary>
+                  <pre>accounting_client = APIClient(settings=APISettings(name=&#x27;accounting&#x27;, base_url=&#x27;https://crmstage-accounting-external-api-di-dev.dreamislan....\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\jsonschema\\validators.py:450: ValidationError&#x27;}]))
+accounting_openapi = {&#x27;components&#x27;: {&#x27;schemas&#x27;: {&#x27;AccrueCustomerPointsRequestSchema&#x27;: {&#x27;properties&#x27;: {&#x27;amount&#x27;: {&#x27;anyOf&#x27;: [...], &#x27;descripti.....}, &#x27;description&#x27;: &#x27;Successful Response&#x27;}, &#x27;422&#x27;: {&#x27;content&#x27;: {...}, &#x27;description&#x27;: &#x27;Validation Error&#x27;}}, ...}}, ...}}
+
+    @pytest.mark.accounting
+    @pytest.mark.integration
+    @pytest.mark.regression
+    def test_create_product(accounting_client, accounting_openapi: dict) -&gt; None:
+        payload = accounting_product_payload()
+        response = accounting_client.post(&quot;/api/v1/accounting-external-api/product&quot;, json=payload)
+        assert response.status_code == 201, response.text
+        schema = response_schema(accounting_openapi, &quot;/api/v1/accounting-external-api/product&quot;, &quot;post&quot;, 201)
+&gt;       data = validate_response_against_openapi(schema_document=accounting_openapi, response=response, schema=schema)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\accounting\test_products.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+utils\validators.py:39: in validate_response_against_openapi
+    validate_instance(schema_document, schema, payload)
+utils\validators.py:19: in validate_instance
+    validator.validate(instance)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Draft202012Validator(schema={&#x27;$ref&#x27;: &#x27;#/components...esponseSchema&#x27;}, format_checker=None)
+args = ({&#x27;category_id&#x27;: 55, &#x27;custom_fields&#x27;: [{&#x27;field_name&#x27;: &#x27;Camelcasenumber1&#x27;, &#x27;field_type&#x27;: &#x27;string&#x27;, &#x27;field_value&#x27;: &#x27;true&#x27;, &#x27;system_name&#x27;: &#x27;camelCaseNumber1&#x27;}], &#x27;external_id&#x27;: &#x27;autotest-product-eddae18360&#x27;, &#x27;external_system&#x27;: &#x27;ECOM&#x27;, ...},)
+kwargs = {}
+error = &lt;ValidationError: &quot;&#x27;ECOM&#x27; is not valid under any of the given schemas&quot;&gt;
+
+    def validate(self, *args, **kwargs):
+        for error in self.iter_errors(*args, **kwargs):
+&gt;           raise error
+E           jsonschema.exceptions.ValidationError: &#x27;ECOM&#x27; is not valid under any of the given schemas
+E           
+E           Failed validating &#x27;anyOf&#x27; in schema[&#x27;properties&#x27;][&#x27;external_system&#x27;]:
+E               {&#x27;anyOf&#x27;: [{&#x27;type&#x27;: &#x27;string&#x27;,
+E                           &#x27;enum&#x27;: [&#x27;ForMailings&#x27;,
+E                                    &#x27;TicketSystem&#x27;,
+E                                    &#x27;Merch&#x27;,
+E                                    &#x27;NPSproduct&#x27;,
+E                                    &#x27;offline&#x27;,
+E                                    &#x27;Ecom&#x27;,
+E                                    &#x27;GiftCards&#x27;]},
+E                          {&#x27;type&#x27;: &#x27;null&#x27;}],
+E                &#x27;title&#x27;: &#x27;External System&#x27;}
+E           
+E           On instance[&#x27;external_system&#x27;]:
+E               &#x27;ECOM&#x27;
+
+..\..\..\AppData\Local\Programs\Python\Python311\Lib\site-packages\jsonschema\validators.py:450: ValidationError</pre>
+                </details>
+                
+                <details class="obs-card mismatch-card">
+                  <summary>
+                    <span>Response does not match OpenAPI schema</span>
+                    <span class="badge mismatch">schema-drift</span>
+                    <span class="muted">tests/accounting/test_products.py::test_create_products_bulk</span>
+                  </summary>
+                  <pre>accounting_client = APIClient(settings=APISettings(name=&#x27;accounting&#x27;, base_url=&#x27;https://crmstage-accounting-external-api-di-dev.dreamislan....\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\jsonschema\\validators.py:450: ValidationError&#x27;}]))
+accounting_openapi = {&#x27;components&#x27;: {&#x27;schemas&#x27;: {&#x27;AccrueCustomerPointsRequestSchema&#x27;: {&#x27;properties&#x27;: {&#x27;amount&#x27;: {&#x27;anyOf&#x27;: [...], &#x27;descripti.....}, &#x27;description&#x27;: &#x27;Successful Response&#x27;}, &#x27;422&#x27;: {&#x27;content&#x27;: {...}, &#x27;description&#x27;: &#x27;Validation Error&#x27;}}, ...}}, ...}}
+
+    @pytest.mark.accounting
+    @pytest.mark.bulk
+    @pytest.mark.integration
+    @pytest.mark.regression
+    def test_create_products_bulk(accounting_client, accounting_openapi: dict) -&gt; None:
+        payload = accounting_bulk_product_payload()
+        response = accounting_client.post(&quot;/api/v1/accounting-external-api/product/bulk&quot;, json=payload)
+        assert response.status_code == 200, response.text
+        schema = response_schema(accounting_openapi, &quot;/api/v1/accounting-external-api/product/bulk&quot;, &quot;post&quot;, 200)
+&gt;       data = validate_response_against_openapi(schema_document=accounting_openapi, response=response, schema=schema)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\accounting\test_products.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+utils\validators.py:39: in validate_response_against_openapi
+    validate_instance(schema_document, schema, payload)
+utils\validators.py:19: in validate_instance
+    validator.validate(instance)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Draft202012Validator(schema={&#x27;$ref&#x27;: &#x27;#/components...esponseSchema&#x27;}, format_checker=None)
+args = ({&#x27;created&#x27;: 2, &#x27;errors&#x27;: 0, &#x27;results&#x27;: [{&#x27;error&#x27;: None, &#x27;index&#x27;: 0, &#x27;product&#x27;: {&#x27;category_id&#x27;: 55, &#x27;custom_fields&#x27;: [...external_id&#x27;: &#x27;autotest-product-5a3962cac6&#x27;, &#x27;external_system&#x27;: &#x27;ECOM&#x27;, ...}, &#x27;status&#x27;: &#x27;created&#x27;}], &#x27;total&#x27;: 2, ...},)
+kwargs = {}
+error = &lt;ValidationError: &quot;{&#x27;id&#x27;: 5496, &#x27;name&#x27;: &#x27;Autotest Product 6ae293c553&#x27;, &#x27;image_url&#x27;: None, &#x27;price&#x27;: 100.0, &#x27;old_price&#x27;:...me&#x27;: &#x27;Camelcasenumber1&#x27;, &#x27;field_value&#x27;: &#x27;true&#x27;, &#x27;field_type&#x27;: &#x27;string&#x27;}]} is not valid under any of the given schemas&quot;&gt;
+
+    def validate(self, *args, **kwargs):
+        for error in self.iter_errors(*args, **kwargs):
+&gt;           raise error
+E           jsonschema.exceptions.ValidationError: {&#x27;id&#x27;: 5496, &#x27;name&#x27;: &#x27;Autotest Product 6ae293c553&#x27;, &#x27;image_url&#x27;: None, &#x27;price&#x27;: 100.0, &#x27;old_price&#x27;: None, &#x27;external_id&#x27;: &#x27;autotest-product-6ae293c553&#x27;, &#x27;external_system&#x27;: &#x27;ECOM&#x27;, &#x27;category_id&#x27;: 55, &#x27;custom_fields&#x27;: [{&#x27;system_name&#x27;: &#x27;camelCaseNumber1&#x27;, &#x27;field_name&#x27;: &#x27;Camelcasenumber1&#x27;, &#x27;field_value&#x27;: &#x27;true&#x27;, &#x27;field_type&#x27;: &#x27;string&#x27;}]} is not valid under any of the given schemas
+E           
+E           Failed validating &#x27;anyOf&#x27; in schema[&#x27;properties&#x27;][&#x27;results&#x27;][&#x27;items&#x27;][&#x27;properties&#x27;][&#x27;product&#x27;]:
+E               {&#x27;anyOf&#x27;: [{&#x27;$ref&#x27;: &#x27;#/components/schemas/ProductResponseSchema&#x27;},
+E                          {&#x27;type&#x27;: &#x27;null&#x27;}]}
+E           
+E           On instance[&#x27;results&#x27;][0][&#x27;product&#x27;]:
+E               {&#x27;id&#x27;: 5496,
+E                &#x27;name&#x27;: &#x27;Autotest Product 6ae293c553&#x27;,
+E                &#x27;image_url&#x27;: None,
+E                &#x27;price&#x27;: 100.0,
+E                &#x27;old_price&#x27;: None,
+E                &#x27;external_id&#x27;: &#x27;autotest-product-6ae293c553&#x27;,
+E                &#x27;external_system&#x27;: &#x27;ECOM&#x27;,
+E                &#x27;category_id&#x27;: 55,
+E                &#x27;custom_fields&#x27;: [{&#x27;system_name&#x27;: &#x27;camelCaseNumber1&#x27;,
+E                                   &#x27;field_name&#x27;: &#x27;Camelcasenumber1&#x27;,
+E                                   &#x27;field_value&#x27;: &#x27;true&#x27;,
+E                                   &#x27;field_type&#x27;: &#x27;string&#x27;}]}
+
+..\..\..\AppData\Local\Programs\Python\Python311\Lib\site-packages\jsonschema\validators.py:450: ValidationError</pre>
+                </details>
+                
+                <details class="obs-card mismatch-card">
+                  <summary>
+                    <span>Business prerequisite missing on stand</span>
+                    <span class="badge mismatch">business-drift</span>
+                    <span class="muted">tests/accounting/test_orders.py::test_create_and_update_order</span>
+                  </summary>
+                  <pre>accounting_client = APIClient(settings=APISettings(name=&#x27;accounting&#x27;, base_url=&#x27;https://crmstage-accounting-external-api-di-dev.dreamislan....\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\jsonschema\\validators.py:450: ValidationError&#x27;}]))
+accounting_openapi = {&#x27;components&#x27;: {&#x27;schemas&#x27;: {&#x27;AccrueCustomerPointsRequestSchema&#x27;: {&#x27;properties&#x27;: {&#x27;amount&#x27;: {&#x27;anyOf&#x27;: [...], &#x27;descripti.....}, &#x27;description&#x27;: &#x27;Successful Response&#x27;}, &#x27;422&#x27;: {&#x27;content&#x27;: {...}, &#x27;description&#x27;: &#x27;Validation Error&#x27;}}, ...}}, ...}}
+
+    @pytest.mark.accounting
+    @pytest.mark.integration
+    @pytest.mark.regression
+    def test_create_and_update_order(accounting_client, accounting_openapi: dict) -&gt; None:
+        from configs.settings import TEST_DATA
+    
+        create_payload = accounting_order_payload()
+        create_response = accounting_client.post(&quot;/api/v1/accounting-external-api/orders&quot;, json=create_payload)
+        assert create_response.status_code == 201, create_response.text
+        create_schema = response_schema(accounting_openapi, &quot;/api/v1/accounting-external-api/orders&quot;, &quot;post&quot;, 201)
+        create_data = validate_response_against_openapi(
+            schema_document=accounting_openapi,
+            response=create_response,
+            schema=create_schema,
+        )
+        assert create_data[&quot;external_order_id&quot;] == create_payload[&quot;external_order_id&quot;]
+        assert create_data[&quot;status&quot;] == &quot;cart&quot;
+    
+        get_response = accounting_client.get(
+            f&quot;/api/v1/accounting-external-api/orders/{create_payload[&#x27;external_order_id&#x27;]}&quot;
+        )
+        assert get_response.status_code == 200, get_response.text
+        get_schema = response_schema(
+            accounting_openapi,
+            &quot;/api/v1/accounting-external-api/orders/{external_order_id}&quot;,
+            &quot;get&quot;,
+            200,
+        )
+        get_data = validate_response_against_openapi(
+            schema_document=accounting_openapi,
+            response=get_response,
+            schema=get_schema,
+        )
+        assert get_data[&quot;order&quot;][&quot;external_order_id&quot;] == create_payload[&quot;external_order_id&quot;]
+    
+        if not TEST_DATA.contact_point_id:
+            pytest.skip(&quot;Set DREAMCRM_CONTACT_POINT_ID to verify PATCH /orders/{external_order_id}&quot;)
+    
+        update_response = accounting_client.patch(
+            f&quot;/api/v1/accounting-external-api/orders/{create_payload[&#x27;external_order_id&#x27;]}&quot;,
+            json=accounting_order_update_payload(TEST_DATA.contact_point_id),
+        )
+&gt;       assert update_response.status_code == 200, update_response.text
+E       AssertionError: {&quot;success&quot;:false,&quot;error&quot;:&quot;Contact point with external_id &#x27;ecom_contact_point&#x27; not found&quot;,&quot;error_code&quot;:&quot;CONTACT_POINT_NOT_FOUND&quot;,&quot;detail&quot;:&quot;Contact point with external_id &#x27;ecom_contact_point&#x27; not found&quot;,&quot;timestamp&quot;:&quot;2026-04-23T20:06:14.278463+00:00&quot;,&quot;path&quot;:&quot;/api/v1/accounting-external-api/orders/autotest-order-6bba636106&quot;,&quot;errors&quot;:[{&quot;code&quot;:&quot;CONTACT_POINT_NOT_FOUND&quot;,&quot;message&quot;:&quot;Contact point with external_id &#x27;ecom_contact_point&#x27; not found&quot;,&quot;field&quot;:null,&quot;details&quot;:null}],&quot;warnings&quot;:[]}
+E       assert 404 == 200
+E        +  where 404 = &lt;Response [404]&gt;.status_code
+
+tests\accounting\test_orders.py:74: AssertionError</pre>
+                </details>
+                
+    </section>
+    <section class="panel">
+      <h2>Проблемные тесты</h2>
+      
+                <details class="obs-card">
+                  <summary>
+                    <span>FAILED</span>
+                    <span class="badge status">tests/accounting/test_products.py::test_list_products</span>
+                  </summary>
+                  <pre>accounting_client = APIClient(settings=APISettings(name=&#x27;accounting&#x27;, base_url=&#x27;https://crmstage-accounting-external-api-di-dev.dreamislan...string&quot;}]}],&quot;total&quot;:5100,&quot;limit&quot;:1,&quot;offset&quot;:0}&#x27;, &#x27;elapsed_ms&#x27;: 8775.49}, classification=&#x27;business&#x27;)], test_reports=[]))
+accounting_openapi = {&#x27;components&#x27;: {&#x27;schemas&#x27;: {&#x27;AccrueCustomerPointsRequestSchema&#x27;: {&#x27;properties&#x27;: {&#x27;amount&#x27;: {&#x27;anyOf&#x27;: [...], &#x27;descripti.....}, &#x27;description&#x27;: &#x27;Successful Response&#x27;}, &#x27;422&#x27;: {&#x27;content&#x27;: {...}, &#x27;description&#x27;: &#x27;Validation Error&#x27;}}, ...}}, ...}}
+
+    @pytest.mark.accounting
+    @pytest.mark.regression
+    def test_list_products(accounting_client, accounting_openapi: dict) -&gt; None:
+        response = accounting_client.get(
+            &quot;/api/v1/accounting-external-api/product&quot;,
+            params={&quot;limit&quot;: 1, &quot;offset&quot;: 0},
+        )
+        assert response.status_code == 200, response.text
+        schema = response_schema(accounting_openapi, &quot;/api/v1/accounting-external-api/product&quot;, &quot;get&quot;, 200)
+&gt;       payload = validate_response_against_openapi(
+            schema_document=accounting_openapi,
+            response=response,
+            schema=schema,
+        )
+
+tests\accounting\test_products.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+utils\validators.py:39: in validate_response_against_openapi
+    validate_instance(schema_document, schema, payload)
+utils\validators.py:19: in validate_instance
+    validator.validate(instance)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Draft202012Validator(schema={&#x27;$ref&#x27;: &#x27;#/components...tPagingSchema&#x27;}, format_checker=None)
+args = ({&#x27;items&#x27;: [{&#x27;category_id&#x27;: None, &#x27;custom_fields&#x27;: [{&#x27;field_name&#x27;: &#x27;Old Price&#x27;, &#x27;field_type&#x27;: &#x27;string&#x27;, &#x27;field_value&#x27;:... &#x27;available&#x27;}], &#x27;external_id&#x27;: &#x27;57_1008_6&#x27;, &#x27;external_system&#x27;: &#x27;ECOM&#x27;, ...}], &#x27;limit&#x27;: 1, &#x27;offset&#x27;: 0, &#x27;total&#x27;: 5100},)
+kwargs = {}
+error = &lt;ValidationError: &quot;&#x27;ECOM&#x27; is not valid under any of the given schemas&quot;&gt;
+
+    def validate(self, *args, **kwargs):
+        for error in self.iter_errors(*args, **kwargs):
+&gt;           raise error
+E           jsonschema.exceptions.ValidationError: &#x27;ECOM&#x27; is not valid under any of the given schemas
+E           
+E           Failed validating &#x27;anyOf&#x27; in schema[&#x27;properties&#x27;][&#x27;items&#x27;][&#x27;items&#x27;][&#x27;properties&#x27;][&#x27;external_system&#x27;]:
+E               {&#x27;anyOf&#x27;: [{&#x27;type&#x27;: &#x27;string&#x27;,
+E                           &#x27;enum&#x27;: [&#x27;ForMailings&#x27;,
+E                                    &#x27;TicketSystem&#x27;,
+E                                    &#x27;Merch&#x27;,
+E                                    &#x27;NPSproduct&#x27;,
+E                                    &#x27;offline&#x27;,
+E                                    &#x27;Ecom&#x27;,
+E                                    &#x27;GiftCards&#x27;]},
+E                          {&#x27;type&#x27;: &#x27;null&#x27;}],
+E                &#x27;title&#x27;: &#x27;External System&#x27;}
+E           
+E           On instance[&#x27;items&#x27;][0][&#x27;external_system&#x27;]:
+E               &#x27;ECOM&#x27;
+
+..\..\..\AppData\Local\Programs\Python\Python311\Lib\site-packages\jsonschema\validators.py:450: ValidationError</pre>
+                </details>
+                
+                <details class="obs-card">
+                  <summary>
+                    <span>FAILED</span>
+                    <span class="badge status">tests/accounting/test_products.py::test_create_product</span>
+                  </summary>
+                  <pre>accounting_client = APIClient(settings=APISettings(name=&#x27;accounting&#x27;, base_url=&#x27;https://crmstage-accounting-external-api-di-dev.dreamislan....\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\jsonschema\\validators.py:450: ValidationError&#x27;}]))
+accounting_openapi = {&#x27;components&#x27;: {&#x27;schemas&#x27;: {&#x27;AccrueCustomerPointsRequestSchema&#x27;: {&#x27;properties&#x27;: {&#x27;amount&#x27;: {&#x27;anyOf&#x27;: [...], &#x27;descripti.....}, &#x27;description&#x27;: &#x27;Successful Response&#x27;}, &#x27;422&#x27;: {&#x27;content&#x27;: {...}, &#x27;description&#x27;: &#x27;Validation Error&#x27;}}, ...}}, ...}}
+
+    @pytest.mark.accounting
+    @pytest.mark.integration
+    @pytest.mark.regression
+    def test_create_product(accounting_client, accounting_openapi: dict) -&gt; None:
+        payload = accounting_product_payload()
+        response = accounting_client.post(&quot;/api/v1/accounting-external-api/product&quot;, json=payload)
+        assert response.status_code == 201, response.text
+        schema = response_schema(accounting_openapi, &quot;/api/v1/accounting-external-api/product&quot;, &quot;post&quot;, 201)
+&gt;       data = validate_response_against_openapi(schema_document=accounting_openapi, response=response, schema=schema)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\accounting\test_products.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+utils\validators.py:39: in validate_response_against_openapi
+    validate_instance(schema_document, schema, payload)
+utils\validators.py:19: in validate_instance
+    validator.validate(instance)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Draft202012Validator(schema={&#x27;$ref&#x27;: &#x27;#/components...esponseSchema&#x27;}, format_checker=None)
+args = ({&#x27;category_id&#x27;: 55, &#x27;custom_fields&#x27;: [{&#x27;field_name&#x27;: &#x27;Camelcasenumber1&#x27;, &#x27;field_type&#x27;: &#x27;string&#x27;, &#x27;field_value&#x27;: &#x27;true&#x27;, &#x27;system_name&#x27;: &#x27;camelCaseNumber1&#x27;}], &#x27;external_id&#x27;: &#x27;autotest-product-eddae18360&#x27;, &#x27;external_system&#x27;: &#x27;ECOM&#x27;, ...},)
+kwargs = {}
+error = &lt;ValidationError: &quot;&#x27;ECOM&#x27; is not valid under any of the given schemas&quot;&gt;
+
+    def validate(self, *args, **kwargs):
+        for error in self.iter_errors(*args, **kwargs):
+&gt;           raise error
+E           jsonschema.exceptions.ValidationError: &#x27;ECOM&#x27; is not valid under any of the given schemas
+E           
+E           Failed validating &#x27;anyOf&#x27; in schema[&#x27;properties&#x27;][&#x27;external_system&#x27;]:
+E               {&#x27;anyOf&#x27;: [{&#x27;type&#x27;: &#x27;string&#x27;,
+E                           &#x27;enum&#x27;: [&#x27;ForMailings&#x27;,
+E                                    &#x27;TicketSystem&#x27;,
+E                                    &#x27;Merch&#x27;,
+E                                    &#x27;NPSproduct&#x27;,
+E                                    &#x27;offline&#x27;,
+E                                    &#x27;Ecom&#x27;,
+E                                    &#x27;GiftCards&#x27;]},
+E                          {&#x27;type&#x27;: &#x27;null&#x27;}],
+E                &#x27;title&#x27;: &#x27;External System&#x27;}
+E           
+E           On instance[&#x27;external_system&#x27;]:
+E               &#x27;ECOM&#x27;
+
+..\..\..\AppData\Local\Programs\Python\Python311\Lib\site-packages\jsonschema\validators.py:450: ValidationError</pre>
+                </details>
+                
+                <details class="obs-card">
+                  <summary>
+                    <span>FAILED</span>
+                    <span class="badge status">tests/accounting/test_products.py::test_create_products_bulk</span>
+                  </summary>
+                  <pre>accounting_client = APIClient(settings=APISettings(name=&#x27;accounting&#x27;, base_url=&#x27;https://crmstage-accounting-external-api-di-dev.dreamislan....\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\jsonschema\\validators.py:450: ValidationError&#x27;}]))
+accounting_openapi = {&#x27;components&#x27;: {&#x27;schemas&#x27;: {&#x27;AccrueCustomerPointsRequestSchema&#x27;: {&#x27;properties&#x27;: {&#x27;amount&#x27;: {&#x27;anyOf&#x27;: [...], &#x27;descripti.....}, &#x27;description&#x27;: &#x27;Successful Response&#x27;}, &#x27;422&#x27;: {&#x27;content&#x27;: {...}, &#x27;description&#x27;: &#x27;Validation Error&#x27;}}, ...}}, ...}}
+
+    @pytest.mark.accounting
+    @pytest.mark.bulk
+    @pytest.mark.integration
+    @pytest.mark.regression
+    def test_create_products_bulk(accounting_client, accounting_openapi: dict) -&gt; None:
+        payload = accounting_bulk_product_payload()
+        response = accounting_client.post(&quot;/api/v1/accounting-external-api/product/bulk&quot;, json=payload)
+        assert response.status_code == 200, response.text
+        schema = response_schema(accounting_openapi, &quot;/api/v1/accounting-external-api/product/bulk&quot;, &quot;post&quot;, 200)
+&gt;       data = validate_response_against_openapi(schema_document=accounting_openapi, response=response, schema=schema)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\accounting\test_products.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+utils\validators.py:39: in validate_response_against_openapi
+    validate_instance(schema_document, schema, payload)
+utils\validators.py:19: in validate_instance
+    validator.validate(instance)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Draft202012Validator(schema={&#x27;$ref&#x27;: &#x27;#/components...esponseSchema&#x27;}, format_checker=None)
+args = ({&#x27;created&#x27;: 2, &#x27;errors&#x27;: 0, &#x27;results&#x27;: [{&#x27;error&#x27;: None, &#x27;index&#x27;: 0, &#x27;product&#x27;: {&#x27;category_id&#x27;: 55, &#x27;custom_fields&#x27;: [...external_id&#x27;: &#x27;autotest-product-5a3962cac6&#x27;, &#x27;external_system&#x27;: &#x27;ECOM&#x27;, ...}, &#x27;status&#x27;: &#x27;created&#x27;}], &#x27;total&#x27;: 2, ...},)
+kwargs = {}
+error = &lt;ValidationError: &quot;{&#x27;id&#x27;: 5496, &#x27;name&#x27;: &#x27;Autotest Product 6ae293c553&#x27;, &#x27;image_url&#x27;: None, &#x27;price&#x27;: 100.0, &#x27;old_price&#x27;:...me&#x27;: &#x27;Camelcasenumber1&#x27;, &#x27;field_value&#x27;: &#x27;true&#x27;, &#x27;field_type&#x27;: &#x27;string&#x27;}]} is not valid under any of the given schemas&quot;&gt;
+
+    def validate(self, *args, **kwargs):
+        for error in self.iter_errors(*args, **kwargs):
+&gt;           raise error
+E           jsonschema.exceptions.ValidationError: {&#x27;id&#x27;: 5496, &#x27;name&#x27;: &#x27;Autotest Product 6ae293c553&#x27;, &#x27;image_url&#x27;: None, &#x27;price&#x27;: 100.0, &#x27;old_price&#x27;: None, &#x27;external_id&#x27;: &#x27;autotest-product-6ae293c553&#x27;, &#x27;external_system&#x27;: &#x27;ECOM&#x27;, &#x27;category_id&#x27;: 55, &#x27;custom_fields&#x27;: [{&#x27;system_name&#x27;: &#x27;camelCaseNumber1&#x27;, &#x27;field_name&#x27;: &#x27;Camelcasenumber1&#x27;, &#x27;field_value&#x27;: &#x27;true&#x27;, &#x27;field_type&#x27;: &#x27;string&#x27;}]} is not valid under any of the given schemas
+E           
+E           Failed validating &#x27;anyOf&#x27; in schema[&#x27;properties&#x27;][&#x27;results&#x27;][&#x27;items&#x27;][&#x27;properties&#x27;][&#x27;product&#x27;]:
+E               {&#x27;anyOf&#x27;: [{&#x27;$ref&#x27;: &#x27;#/components/schemas/ProductResponseSchema&#x27;},
+E                          {&#x27;type&#x27;: &#x27;null&#x27;}]}
+E           
+E           On instance[&#x27;results&#x27;][0][&#x27;product&#x27;]:
+E               {&#x27;id&#x27;: 5496,
+E                &#x27;name&#x27;: &#x27;Autotest Product 6ae293c553&#x27;,
+E                &#x27;image_url&#x27;: None,
+E                &#x27;price&#x27;: 100.0,
+E                &#x27;old_price&#x27;: None,
+E                &#x27;external_id&#x27;: &#x27;autotest-product-6ae293c553&#x27;,
+E                &#x27;external_system&#x27;: &#x27;ECOM&#x27;,
+E                &#x27;category_id&#x27;: 55,
+E                &#x27;custom_fields&#x27;: [{&#x27;system_name&#x27;: &#x27;camelCaseNumber1&#x27;,
+E                                   &#x27;field_name&#x27;: &#x27;Camelcasenumber1&#x27;,
+E                                   &#x27;field_value&#x27;: &#x27;true&#x27;,
+E                                   &#x27;field_type&#x27;: &#x27;string&#x27;}]}
+
+..\..\..\AppData\Local\Programs\Python\Python311\Lib\site-packages\jsonschema\validators.py:450: ValidationError</pre>
+                </details>
+                
+                <details class="obs-card">
+                  <summary>
+                    <span>FAILED</span>
+                    <span class="badge status">tests/accounting/test_orders.py::test_create_and_update_order</span>
+                  </summary>
+                  <pre>accounting_client = APIClient(settings=APISettings(name=&#x27;accounting&#x27;, base_url=&#x27;https://crmstage-accounting-external-api-di-dev.dreamislan....\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\jsonschema\\validators.py:450: ValidationError&#x27;}]))
+accounting_openapi = {&#x27;components&#x27;: {&#x27;schemas&#x27;: {&#x27;AccrueCustomerPointsRequestSchema&#x27;: {&#x27;properties&#x27;: {&#x27;amount&#x27;: {&#x27;anyOf&#x27;: [...], &#x27;descripti.....}, &#x27;description&#x27;: &#x27;Successful Response&#x27;}, &#x27;422&#x27;: {&#x27;content&#x27;: {...}, &#x27;description&#x27;: &#x27;Validation Error&#x27;}}, ...}}, ...}}
+
+    @pytest.mark.accounting
+    @pytest.mark.integration
+    @pytest.mark.regression
+    def test_create_and_update_order(accounting_client, accounting_openapi: dict) -&gt; None:
+        from configs.settings import TEST_DATA
+    
+        create_payload = accounting_order_payload()
+        create_response = accounting_client.post(&quot;/api/v1/accounting-external-api/orders&quot;, json=create_payload)
+        assert create_response.status_code == 201, create_response.text
+        create_schema = response_schema(accounting_openapi, &quot;/api/v1/accounting-external-api/orders&quot;, &quot;post&quot;, 201)
+        create_data = validate_response_against_openapi(
+            schema_document=accounting_openapi,
+            response=create_response,
+            schema=create_schema,
+        )
+        assert create_data[&quot;external_order_id&quot;] == create_payload[&quot;external_order_id&quot;]
+        assert create_data[&quot;status&quot;] == &quot;cart&quot;
+    
+        get_response = accounting_client.get(
+            f&quot;/api/v1/accounting-external-api/orders/{create_payload[&#x27;external_order_id&#x27;]}&quot;
+        )
+        assert get_response.status_code == 200, get_response.text
+        get_schema = response_schema(
+            accounting_openapi,
+            &quot;/api/v1/accounting-external-api/orders/{external_order_id}&quot;,
+            &quot;get&quot;,
+            200,
+        )
+        get_data = validate_response_against_openapi(
+            schema_document=accounting_openapi,
+            response=get_response,
+            schema=get_schema,
+        )
+        assert get_data[&quot;order&quot;][&quot;external_order_id&quot;] == create_payload[&quot;external_order_id&quot;]
+    
+        if not TEST_DATA.contact_point_id:
+            pytest.skip(&quot;Set DREAMCRM_CONTACT_POINT_ID to verify PATCH /orders/{external_order_id}&quot;)
+    
+        update_response = accounting_client.patch(
+            f&quot;/api/v1/accounting-external-api/orders/{create_payload[&#x27;external_order_id&#x27;]}&quot;,
+            json=accounting_order_update_payload(TEST_DATA.contact_point_id),
+        )
+&gt;       assert update_response.status_code == 200, update_response.text
+E       AssertionError: {&quot;success&quot;:false,&quot;error&quot;:&quot;Contact point with external_id &#x27;ecom_contact_point&#x27; not found&quot;,&quot;error_code&quot;:&quot;CONTACT_POINT_NOT_FOUND&quot;,&quot;detail&quot;:&quot;Contact point with external_id &#x27;ecom_contact_point&#x27; not found&quot;,&quot;timestamp&quot;:&quot;2026-04-23T20:06:14.278463+00:00&quot;,&quot;path&quot;:&quot;/api/v1/accounting-external-api/orders/autotest-order-6bba636106&quot;,&quot;errors&quot;:[{&quot;code&quot;:&quot;CONTACT_POINT_NOT_FOUND&quot;,&quot;message&quot;:&quot;Contact point with external_id &#x27;ecom_contact_point&#x27; not found&quot;,&quot;field&quot;:null,&quot;details&quot;:null}],&quot;warnings&quot;:[]}
+E       assert 404 == 200
+E        +  where 404 = &lt;Response [404]&gt;.status_code
+
+tests\accounting\test_orders.py:74: AssertionError</pre>
+                </details>
+                
+    </section>
+    <section class="panel">
+      <h2>Последние наблюдения</h2>
+      
+                <details class="obs-card">
+                  <summary>
+                    <span>GET /api/v1/accounting-external-api/product</span>
+                    <span class="badge status">200</span>
+                    <span class="badge cls">business</span>
+                    <span class="muted">tests/accounting/test_products.py::test_list_products</span>
+                  </summary>
+                  <pre>{
+  &quot;timestamp&quot;: &quot;2026-04-23T20:06:03Z&quot;,
+  &quot;service&quot;: &quot;accounting&quot;,
+  &quot;test&quot;: {
+    &quot;nodeid&quot;: &quot;tests/accounting/test_products.py::test_list_products&quot;,
+    &quot;name&quot;: &quot;test_list_products&quot;,
+    &quot;markers&quot;: [
+      &quot;accounting&quot;,
+      &quot;regression&quot;
+    ],
+    &quot;outcome&quot;: null
+  },
+  &quot;request&quot;: {
+    &quot;base_url&quot;: &quot;https://crmstage-accounting-external-api-di-dev.dreamisland.ru&quot;,
+    &quot;method&quot;: &quot;GET&quot;,
+    &quot;path&quot;: &quot;/api/v1/accounting-external-api/product&quot;,
+    &quot;url&quot;: &quot;https://crmstage-accounting-external-api-di-dev.dreamisland.ru/api/v1/accounting-external-api/product&quot;,
+    &quot;headers&quot;: {
+      &quot;User-Agent&quot;: &quot;python-requests/2.33.1&quot;,
+      &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;,
+      &quot;Accept&quot;: &quot;application/json&quot;,
+      &quot;Connection&quot;: &quot;keep-alive&quot;,
+      &quot;X-API-Key&quot;: &quot;***REDACTED***&quot;
+    },
+    &quot;params&quot;: {
+      &quot;limit&quot;: 1,
+      &quot;offset&quot;: 0
+    },
+    &quot;json&quot;: null
+  },
+  &quot;response&quot;: {
+    &quot;status_code&quot;: 200,
+    &quot;headers&quot;: {
+      &quot;Server&quot;: &quot;openresty&quot;,
+      &quot;Date&quot;: &quot;Thu, 23 Apr 2026 20:06:00 GMT&quot;,
+      &quot;Content-Type&quot;: &quot;application/json&quot;,
+      &quot;Content-Length&quot;: &quot;866&quot;,
+      &quot;Connection&quot;: &quot;keep-alive&quot;,
+      &quot;Access-Control-Allow-Credentials&quot;: &quot;true&quot;,
+      &quot;Vary&quot;: &quot;Origin&quot;,
+      &quot;X-Served-By&quot;: &quot;crmstage-accounting-external-api-di-dev.dreamisland.ru&quot;
+    },
+    &quot;json&quot;: {
+      &quot;items&quot;: [
+        {
+          &quot;id&quot;: 4533,
+          &quot;name&quot;: &quot;0 Экскурсия по арене,Вечерний билет,Вечер&quot;,
+          &quot;image_url&quot;: null,
+          &quot;price&quot;: 55.0,
+          &quot;old_price&quot;: null,
+          &quot;external_id&quot;: &quot;57_1008_6&quot;,
+          &quot;external_system&quot;: &quot;ECOM&quot;,
+          &quot;category_id&quot;: null,
+          &quot;custom_fields&quot;: [
+            {
+              &quot;system_name&quot;: &quot;old_price&quot;,
+              &quot;field_name&quot;: &quot;Old Price&quot;,
+              &quot;field_value&quot;: &quot;55&quot;,
+              &quot;field_type&quot;: &quot;string&quot;
+            },
+            {
+              &quot;system_name&quot;: &quot;CustomFieldAttributeNomId&quot;,
+              &quot;field_name&quot;: &quot;Customfieldattributenomid&quot;,
+              &quot;field_value&quot;: &quot;57&quot;,
+              &quot;field_type&quot;: &quot;string&quot;
+            },
+            {
+              &quot;system_name&quot;: &quot;CustomFieldAttributeViewPriceId&quot;,
+              &quot;field_name&quot;: &quot;Customfieldattributeviewpriceid&quot;,
+              &quot;field_value&quot;: &quot;1008&quot;,
+              &quot;field_type&quot;: &quot;string&quot;
+            },
+            {
+              &quot;system_name&quot;: &quot;CustomFieldAttributeDayTypeId&quot;,
+              &quot;field_name&quot;: &quot;Customfieldattributedaytypeid&quot;,
+              &quot;field_value&quot;: &quot;6&quot;,
+              &quot;field_type&quot;: &quot;string&quot;
+            },
+            {
+              &quot;system_name&quot;: &quot;available&quot;,
+              &quot;field_name&quot;: &quot;Available&quot;,
+              &quot;field_value&quot;: &quot;true&quot;,
+              &quot;field_type&quot;: &quot;string&quot;
+            }
+          ]
+        }
+      ],
+      &quot;total&quot;: 5100,
+      &quot;limit&quot;: 1,
+      &quot;offset&quot;: 0
+    },
+    &quot;text_preview&quot;: &quot;{\&quot;items\&quot;:[{\&quot;id\&quot;:4533,\&quot;name\&quot;:\&quot;0 Экскурсия по арене,Вечерний билет,Вечер\&quot;,\&quot;image_url\&quot;:null,\&quot;price\&quot;:55.0,\&quot;old_price\&quot;:null,\&quot;external_id\&quot;:\&quot;57_1008_6\&quot;,\&quot;external_system\&quot;:\&quot;ECOM\&quot;,\&quot;category_id\&quot;:null,\&quot;custom_fields\&quot;:[{\&quot;system_name\&quot;:\&quot;old_price\&quot;,\&quot;field_name\&quot;:\&quot;Old Price\&quot;,\&quot;field_value\&quot;:\&quot;55\&quot;,\&quot;field_type\&quot;:\&quot;string\&quot;},{\&quot;system_name\&quot;:\&quot;CustomFieldAttributeNomId\&quot;,\&quot;field_name\&quot;:\&quot;Customfieldattributenomid\&quot;,\&quot;field_value\&quot;:\&quot;57\&quot;,\&quot;field_type\&quot;:\&quot;string\&quot;},{\&quot;system_name\&quot;:\&quot;CustomFieldAttributeViewPriceId\&quot;,\&quot;field_name\&quot;:\&quot;Customfieldattributeviewpriceid\&quot;,\&quot;field_value\&quot;:\&quot;1008\&quot;,\&quot;field_type\&quot;:\&quot;string\&quot;},{\&quot;system_name\&quot;:\&quot;CustomFieldAttributeDayTypeId\&quot;,\&quot;field_name\&quot;:\&quot;Customfieldattributedaytypeid\&quot;,\&quot;field_value\&quot;:\&quot;6\&quot;,\&quot;field_type\&quot;:\&quot;string\&quot;},{\&quot;system_name\&quot;:\&quot;available\&quot;,\&quot;field_name\&quot;:\&quot;Available\&quot;,\&quot;field_value\&quot;:\&quot;true\&quot;,\&quot;field_type\&quot;:\&quot;string\&quot;}]}],\&quot;total\&quot;:5100,\&quot;limit\&quot;:1,\&quot;offset\&quot;:0}&quot;,
+    &quot;elapsed_ms&quot;: 8775.49
+  },
+  &quot;classification&quot;: &quot;business&quot;
+}</pre>
+                </details>
+                
+                <details class="obs-card">
+                  <summary>
+                    <span>POST /api/v1/accounting-external-api/product</span>
+                    <span class="badge status">201</span>
+                    <span class="badge cls">business</span>
+                    <span class="muted">tests/accounting/test_products.py::test_create_product</span>
+                  </summary>
+                  <pre>{
+  &quot;timestamp&quot;: &quot;2026-04-23T20:06:08Z&quot;,
+  &quot;service&quot;: &quot;accounting&quot;,
+  &quot;test&quot;: {
+    &quot;nodeid&quot;: &quot;tests/accounting/test_products.py::test_create_product&quot;,
+    &quot;name&quot;: &quot;test_create_product&quot;,
+    &quot;markers&quot;: [
+      &quot;accounting&quot;,
+      &quot;integration&quot;,
+      &quot;regression&quot;
+    ],
+    &quot;outcome&quot;: null
+  },
+  &quot;request&quot;: {
+    &quot;base_url&quot;: &quot;https://crmstage-accounting-external-api-di-dev.dreamisland.ru&quot;,
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;path&quot;: &quot;/api/v1/accounting-external-api/product&quot;,
+    &quot;url&quot;: &quot;https://crmstage-accounting-external-api-di-dev.dreamisland.ru/api/v1/accounting-external-api/product&quot;,
+    &quot;headers&quot;: {
+      &quot;User-Agent&quot;: &quot;python-requests/2.33.1&quot;,
+      &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;,
+      &quot;Accept&quot;: &quot;application/json&quot;,
+      &quot;Connection&quot;: &quot;keep-alive&quot;,
+      &quot;X-API-Key&quot;: &quot;***REDACTED***&quot;
+    },
+    &quot;params&quot;: null,
+    &quot;json&quot;: {
+      &quot;external_id&quot;: &quot;autotest-product-eddae18360&quot;,
+      &quot;external_system&quot;: &quot;Ecom&quot;,
+      &quot;name&quot;: &quot;Autotest Product eddae18360&quot;,
+      &quot;price&quot;: 100.0,
+      &quot;category&quot;: {
+        &quot;external_id&quot;: &quot;autotest-category&quot;,
+        &quot;name&quot;: &quot;Autotest category&quot;
+      },
+      &quot;custom_fields&quot;: [
+        {
+          &quot;system_name&quot;: &quot;camelCaseNumber1&quot;,
+          &quot;field_value&quot;: &quot;true&quot;
+        }
+      ]
+    }
+  },
+  &quot;response&quot;: {
+    &quot;status_code&quot;: 201,
+    &quot;headers&quot;: {
+      &quot;Server&quot;: &quot;openresty&quot;,
+      &quot;Date&quot;: &quot;Thu, 23 Apr 2026 20:06:05 GMT&quot;,
+      &quot;Content-Type&quot;: &quot;application/json&quot;,
+      &quot;Content-Length&quot;: &quot;310&quot;,
+      &quot;Connection&quot;: &quot;keep-alive&quot;,
+      &quot;Access-Control-Allow-Credentials&quot;: &quot;true&quot;,
+      &quot;Vary&quot;: &quot;Origin&quot;,
+      &quot;X-Served-By&quot;: &quot;crmstage-accounting-external-api-di-dev.dreamisland.ru&quot;
+    },
+    &quot;json&quot;: {
+      &quot;id&quot;: 5495,
+      &quot;name&quot;: &quot;Autotest Product eddae18360&quot;,
+      &quot;image_url&quot;: null,
+      &quot;price&quot;: 100.0,
+      &quot;old_price&quot;: null,
+      &quot;external_id&quot;: &quot;autotest-product-eddae18360&quot;,
+      &quot;external_system&quot;: &quot;ECOM&quot;,
+      &quot;category_id&quot;: 55,
+      &quot;custom_fields&quot;: [
+        {
+          &quot;system_name&quot;: &quot;camelCaseNumber1&quot;,
+          &quot;field_name&quot;: &quot;Camelcasenumber1&quot;,
+          &quot;field_value&quot;: &quot;true&quot;,
+          &quot;field_type&quot;: &quot;string&quot;
+        }
+      ]
+    },
+    &quot;text_preview&quot;: &quot;{\&quot;id\&quot;:5495,\&quot;name\&quot;:\&quot;Autotest Product eddae18360\&quot;,\&quot;image_url\&quot;:null,\&quot;price\&quot;:100.0,\&quot;old_price\&quot;:null,\&quot;external_id\&quot;:\&quot;autotest-product-eddae18360\&quot;,\&quot;external_system\&quot;:\&quot;ECOM\&quot;,\&quot;category_id\&quot;:55,\&quot;custom_fields\&quot;:[{\&quot;system_name\&quot;:\&quot;camelCaseNumber1\&quot;,\&quot;field_name\&quot;:\&quot;Camelcasenumber1\&quot;,\&quot;field_value\&quot;:\&quot;true\&quot;,\&quot;field_type\&quot;:\&quot;string\&quot;}]}&quot;,
+    &quot;elapsed_ms&quot;: 288.75
+  },
+  &quot;classification&quot;: &quot;business&quot;
+}</pre>
+                </details>
+                
+                <details class="obs-card">
+                  <summary>
+                    <span>POST /api/v1/accounting-external-api/product/bulk</span>
+                    <span class="badge status">200</span>
+                    <span class="badge cls">business</span>
+                    <span class="muted">tests/accounting/test_products.py::test_create_products_bulk</span>
+                  </summary>
+                  <pre>{
+  &quot;timestamp&quot;: &quot;2026-04-23T20:06:08Z&quot;,
+  &quot;service&quot;: &quot;accounting&quot;,
+  &quot;test&quot;: {
+    &quot;nodeid&quot;: &quot;tests/accounting/test_products.py::test_create_products_bulk&quot;,
+    &quot;name&quot;: &quot;test_create_products_bulk&quot;,
+    &quot;markers&quot;: [
+      &quot;accounting&quot;,
+      &quot;bulk&quot;,
+      &quot;integration&quot;,
+      &quot;regression&quot;
+    ],
+    &quot;outcome&quot;: null
+  },
+  &quot;request&quot;: {
+    &quot;base_url&quot;: &quot;https://crmstage-accounting-external-api-di-dev.dreamisland.ru&quot;,
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;path&quot;: &quot;/api/v1/accounting-external-api/product/bulk&quot;,
+    &quot;url&quot;: &quot;https://crmstage-accounting-external-api-di-dev.dreamisland.ru/api/v1/accounting-external-api/product/bulk&quot;,
+    &quot;headers&quot;: {
+      &quot;User-Agent&quot;: &quot;python-requests/2.33.1&quot;,
+      &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;,
+      &quot;Accept&quot;: &quot;application/json&quot;,
+      &quot;Connection&quot;: &quot;keep-alive&quot;,
+      &quot;X-API-Key&quot;: &quot;***REDACTED***&quot;
+    },
+    &quot;params&quot;: null,
+    &quot;json&quot;: {
+      &quot;items&quot;: [
+        {
+          &quot;external_id&quot;: &quot;autotest-product-6ae293c553&quot;,
+          &quot;external_system&quot;: &quot;Ecom&quot;,
+          &quot;name&quot;: &quot;Autotest Product 6ae293c553&quot;,
+          &quot;price&quot;: 100.0,
+          &quot;category&quot;: {
+            &quot;external_id&quot;: &quot;autotest-category&quot;,
+            &quot;name&quot;: &quot;Autotest category&quot;
+          },
+          &quot;custom_fields&quot;: [
+            {
+              &quot;system_name&quot;: &quot;camelCaseNumber1&quot;,
+              &quot;field_value&quot;: &quot;true&quot;
+            }
+          ]
+        },
+        {
+          &quot;external_id&quot;: &quot;autotest-product-5a3962cac6&quot;,
+          &quot;external_system&quot;: &quot;Ecom&quot;,
+          &quot;name&quot;: &quot;Autotest Product 5a3962cac6&quot;,
+          &quot;price&quot;: 100.0,
+          &quot;category&quot;: {
+            &quot;external_id&quot;: &quot;autotest-category&quot;,
+            &quot;name&quot;: &quot;Autotest category&quot;
+          },
+          &quot;custom_fields&quot;: [
+            {
+              &quot;system_name&quot;: &quot;camelCaseNumber1&quot;,
+              &quot;field_value&quot;: &quot;true&quot;
+            }
+          ]
+        }
+      ]
+    }
+  },
+  &quot;response&quot;: {
+    &quot;status_code&quot;: 200,
+    &quot;headers&quot;: {
+      &quot;Server&quot;: &quot;openresty&quot;,
+      &quot;Date&quot;: &quot;Thu, 23 Apr 2026 20:06:06 GMT&quot;,
+      &quot;Content-Type&quot;: &quot;application/json&quot;,
+      &quot;Content-Length&quot;: &quot;788&quot;,
+      &quot;Connection&quot;: &quot;keep-alive&quot;,
+      &quot;Access-Control-Allow-Credentials&quot;: &quot;true&quot;,
+      &quot;Vary&quot;: &quot;Origin&quot;,
+      &quot;X-Served-By&quot;: &quot;crmstage-accounting-external-api-di-dev.dreamisland.ru&quot;
+    },
+    &quot;json&quot;: {
+      &quot;results&quot;: [
+        {
+          &quot;index&quot;: 0,
+          &quot;status&quot;: &quot;created&quot;,
+          &quot;product&quot;: {
+            &quot;id&quot;: 5496,
+            &quot;name&quot;: &quot;Autotest Product 6ae293c553&quot;,
+            &quot;image_url&quot;: null,
+            &quot;price&quot;: 100.0,
+            &quot;old_price&quot;: null,
+            &quot;external_id&quot;: &quot;autotest-product-6ae293c553&quot;,
+            &quot;external_system&quot;: &quot;ECOM&quot;,
+            &quot;category_id&quot;: 55,
+            &quot;custom_fields&quot;: [
+              {
+                &quot;system_name&quot;: &quot;camelCaseNumber1&quot;,
+                &quot;field_name&quot;: &quot;Camelcasenumber1&quot;,
+                &quot;field_value&quot;: &quot;true&quot;,
+                &quot;field_type&quot;: &quot;string&quot;
+              }
+            ]
+          },
+          &quot;error&quot;: null
+        },
+        {
+          &quot;index&quot;: 1,
+          &quot;status&quot;: &quot;created&quot;,
+          &quot;product&quot;: {
+            &quot;id&quot;: 5497,
+            &quot;name&quot;: &quot;Autotest Product 5a3962cac6&quot;,
+            &quot;image_url&quot;: null,
+            &quot;price&quot;: 100.0,
+            &quot;old_price&quot;: null,
+            &quot;external_id&quot;: &quot;autotest-product-5a3962cac6&quot;,
+            &quot;external_system&quot;: &quot;ECOM&quot;,
+            &quot;category_id&quot;: 55,
+            &quot;custom_fields&quot;: [
+              {
+                &quot;system_name&quot;: &quot;camelCaseNumber1&quot;,
+                &quot;field_name&quot;: &quot;Camelcasenumber1&quot;,
+                &quot;field_value&quot;: &quot;true&quot;,
+                &quot;field_type&quot;: &quot;string&quot;
+              }
+            ]
+          },
+          &quot;error&quot;: null
+        }
+      ],
+      &quot;total&quot;: 2,
+      &quot;created&quot;: 2,
+      &quot;updated&quot;: 0,
+      &quot;errors&quot;: 0
+    },
+    &quot;text_preview&quot;: &quot;{\&quot;results\&quot;:[{\&quot;index\&quot;:0,\&quot;status\&quot;:\&quot;created\&quot;,\&quot;product\&quot;:{\&quot;id\&quot;:5496,\&quot;name\&quot;:\&quot;Autotest Product 6ae293c553\&quot;,\&quot;image_url\&quot;:null,\&quot;price\&quot;:100.0,\&quot;old_price\&quot;:null,\&quot;external_id\&quot;:\&quot;autotest-product-6ae293c553\&quot;,\&quot;external_system\&quot;:\&quot;ECOM\&quot;,\&quot;category_id\&quot;:55,\&quot;custom_fields\&quot;:[{\&quot;system_name\&quot;:\&quot;camelCaseNumber1\&quot;,\&quot;field_name\&quot;:\&quot;Camelcasenumber1\&quot;,\&quot;field_value\&quot;:\&quot;true\&quot;,\&quot;field_type\&quot;:\&quot;string\&quot;}]},\&quot;error\&quot;:null},{\&quot;index\&quot;:1,\&quot;status\&quot;:\&quot;created\&quot;,\&quot;product\&quot;:{\&quot;id\&quot;:5497,\&quot;name\&quot;:\&quot;Autotest Product 5a3962cac6\&quot;,\&quot;image_url\&quot;:null,\&quot;price\&quot;:100.0,\&quot;old_price\&quot;:null,\&quot;external_id\&quot;:\&quot;autotest-product-5a3962cac6\&quot;,\&quot;external_system\&quot;:\&quot;ECOM\&quot;,\&quot;category_id\&quot;:55,\&quot;custom_fields\&quot;:[{\&quot;system_name\&quot;:\&quot;camelCaseNumber1\&quot;,\&quot;field_name\&quot;:\&quot;Camelcasenumber1\&quot;,\&quot;field_value\&quot;:\&quot;true\&quot;,\&quot;field_type\&quot;:\&quot;string\&quot;}]},\&quot;error\&quot;:null}],\&quot;total\&quot;:2,\&quot;created\&quot;:2,\&quot;updated\&quot;:0,\&quot;errors\&quot;:0}&quot;,
+    &quot;elapsed_ms&quot;: 472.0
+  },
+  &quot;classification&quot;: &quot;business&quot;
+}</pre>
+                </details>
+                
+                <details class="obs-card">
+                  <summary>
+                    <span>GET /api/v1/accounting-external-api/orders</span>
+                    <span class="badge status">200</span>
+                    <span class="badge cls">business</span>
+                    <span class="muted">tests/accounting/test_orders.py::test_list_orders</span>
+                  </summary>
+                  <pre>{
+  &quot;timestamp&quot;: &quot;2026-04-23T20:06:10Z&quot;,
+  &quot;service&quot;: &quot;accounting&quot;,
+  &quot;test&quot;: {
+    &quot;nodeid&quot;: &quot;tests/accounting/test_orders.py::test_list_orders&quot;,
+    &quot;name&quot;: &quot;test_list_orders&quot;,
+    &quot;markers&quot;: [
+      &quot;accounting&quot;,
+      &quot;regression&quot;
+    ],
+    &quot;outcome&quot;: null
+  },
+  &quot;request&quot;: {
+    &quot;base_url&quot;: &quot;https://crmstage-accounting-external-api-di-dev.dreamisland.ru&quot;,
+    &quot;method&quot;: &quot;GET&quot;,
+    &quot;path&quot;: &quot;/api/v1/accounting-external-api/orders&quot;,
+    &quot;url&quot;: &quot;https://crmstage-accounting-external-api-di-dev.dreamisland.ru/api/v1/accounting-external-api/orders&quot;,
+    &quot;headers&quot;: {
+      &quot;User-Agent&quot;: &quot;python-requests/2.33.1&quot;,
+      &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;,
+      &quot;Accept&quot;: &quot;application/json&quot;,
+      &quot;Connection&quot;: &quot;keep-alive&quot;,
+      &quot;X-API-Key&quot;: &quot;***REDACTED***&quot;
+    },
+    &quot;params&quot;: {
+      &quot;limit&quot;: 1,
+      &quot;offset&quot;: 0
+    },
+    &quot;json&quot;: null
+  },
+  &quot;response&quot;: {
+    &quot;status_code&quot;: 200,
+    &quot;headers&quot;: {
+      &quot;Server&quot;: &quot;openresty&quot;,
+      &quot;Date&quot;: &quot;Thu, 23 Apr 2026 20:06:07 GMT&quot;,
+      &quot;Content-Type&quot;: &quot;application/json&quot;,
+      &quot;Content-Length&quot;: &quot;718&quot;,
+      &quot;Connection&quot;: &quot;keep-alive&quot;,
+      &quot;Access-Control-Allow-Credentials&quot;: &quot;true&quot;,
+      &quot;Vary&quot;: &quot;Origin&quot;,
+      &quot;X-Served-By&quot;: &quot;crmstage-accounting-external-api-di-dev.dreamisland.ru&quot;
+    },
+    &quot;json&quot;: {
+      &quot;success&quot;: true,
+      &quot;orders&quot;: [
+        {
+          &quot;external_order_id&quot;: &quot;autotest-order-5ca667c710&quot;,
+          &quot;customer_id&quot;: 554781,
+          &quot;status&quot;: &quot;cart&quot;,
+          &quot;created_at&quot;: &quot;2026-04-23T19:56:35.615988&quot;,
+          &quot;updated_at&quot;: &quot;2026-04-23T19:56:35.615988&quot;,
+          &quot;totals&quot;: {
+            &quot;total_amount&quot;: 100.0,
+            &quot;discount_amount&quot;: 0.0,
+            &quot;final_amount&quot;: 0.0
+          },
+          &quot;bonuses&quot;: {
+            &quot;used&quot;: 0.0,
+            &quot;accrued&quot;: 0.0,
+            &quot;pending_accrual&quot;: 0.0
+          },
+          &quot;items&quot;: [
+            {
+              &quot;external_line_id&quot;: &quot;line-1&quot;,
+              &quot;position_number&quot;: 1,
+              &quot;external_product_id&quot;: &quot;autotest-product-line&quot;,
+              &quot;product_name&quot;: &quot;Autotest line&quot;,
+              &quot;quantity&quot;: 1,
+              &quot;unit_price&quot;: 100.0,
+              &quot;discount_amount&quot;: 0.0,
+              &quot;final_price&quot;: 100.0,
+              &quot;status&quot;: &quot;ACTIVE&quot;,
+              &quot;bonuses_used&quot;: 0.0,
+              &quot;bonuses_to_accrue&quot;: 0.0,
+              &quot;applied_promotions&quot;: []
+            }
+          ],
+          &quot;applied_promotions&quot;: [],
+          &quot;applied_promocode&quot;: null
+        }
+      ],
+      &quot;total&quot;: 8,
+      &quot;limit&quot;: 1,
+      &quot;offset&quot;: 0,
+      &quot;errors&quot;: []
+    },
+    &quot;text_preview&quot;: &quot;{\&quot;success\&quot;:true,\&quot;orders\&quot;:[{\&quot;external_order_id\&quot;:\&quot;autotest-order-5ca667c710\&quot;,\&quot;customer_id\&quot;:554781,\&quot;status\&quot;:\&quot;cart\&quot;,\&quot;created_at\&quot;:\&quot;2026-04-23T19:56:35.615988\&quot;,\&quot;updated_at\&quot;:\&quot;2026-04-23T19:56:35.615988\&quot;,\&quot;totals\&quot;:{\&quot;total_amount\&quot;:100.0,\&quot;discount_amount\&quot;:0.0,\&quot;final_amount\&quot;:0.0},\&quot;bonuses\&quot;:{\&quot;used\&quot;:0.0,\&quot;accrued\&quot;:0.0,\&quot;pending_accrual\&quot;:0.0},\&quot;items\&quot;:[{\&quot;external_line_id\&quot;:\&quot;line-1\&quot;,\&quot;position_number\&quot;:1,\&quot;external_product_id\&quot;:\&quot;autotest-product-line\&quot;,\&quot;product_name\&quot;:\&quot;Autotest line\&quot;,\&quot;quantity\&quot;:1,\&quot;unit_price\&quot;:100.0,\&quot;discount_amount\&quot;:0.0,\&quot;final_price\&quot;:100.0,\&quot;status\&quot;:\&quot;ACTIVE\&quot;,\&quot;bonuses_used\&quot;:0.0,\&quot;bonuses_to_accrue\&quot;:0.0,\&quot;applied_promotions\&quot;:[]}],\&quot;applied_promotions\&quot;:[],\&quot;applied_promocode\&quot;:null}],\&quot;total\&quot;:8,\&quot;limit\&quot;:1,\&quot;offset\&quot;:0,\&quot;errors\&quot;:[]}&quot;,
+    &quot;elapsed_ms&quot;: 607.78
+  },
+  &quot;classification&quot;: &quot;business&quot;
+}</pre>
+                </details>
+                
+                <details class="obs-card">
+                  <summary>
+                    <span>POST /api/v1/accounting-external-api/orders</span>
+                    <span class="badge status">201</span>
+                    <span class="badge cls">business</span>
+                    <span class="muted">tests/accounting/test_orders.py::test_create_and_update_order</span>
+                  </summary>
+                  <pre>{
+  &quot;timestamp&quot;: &quot;2026-04-23T20:06:12Z&quot;,
+  &quot;service&quot;: &quot;accounting&quot;,
+  &quot;test&quot;: {
+    &quot;nodeid&quot;: &quot;tests/accounting/test_orders.py::test_create_and_update_order&quot;,
+    &quot;name&quot;: &quot;test_create_and_update_order&quot;,
+    &quot;markers&quot;: [
+      &quot;accounting&quot;,
+      &quot;integration&quot;,
+      &quot;regression&quot;
+    ],
+    &quot;outcome&quot;: null
+  },
+  &quot;request&quot;: {
+    &quot;base_url&quot;: &quot;https://crmstage-accounting-external-api-di-dev.dreamisland.ru&quot;,
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;path&quot;: &quot;/api/v1/accounting-external-api/orders&quot;,
+    &quot;url&quot;: &quot;https://crmstage-accounting-external-api-di-dev.dreamisland.ru/api/v1/accounting-external-api/orders&quot;,
+    &quot;headers&quot;: {
+      &quot;User-Agent&quot;: &quot;python-requests/2.33.1&quot;,
+      &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;,
+      &quot;Accept&quot;: &quot;application/json&quot;,
+      &quot;Connection&quot;: &quot;keep-alive&quot;,
+      &quot;X-API-Key&quot;: &quot;***REDACTED***&quot;
+    },
+    &quot;params&quot;: null,
+    &quot;json&quot;: {
+      &quot;external_order_id&quot;: &quot;autotest-order-6bba636106&quot;,
+      &quot;external_system&quot;: &quot;Ecom&quot;,
+      &quot;website_id&quot;: &quot;1000636&quot;,
+      &quot;email&quot;: &quot;n.tadzhibaeva@gmail.com&quot;,
+      &quot;mobile_phone&quot;: &quot;+79258935369&quot;,
+      &quot;status&quot;: &quot;cart&quot;,
+      &quot;items&quot;: [
+        {
+          &quot;external_line_id&quot;: &quot;line-1&quot;,
+          &quot;position_number&quot;: 1,
+          &quot;external_product_id&quot;: &quot;autotest-product-line&quot;,
+          &quot;product_name&quot;: &quot;Autotest line&quot;,
+          &quot;unit_price&quot;: 100.0,
+          &quot;quantity&quot;: 1
+        }
+      ],
+      &quot;totals&quot;: {
+        &quot;subtotal&quot;: 100.0,
+        &quot;total&quot;: 100.0
+      }
+    }
+  },
+  &quot;response&quot;: {
+    &quot;status_code&quot;: 201,
+    &quot;headers&quot;: {
+      &quot;Server&quot;: &quot;openresty&quot;,
+      &quot;Date&quot;: &quot;Thu, 23 Apr 2026 20:06:09 GMT&quot;,
+      &quot;Content-Type&quot;: &quot;application/json&quot;,
+      &quot;Content-Length&quot;: &quot;92&quot;,
+      &quot;Connection&quot;: &quot;keep-alive&quot;,
+      &quot;Access-Control-Allow-Credentials&quot;: &quot;true&quot;,
+      &quot;Vary&quot;: &quot;Origin&quot;,
+      &quot;X-Served-By&quot;: &quot;crmstage-accounting-external-api-di-dev.dreamisland.ru&quot;
+    },
+    &quot;json&quot;: {
+      &quot;success&quot;: true,
+      &quot;external_order_id&quot;: &quot;autotest-order-6bba636106&quot;,
+      &quot;status&quot;: &quot;cart&quot;,
+      &quot;errors&quot;: []
+    },
+    &quot;text_preview&quot;: &quot;{\&quot;success\&quot;:true,\&quot;external_order_id\&quot;:\&quot;autotest-order-6bba636106\&quot;,\&quot;status\&quot;:\&quot;cart\&quot;,\&quot;errors\&quot;:[]}&quot;,
+    &quot;elapsed_ms&quot;: 1654.5
+  },
+  &quot;classification&quot;: &quot;business&quot;
+}</pre>
+                </details>
+                
+                <details class="obs-card">
+                  <summary>
+                    <span>GET /api/v1/accounting-external-api/orders/autotest-order-6bba636106</span>
+                    <span class="badge status">200</span>
+                    <span class="badge cls">business</span>
+                    <span class="muted">tests/accounting/test_orders.py::test_create_and_update_order</span>
+                  </summary>
+                  <pre>{
+  &quot;timestamp&quot;: &quot;2026-04-23T20:06:12Z&quot;,
+  &quot;service&quot;: &quot;accounting&quot;,
+  &quot;test&quot;: {
+    &quot;nodeid&quot;: &quot;tests/accounting/test_orders.py::test_create_and_update_order&quot;,
+    &quot;name&quot;: &quot;test_create_and_update_order&quot;,
+    &quot;markers&quot;: [
+      &quot;accounting&quot;,
+      &quot;integration&quot;,
+      &quot;regression&quot;
+    ],
+    &quot;outcome&quot;: null
+  },
+  &quot;request&quot;: {
+    &quot;base_url&quot;: &quot;https://crmstage-accounting-external-api-di-dev.dreamisland.ru&quot;,
+    &quot;method&quot;: &quot;GET&quot;,
+    &quot;path&quot;: &quot;/api/v1/accounting-external-api/orders/autotest-order-6bba636106&quot;,
+    &quot;url&quot;: &quot;https://crmstage-accounting-external-api-di-dev.dreamisland.ru/api/v1/accounting-external-api/orders/autotest-order-6bba636106&quot;,
+    &quot;headers&quot;: {
+      &quot;User-Agent&quot;: &quot;python-requests/2.33.1&quot;,
+      &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;,
+      &quot;Accept&quot;: &quot;application/json&quot;,
+      &quot;Connection&quot;: &quot;keep-alive&quot;,
+      &quot;X-API-Key&quot;: &quot;***REDACTED***&quot;
+    },
+    &quot;params&quot;: null,
+    &quot;json&quot;: null
+  },
+  &quot;response&quot;: {
+    &quot;status_code&quot;: 200,
+    &quot;headers&quot;: {
+      &quot;Server&quot;: &quot;openresty&quot;,
+      &quot;Date&quot;: &quot;Thu, 23 Apr 2026 20:06:10 GMT&quot;,
+      &quot;Content-Type&quot;: &quot;application/json&quot;,
+      &quot;Content-Length&quot;: &quot;684&quot;,
+      &quot;Connection&quot;: &quot;keep-alive&quot;,
+      &quot;Access-Control-Allow-Credentials&quot;: &quot;true&quot;,
+      &quot;Vary&quot;: &quot;Origin&quot;,
+      &quot;X-Served-By&quot;: &quot;crmstage-accounting-external-api-di-dev.dreamisland.ru&quot;
+    },
+    &quot;json&quot;: {
+      &quot;success&quot;: true,
+      &quot;order&quot;: {
+        &quot;external_order_id&quot;: &quot;autotest-order-6bba636106&quot;,
+        &quot;customer_id&quot;: 554781,
+        &quot;status&quot;: &quot;cart&quot;,
+        &quot;created_at&quot;: &quot;2026-04-23T20:06:12.602563&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-23T20:06:12.602563&quot;,
+        &quot;totals&quot;: {
+          &quot;total_amount&quot;: 100.0,
+          &quot;discount_amount&quot;: 0.0,
+          &quot;final_amount&quot;: 0.0
+        },
+        &quot;bonuses&quot;: {
+          &quot;used&quot;: 0.0,
+          &quot;accrued&quot;: 0.0,
+          &quot;pending_accrual&quot;: 0.0
+        },
+        &quot;items&quot;: [
+          {
+            &quot;external_line_id&quot;: &quot;line-1&quot;,
+            &quot;position_number&quot;: 1,
+            &quot;external_product_id&quot;: &quot;autotest-product-line&quot;,
+            &quot;product_name&quot;: &quot;Autotest line&quot;,
+            &quot;quantity&quot;: 1,
+            &quot;unit_price&quot;: 100.0,
+            &quot;discount_amount&quot;: 0.0,
+            &quot;final_price&quot;: 100.0,
+            &quot;status&quot;: &quot;ACTIVE&quot;,
+            &quot;bonuses_used&quot;: 0.0,
+            &quot;bonuses_to_accrue&quot;: 0.0,
+            &quot;applied_promotions&quot;: []
+          }
+        ],
+        &quot;applied_promotions&quot;: [],
+        &quot;applied_promocode&quot;: null
+      },
+      &quot;errors&quot;: []
+    },
+    &quot;text_preview&quot;: &quot;{\&quot;success\&quot;:true,\&quot;order\&quot;:{\&quot;external_order_id\&quot;:\&quot;autotest-order-6bba636106\&quot;,\&quot;customer_id\&quot;:554781,\&quot;status\&quot;:\&quot;cart\&quot;,\&quot;created_at\&quot;:\&quot;2026-04-23T20:06:12.602563\&quot;,\&quot;updated_at\&quot;:\&quot;2026-04-23T20:06:12.602563\&quot;,\&quot;totals\&quot;:{\&quot;total_amount\&quot;:100.0,\&quot;discount_amount\&quot;:0.0,\&quot;final_amount\&quot;:0.0},\&quot;bonuses\&quot;:{\&quot;used\&quot;:0.0,\&quot;accrued\&quot;:0.0,\&quot;pending_accrual\&quot;:0.0},\&quot;items\&quot;:[{\&quot;external_line_id\&quot;:\&quot;line-1\&quot;,\&quot;position_number\&quot;:1,\&quot;external_product_id\&quot;:\&quot;autotest-product-line\&quot;,\&quot;product_name\&quot;:\&quot;Autotest line\&quot;,\&quot;quantity\&quot;:1,\&quot;unit_price\&quot;:100.0,\&quot;discount_amount\&quot;:0.0,\&quot;final_price\&quot;:100.0,\&quot;status\&quot;:\&quot;ACTIVE\&quot;,\&quot;bonuses_used\&quot;:0.0,\&quot;bonuses_to_accrue\&quot;:0.0,\&quot;applied_promotions\&quot;:[]}],\&quot;applied_promotions\&quot;:[],\&quot;applied_promocode\&quot;:null},\&quot;errors\&quot;:[]}&quot;,
+    &quot;elapsed_ms&quot;: 752.88
+  },
+  &quot;classification&quot;: &quot;business&quot;
+}</pre>
+                </details>
+                
+                <details class="obs-card">
+                  <summary>
+                    <span>PATCH /api/v1/accounting-external-api/orders/autotest-order-6bba636106</span>
+                    <span class="badge status">404</span>
+                    <span class="badge cls">business</span>
+                    <span class="muted">tests/accounting/test_orders.py::test_create_and_update_order</span>
+                  </summary>
+                  <pre>{
+  &quot;timestamp&quot;: &quot;2026-04-23T20:06:13Z&quot;,
+  &quot;service&quot;: &quot;accounting&quot;,
+  &quot;test&quot;: {
+    &quot;nodeid&quot;: &quot;tests/accounting/test_orders.py::test_create_and_update_order&quot;,
+    &quot;name&quot;: &quot;test_create_and_update_order&quot;,
+    &quot;markers&quot;: [
+      &quot;accounting&quot;,
+      &quot;integration&quot;,
+      &quot;regression&quot;
+    ],
+    &quot;outcome&quot;: null
+  },
+  &quot;request&quot;: {
+    &quot;base_url&quot;: &quot;https://crmstage-accounting-external-api-di-dev.dreamisland.ru&quot;,
+    &quot;method&quot;: &quot;PATCH&quot;,
+    &quot;path&quot;: &quot;/api/v1/accounting-external-api/orders/autotest-order-6bba636106&quot;,
+    &quot;url&quot;: &quot;https://crmstage-accounting-external-api-di-dev.dreamisland.ru/api/v1/accounting-external-api/orders/autotest-order-6bba636106&quot;,
+    &quot;headers&quot;: {
+      &quot;User-Agent&quot;: &quot;python-requests/2.33.1&quot;,
+      &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;,
+      &quot;Accept&quot;: &quot;application/json&quot;,
+      &quot;Connection&quot;: &quot;keep-alive&quot;,
+      &quot;X-API-Key&quot;: &quot;***REDACTED***&quot;
+    },
+    &quot;params&quot;: null,
+    &quot;json&quot;: {
+      &quot;status&quot;: &quot;new&quot;,
+      &quot;contact_point_id&quot;: &quot;ecom_contact_point&quot;
+    }
+  },
+  &quot;response&quot;: {
+    &quot;status_code&quot;: 404,
+    &quot;headers&quot;: {
+      &quot;Server&quot;: &quot;openresty&quot;,
+      &quot;Date&quot;: &quot;Thu, 23 Apr 2026 20:06:11 GMT&quot;,
+      &quot;Content-Type&quot;: &quot;application/json&quot;,
+      &quot;Content-Length&quot;: &quot;484&quot;,
+      &quot;Connection&quot;: &quot;keep-alive&quot;,
+      &quot;Access-Control-Allow-Credentials&quot;: &quot;true&quot;,
+      &quot;Vary&quot;: &quot;Origin&quot;
+    },
+    &quot;json&quot;: {
+      &quot;success&quot;: false,
+      &quot;error&quot;: &quot;Contact point with external_id &#x27;ecom_contact_point&#x27; not found&quot;,
+      &quot;error_code&quot;: &quot;CONTACT_POINT_NOT_FOUND&quot;,
+      &quot;detail&quot;: &quot;Contact point with external_id &#x27;ecom_contact_point&#x27; not found&quot;,
+      &quot;timestamp&quot;: &quot;2026-04-23T20:06:14.278463+00:00&quot;,
+      &quot;path&quot;: &quot;/api/v1/accounting-external-api/orders/autotest-order-6bba636106&quot;,
+      &quot;errors&quot;: [
+        {
+          &quot;code&quot;: &quot;CONTACT_POINT_NOT_FOUND&quot;,
+          &quot;message&quot;: &quot;Contact point with external_id &#x27;ecom_contact_point&#x27; not found&quot;,
+          &quot;field&quot;: null,
+          &quot;details&quot;: null
+        }
+      ],
+      &quot;warnings&quot;: []
+    },
+    &quot;text_preview&quot;: &quot;{\&quot;success\&quot;:false,\&quot;error\&quot;:\&quot;Contact point with external_id &#x27;ecom_contact_point&#x27; not found\&quot;,\&quot;error_code\&quot;:\&quot;CONTACT_POINT_NOT_FOUND\&quot;,\&quot;detail\&quot;:\&quot;Contact point with external_id &#x27;ecom_contact_point&#x27; not found\&quot;,\&quot;timestamp\&quot;:\&quot;2026-04-23T20:06:14.278463+00:00\&quot;,\&quot;path\&quot;:\&quot;/api/v1/accounting-external-api/orders/autotest-order-6bba636106\&quot;,\&quot;errors\&quot;:[{\&quot;code\&quot;:\&quot;CONTACT_POINT_NOT_FOUND\&quot;,\&quot;message\&quot;:\&quot;Contact point with external_id &#x27;ecom_contact_point&#x27; not found\&quot;,\&quot;field\&quot;:null,\&quot;details\&quot;:null}],\&quot;warnings\&quot;:[]}&quot;,
+    &quot;elapsed_ms&quot;: 832.06
+  },
+  &quot;classification&quot;: &quot;business&quot;
+}</pre>
+                </details>
+                
+                <details class="obs-card">
+                  <summary>
+                    <span>POST /api/v1/accounting-external-api/orders/calculate</span>
+                    <span class="badge status">200</span>
+                    <span class="badge cls">business</span>
+                    <span class="muted">tests/accounting/test_orders.py::test_calculate_order</span>
+                  </summary>
+                  <pre>{
+  &quot;timestamp&quot;: &quot;2026-04-23T20:06:14Z&quot;,
+  &quot;service&quot;: &quot;accounting&quot;,
+  &quot;test&quot;: {
+    &quot;nodeid&quot;: &quot;tests/accounting/test_orders.py::test_calculate_order&quot;,
+    &quot;name&quot;: &quot;test_calculate_order&quot;,
+    &quot;markers&quot;: [
+      &quot;accounting&quot;,
+      &quot;integration&quot;,
+      &quot;regression&quot;
+    ],
+    &quot;outcome&quot;: null
+  },
+  &quot;request&quot;: {
+    &quot;base_url&quot;: &quot;https://crmstage-accounting-external-api-di-dev.dreamisland.ru&quot;,
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;path&quot;: &quot;/api/v1/accounting-external-api/orders/calculate&quot;,
+    &quot;url&quot;: &quot;https://crmstage-accounting-external-api-di-dev.dreamisland.ru/api/v1/accounting-external-api/orders/calculate&quot;,
+    &quot;headers&quot;: {
+      &quot;User-Agent&quot;: &quot;python-requests/2.33.1&quot;,
+      &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;,
+      &quot;Accept&quot;: &quot;application/json&quot;,
+      &quot;Connection&quot;: &quot;keep-alive&quot;,
+      &quot;X-API-Key&quot;: &quot;***REDACTED***&quot;
+    },
+    &quot;params&quot;: null,
+    &quot;json&quot;: {
+      &quot;website_id&quot;: &quot;1000636&quot;,
+      &quot;order&quot;: {
+        &quot;external_order_id&quot;: &quot;autotest-calc-31a08004b2&quot;,
+        &quot;external_system&quot;: &quot;TICKET_SYSTEM&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;external_line_id&quot;: &quot;line-1&quot;,
+            &quot;position_number&quot;: 1,
+            &quot;external_product_id&quot;: &quot;calc-product-1&quot;,
+            &quot;product_name&quot;: &quot;Autotest calculate line&quot;,
+            &quot;unit_price&quot;: 100.0,
+            &quot;quantity&quot;: 1
+          }
+        ]
+      }
+    }
+  },
+  &quot;response&quot;: {
+    &quot;status_code&quot;: 200,
+    &quot;headers&quot;: {
+      &quot;Server&quot;: &quot;openresty&quot;,
+      &quot;Date&quot;: &quot;Thu, 23 Apr 2026 20:06:12 GMT&quot;,
+      &quot;Content-Type&quot;: &quot;application/json&quot;,
+      &quot;Content-Length&quot;: &quot;689&quot;,
+      &quot;Connection&quot;: &quot;keep-alive&quot;,
+      &quot;Access-Control-Allow-Credentials&quot;: &quot;true&quot;,
+      &quot;Vary&quot;: &quot;Origin&quot;,
+      &quot;X-Served-By&quot;: &quot;crmstage-accounting-external-api-di-dev.dreamisland.ru&quot;
+    },
+    &quot;json&quot;: {
+      &quot;success&quot;: true,
+      &quot;customer&quot;: {
+        &quot;customer_id&quot;: 554781,
+        &quot;discount_card_number&quot;: &quot;1000636&quot;,
+        &quot;bonuses_available&quot;: 0.0,
+        &quot;bonuses_blocked&quot;: 0.0,
+        &quot;tier&quot;: null
+      },
+      &quot;totals&quot;: {
+        &quot;total_amount&quot;: 100.0,
+        &quot;promocode_discount&quot;: 0.0,
+        &quot;promotion_discount&quot;: 0.0,
+        &quot;total_discount&quot;: 0.0,
+        &quot;final_amount&quot;: 100.0,
+        &quot;bonuses_applied&quot;: 0.0,
+        &quot;bonuses_to_accrue&quot;: 0.0
+      },
+      &quot;items&quot;: [
+        {
+          &quot;external_line_id&quot;: &quot;line-1&quot;,
+          &quot;position_number&quot;: 1,
+          &quot;external_product_id&quot;: &quot;calc-product-1&quot;,
+          &quot;unit_price&quot;: 100.0,
+          &quot;quantity&quot;: 1,
+          &quot;discounts&quot;: [],
+          &quot;total_discount&quot;: 0.0,
+          &quot;final_price&quot;: 100.0,
+          &quot;bonuses_used&quot;: 0.0,
+          &quot;bonuses_to_accrue&quot;: 0.0,
+          &quot;is_external&quot;: false,
+          &quot;is_bonus_eligible&quot;: true,
+          &quot;is_promocode_eligible&quot;: true
+        }
+      ],
+      &quot;applied_promotions&quot;: [],
+      &quot;certificate_info&quot;: null,
+      &quot;errors&quot;: [],
+      &quot;warnings&quot;: []
+    },
+    &quot;text_preview&quot;: &quot;{\&quot;success\&quot;:true,\&quot;customer\&quot;:{\&quot;customer_id\&quot;:554781,\&quot;discount_card_number\&quot;:\&quot;1000636\&quot;,\&quot;bonuses_available\&quot;:0.0,\&quot;bonuses_blocked\&quot;:0.0,\&quot;tier\&quot;:null},\&quot;totals\&quot;:{\&quot;total_amount\&quot;:100.0,\&quot;promocode_discount\&quot;:0.0,\&quot;promotion_discount\&quot;:0.0,\&quot;total_discount\&quot;:0.0,\&quot;final_amount\&quot;:100.0,\&quot;bonuses_applied\&quot;:0.0,\&quot;bonuses_to_accrue\&quot;:0.0},\&quot;items\&quot;:[{\&quot;external_line_id\&quot;:\&quot;line-1\&quot;,\&quot;position_number\&quot;:1,\&quot;external_product_id\&quot;:\&quot;calc-product-1\&quot;,\&quot;unit_price\&quot;:100.0,\&quot;quantity\&quot;:1,\&quot;discounts\&quot;:[],\&quot;total_discount\&quot;:0.0,\&quot;final_price\&quot;:100.0,\&quot;bonuses_used\&quot;:0.0,\&quot;bonuses_to_accrue\&quot;:0.0,\&quot;is_external\&quot;:false,\&quot;is_bonus_eligible\&quot;:true,\&quot;is_promocode_eligible\&quot;:true}],\&quot;applied_promotions\&quot;:[],\&quot;certificate_info\&quot;:null,\&quot;errors\&quot;:[],\&quot;warnings\&quot;:[]}&quot;,
+    &quot;elapsed_ms&quot;: 677.81
+  },
+  &quot;classification&quot;: &quot;business&quot;
+}</pre>
+                </details>
+                
+    </section>
+  </div>
+</body>
+</html>
