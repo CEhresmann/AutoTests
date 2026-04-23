@@ -1,0 +1,13 @@
+{
+  "email": "n.tadzhibaeva@gmail.com",
+  "action_template_system_name": "ZaprosVosstanovleniyaParolya",
+  "event_time": "2026-01-01T00:00:00Z",
+  "description": "Autotest action",
+  "custom_fields": [
+    {
+      "system_name": "ticket_number",
+      "value": "PLACEHOLDER"
+    }
+  ]
+}
+

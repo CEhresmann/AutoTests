@@ -1,0 +1,11 @@
+{
+  "external_id": "autotest-product-placeholder",
+  "external_system": "Ecom",
+  "name": "Autotest product",
+  "price": 100.0,
+  "category": {
+    "external_id": "autotest-category",
+    "name": "Autotest category"
+  }
+}
+

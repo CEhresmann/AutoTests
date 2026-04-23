@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: dreamcrm-openapi-tests
+Version: 0.1.0
+Summary: OpenAPI contract and scenario tests for DREAMCRM external integrations
+Requires-Python: >=3.11
+Requires-Dist: jsonschema<5.0.0,>=4.23.0
+Requires-Dist: pytest<9.0.0,>=8.3.0
+Requires-Dist: python-dotenv<2.0.0,>=1.0.1
+Requires-Dist: requests<3.0.0,>=2.32.0

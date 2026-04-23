@@ -1,0 +1,22 @@
+{
+  "external_order_id": "autotest-order-placeholder",
+  "external_system": "Ecom",
+  "website_id": "1000636",
+  "email": "n.tadzhibaeva@gmail.com",
+  "status": "cart",
+  "contact_point_id": "autotest-contact-point",
+  "items": [
+    {
+      "external_line_id": "line-1",
+      "external_product_id": "product-1",
+      "name": "Autotest line",
+      "price": 100.0,
+      "quantity": 1
+    }
+  ],
+  "totals": {
+    "subtotal": 100.0,
+    "total": 100.0
+  }
+}
+

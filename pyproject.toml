@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dreamcrm-openapi-tests"
+version = "0.1.0"
+description = "OpenAPI contract and scenario tests for DREAMCRM external integrations"
+requires-python = ">=3.11"
+dependencies = [
+    "jsonschema>=4.23.0,<5.0.0",
+    "pytest>=8.3.0,<9.0.0",
+    "python-dotenv>=1.0.1,<2.0.0",
+    "requests>=2.32.0,<3.0.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = [
+    ".",
+]
+addopts = "-ra"
+testpaths = [
+    "tests",
+]
+filterwarnings = [
+    "ignore:jsonschema.RefResolver is deprecated:DeprecationWarning",
+]
+markers = [
+    "smoke: smoke checks for service availability",
+    "contract: OpenAPI contract tests",
+    "negative: negative validation and auth checks",
+    "crm: CRM external integrations API tests",
+    "accounting: Accounting external integrations API tests",
+    "bulk: bulk operation coverage",
+    "integration: scenario tests with live API side effects",
+    "regression: regression coverage",
+]
+
+[tool.setuptools]
+packages = []

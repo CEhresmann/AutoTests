@@ -1,0 +1,18 @@
+{
+  "customers": [
+    {
+      "website_id": "autotest-placeholder",
+      "email": "autotest@example.com",
+      "mobile_phone": "+79258935369",
+      "first_name": "API",
+      "last_name": "Autotest",
+      "custom_fields": [
+        {
+          "system_name": "ticket_number",
+          "field_value": "PLACEHOLDER"
+        }
+      ]
+    }
+  ]
+}
+

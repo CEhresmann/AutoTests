@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+dreamcrm_openapi_tests.egg-info/PKG-INFO
+dreamcrm_openapi_tests.egg-info/SOURCES.txt
+dreamcrm_openapi_tests.egg-info/dependency_links.txt
+dreamcrm_openapi_tests.egg-info/requires.txt
+dreamcrm_openapi_tests.egg-info/top_level.txt
