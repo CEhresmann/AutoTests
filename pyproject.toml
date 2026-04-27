@@ -31,6 +31,8 @@ markers = [
     "negative: negative validation and auth checks",
     "crm: CRM external integrations API tests",
     "accounting: Accounting external integrations API tests",
+    "app_content: dreamisland back all app content contract tests",
+    "mobile: dreamisland back mobile contract tests",
     "bulk: bulk operation coverage",
     "integration: scenario tests with live API side effects",
     "regression: regression coverage",

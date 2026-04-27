@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any
 
 from configs.settings import ARTIFACTS_DIR, REPORTS_DIR
+from utils.openapi import match_openapi_path
 
 
 _CURRENT_TEST_CONTEXT: contextvars.ContextVar[dict[str, Any]] = contextvars.ContextVar(
@@ -69,6 +70,8 @@ def safe_json_from_response(response) -> Any:
 def classify_observation(observation: dict[str, Any]) -> str:
     status = observation["response"]["status_code"]
     markers = set(observation.get("test", {}).get("markers", []))
+    if status == 0:
+        return "infra"
     if status == 401:
         return "auth"
     if status in {400, 404, 409, 422, 429}:
@@ -158,18 +161,84 @@ class ObservationRecorder:
         with self.observations_path.open("a", encoding="utf-8") as handle:
             handle.write(json.dumps(asdict(observation), ensure_ascii=False) + "\n")
 
+    def record_exception(
+        self,
+        *,
+        service: str,
+        method: str,
+        base_url: str,
+        path: str,
+        request_headers: dict[str, Any],
+        params: dict[str, Any] | None,
+        json_body: Any,
+        error: Exception,
+        elapsed_ms: float,
+    ) -> None:
+        test_context = get_test_context()
+        observation_dict = {
+            "timestamp": utc_now_iso(),
+            "service": service,
+            "test": {
+                "nodeid": test_context.get("nodeid"),
+                "name": test_context.get("name"),
+                "markers": test_context.get("markers", []),
+                "outcome": test_context.get("outcome"),
+            },
+            "request": {
+                "base_url": base_url,
+                "method": method.upper(),
+                "path": path,
+                "url": f"{base_url}{path}",
+                "headers": redact_headers(request_headers),
+                "params": ensure_jsonable(params),
+                "json": ensure_jsonable(json_body),
+            },
+            "response": {
+                "status_code": 0,
+                "headers": {},
+                "json": None,
+                "text_preview": str(error),
+                "elapsed_ms": round(elapsed_ms, 2),
+                "error_type": error.__class__.__name__,
+            },
+        }
+        observation_dict["classification"] = classify_observation(observation_dict)
+        observation = RequestObservation(**observation_dict)
+        self.observations.append(observation)
+        with self.observations_path.open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps(asdict(observation), ensure_ascii=False) + "\n")
+
+    def _normalize_observation_path(
+        self,
+        openapi_documents: dict[str, dict[str, Any]],
+        observation: RequestObservation,
+    ) -> str:
+        document = openapi_documents.get(observation.service)
+        if document is None:
+            return observation.request["path"]
+        return match_openapi_path(document, observation.request["path"]) or observation.request["path"]
+
+    def _observation_key(
+        self,
+        openapi_documents: dict[str, dict[str, Any]],
+        observation: RequestObservation,
+    ) -> tuple[str, str, str]:
+        return (
+            observation.service,
+            observation.request["method"],
+            self._normalize_observation_path(openapi_documents, observation),
+        )
+
     def build_coverage_matrix(self, openapi_documents: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
         observed_statuses: dict[tuple[str, str, str], set[int]] = defaultdict(set)
         example_by_endpoint: dict[tuple[str, str, str], RequestObservation] = {}
+        counts_by_endpoint: dict[tuple[str, str, str], int] = defaultdict(int)
 
         for observation in self.observations:
-            key = (
-                observation.service,
-                observation.request["method"],
-                observation.request["path"],
-            )
+            key = self._observation_key(openapi_documents, observation)
             observed_statuses[key].add(observation.response["status_code"])
             example_by_endpoint.setdefault(key, observation)
+            counts_by_endpoint[key] += 1
 
         rows: list[dict[str, Any]] = []
         for service, document in openapi_documents.items():
@@ -190,17 +259,11 @@ class ObservationRecorder:
                             "observed_statuses": observed,
                             "missing_statuses": missing,
                             "unexpected_statuses": unexpected,
-                            "observation_count": len(
-                                [
-                                    item
-                                    for item in self.observations
-                                    if item.service == service
-                                    and item.request["method"] == method.upper()
-                                    and item.request["path"] == path
-                                ]
-                            ),
+                            "observation_count": counts_by_endpoint.get(key, 0),
                             "example_test": example.test["nodeid"] if example else None,
                             "example_classification": example.classification if example else None,
+                            "tag_count": len(operation.get("tags", [])),
+                            "summary": operation.get("summary"),
                         }
                     )
         return sorted(rows, key=lambda item: (item["service"], item["path"], item["method"]))
@@ -242,12 +305,51 @@ class ObservationRecorder:
                     ]
                 )
 
-    def write_html_report(self, rows: list[dict[str, Any]]) -> None:
+    def build_endpoint_passports(
+        self,
+        rows: list[dict[str, Any]],
+        openapi_documents: dict[str, dict[str, Any]],
+    ) -> list[dict[str, Any]]:
+        observations_by_endpoint: dict[tuple[str, str, str], list[RequestObservation]] = defaultdict(list)
+        for observation in self.observations:
+            observations_by_endpoint[self._observation_key(openapi_documents, observation)].append(observation)
+
+        reports_by_nodeid = {report["nodeid"]: report for report in self.test_reports}
+        passports: list[dict[str, Any]] = []
+        for row in rows:
+            key = (row["service"], row["method"], row["path"])
+            examples_by_status: dict[int, RequestObservation] = {}
+            related_tests: list[dict[str, str]] = []
+            for observation in observations_by_endpoint.get(key, []):
+                examples_by_status.setdefault(observation.response["status_code"], observation)
+                nodeid = observation.test.get("nodeid")
+                if nodeid and nodeid in reports_by_nodeid:
+                    related_tests.append(reports_by_nodeid[nodeid])
+            passports.append(
+                {
+                    "service": row["service"],
+                    "method": row["method"],
+                    "path": row["path"],
+                    "summary": row.get("summary") or "",
+                    "declared_statuses": row["declared_statuses"],
+                    "observed_statuses": row["observed_statuses"],
+                    "missing_statuses": row["missing_statuses"],
+                    "unexpected_statuses": row["unexpected_statuses"],
+                    "examples_by_status": {
+                        status: asdict(observation) for status, observation in sorted(examples_by_status.items())
+                    },
+                    "related_failures": related_tests[:5],
+                }
+            )
+        return passports
+
+    def write_html_report(self, rows: list[dict[str, Any]], openapi_documents: dict[str, dict[str, Any]]) -> None:
         grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
         for row in rows:
             grouped[row["service"]].append(row)
 
         mismatches = self.build_contract_mismatches()
+        passports = self.build_endpoint_passports(rows, openapi_documents)
 
         observations_html = []
         for observation in self.observations[-50:]:
@@ -294,6 +396,53 @@ class ObservationRecorder:
                     <span class="muted">{escape(mismatch["nodeid"])}</span>
                   </summary>
                   <pre>{escape(mismatch["details"])}</pre>
+                </details>
+                """
+            )
+
+        passport_html = []
+        for passport in passports:
+            if not passport["observed_statuses"] and not passport["related_failures"]:
+                continue
+            status_blocks = []
+            for status, example in passport["examples_by_status"].items():
+                status_blocks.append(
+                    f"""
+                    <details class="obs-card">
+                      <summary>
+                        <span>Status {status}</span>
+                        <span class="badge cls">{escape(example["classification"])}</span>
+                        <span class="muted">{escape(example["test"].get("nodeid") or "unknown test")}</span>
+                      </summary>
+                      <pre>{escape(json.dumps(example, ensure_ascii=False, indent=2))}</pre>
+                    </details>
+                    """
+                )
+            failure_blocks = []
+            for failure in passport["related_failures"]:
+                failure_blocks.append(
+                    f"""
+                    <details class="obs-card mismatch-card">
+                      <summary>
+                        <span>{escape(failure["outcome"].upper())}</span>
+                        <span class="muted">{escape(failure["nodeid"])}</span>
+                      </summary>
+                      <pre>{escape(failure.get("longrepr", "")[:2500])}</pre>
+                    </details>
+                    """
+                )
+            passport_html.append(
+                f"""
+                <details class="obs-card passport-card">
+                  <summary>
+                    <span>{escape(passport["method"])} {escape(passport["path"])}</span>
+                    <span class="badge status">declared: {', '.join(map(str, passport["declared_statuses"])) or '-'}</span>
+                    <span class="badge cls">observed: {', '.join(map(str, passport["observed_statuses"])) or '-'}</span>
+                  </summary>
+                  <p class="muted">{escape(passport["summary"])}</p>
+                  <p><strong>Missing:</strong> {', '.join(map(str, passport["missing_statuses"])) or 'none'} | <strong>Unexpected:</strong> {', '.join(map(str, passport["unexpected_statuses"])) or 'none'}</p>
+                  {''.join(status_blocks) or '<p class="muted">Observed examples are not available yet.</p>'}
+                  {''.join(failure_blocks)}
                 </details>
                 """
             )
@@ -458,6 +607,9 @@ class ObservationRecorder:
     .mismatch-card {{
       background: #fff8f7;
     }}
+    .passport-card {{
+      background: #f9fcfb;
+    }}
     pre {{
       overflow: auto;
       white-space: pre-wrap;
@@ -487,6 +639,11 @@ class ObservationRecorder:
     </section>
     {''.join(sections)}
     <section class="panel">
+      <h2>Endpoint Passports</h2>
+      <p>Observed-only view for writing functional requirements: declared codes, runtime examples by status, and linked failing scenarios.</p>
+      {''.join(passport_html) or '<p class="muted">Endpoint passports will appear after runtime requests are collected.</p>'}
+    </section>
+    <section class="panel">
       <h2>Contract Mismatches</h2>
       {''.join(mismatch_html) or '<p class="muted">Явные contract mismatches по тексту падений пока не обнаружены.</p>'}
     </section>
@@ -511,7 +668,7 @@ class ObservationRecorder:
             json.dumps(self.test_reports, ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
-        self.write_html_report(rows)
+        self.write_html_report(rows, openapi_documents)
 
     def record_test_report(self, *, nodeid: str, outcome: str, longrepr: str = "") -> None:
         self.test_reports.append(
@@ -532,6 +689,18 @@ class ObservationRecorder:
             elif "AssertionError" in longrepr and "CONTACT_POINT_NOT_FOUND" in longrepr:
                 title = "Business prerequisite missing on stand"
                 kind = "business-drift"
+            elif "AssertionError" in longrepr and "assert response.status_code == 200" in longrepr:
+                title = "Unexpected status for business-valid scenario"
+                kind = "unexpected-status"
+            elif "AssertionError" in longrepr and "assert 200 in {400, 422}" in longrepr:
+                title = "Undocumented filter is accepted instead of being rejected"
+                kind = "validation-drift"
+            elif "AssertionError" in longrepr and "assert data[\"total\"] <= 1" in longrepr:
+                title = "Semantic drift in pagination or filtering"
+                kind = "semantic-drift"
+            elif "ReadTimeout" in longrepr:
+                title = "Endpoint timed out on valid or near-valid request"
+                kind = "timeout-drift"
             else:
                 continue
             results.append(

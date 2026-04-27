@@ -6,8 +6,11 @@ from configs.settings import ACCOUNTING_SETTINGS, CRM_SETTINGS, TEST_DATA
 from utils.api_client import APIClient
 from utils.observability import ObservationRecorder, reset_test_context, set_test_context
 from utils.openapi import (
+    APP_CONTENT_SCHEMA_FILE,
     ACCOUNTING_SCHEMA_FILE,
     CRM_SCHEMA_FILE,
+    MOBILE_SCHEMA_FILE,
+    load_schema_registry,
     load_openapi_schema,
 )
 
@@ -32,6 +35,16 @@ def accounting_openapi() -> dict:
 
 
 @pytest.fixture(scope="session")
+def app_content_openapi() -> dict:
+    return load_openapi_schema(APP_CONTENT_SCHEMA_FILE)
+
+
+@pytest.fixture(scope="session")
+def mobile_openapi() -> dict:
+    return load_openapi_schema(MOBILE_SCHEMA_FILE)
+
+
+@pytest.fixture(scope="session")
 def test_data():
     return TEST_DATA
 
@@ -51,12 +64,7 @@ def pytest_sessionfinish(session, exitstatus):
     recorder = session.config._observation_recorder if hasattr(session.config, "_observation_recorder") else None
     if recorder is None:
         return
-    recorder.finalize(
-        {
-            "crm": load_openapi_schema(CRM_SCHEMA_FILE),
-            "accounting": load_openapi_schema(ACCOUNTING_SCHEMA_FILE),
-        }
-    )
+    recorder.finalize(load_schema_registry())
 
 
 def pytest_configure(config):

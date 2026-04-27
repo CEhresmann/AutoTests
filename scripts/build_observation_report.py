@@ -9,7 +9,7 @@ if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
 from utils.observability import ObservationRecorder, RequestObservation
-from utils.openapi import ACCOUNTING_SCHEMA_FILE, CRM_SCHEMA_FILE, load_openapi_schema
+from utils.openapi import load_schema_registry
 
 
 def main() -> None:
@@ -27,12 +27,7 @@ def main() -> None:
     if recorder.failures_json_path.exists():
         recorder.test_reports = json.loads(recorder.failures_json_path.read_text(encoding="utf-8"))
 
-    recorder.finalize(
-        {
-            "crm": load_openapi_schema(CRM_SCHEMA_FILE),
-            "accounting": load_openapi_schema(ACCOUNTING_SCHEMA_FILE),
-        }
-    )
+    recorder.finalize(load_schema_registry())
 
 
 if __name__ == "__main__":

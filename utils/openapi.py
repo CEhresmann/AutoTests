@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from functools import lru_cache
 from pathlib import Path
 from typing import Any
@@ -10,6 +11,15 @@ from configs.settings import OPENAPI_DIR
 
 CRM_SCHEMA_FILE = OPENAPI_DIR / "CRM-EXTERNAL-INTEGRATIONS-openapi.json"
 ACCOUNTING_SCHEMA_FILE = OPENAPI_DIR / "ACCOUNTING-EXTERNAL-INTEGRATIONS-openapi.json"
+APP_CONTENT_SCHEMA_FILE = OPENAPI_DIR / "dreamisland-back-all-app-content.json"
+MOBILE_SCHEMA_FILE = OPENAPI_DIR / "dreamisland-back-mobile.json"
+
+SCHEMA_FILES = {
+    "crm": CRM_SCHEMA_FILE,
+    "accounting": ACCOUNTING_SCHEMA_FILE,
+    "app-content": APP_CONTENT_SCHEMA_FILE,
+    "mobile": MOBILE_SCHEMA_FILE,
+}
 
 
 @lru_cache(maxsize=8)
@@ -60,3 +70,26 @@ def request_body_schema(
         .get("schema")
     )
 
+
+def load_schema_registry(names: list[str] | None = None) -> dict[str, dict[str, Any]]:
+    selected_names = names or list(SCHEMA_FILES)
+    return {name: load_openapi_schema(SCHEMA_FILES[name]) for name in selected_names}
+
+
+@lru_cache(maxsize=128)
+def _compiled_path_patterns(schema_path: str) -> re.Pattern[str]:
+    pattern = re.sub(r"\{[^/]+\}", r"[^/]+", schema_path)
+    return re.compile(f"^{pattern}$")
+
+
+def match_openapi_path(document: dict[str, Any], actual_path: str) -> str | None:
+    if actual_path in document["paths"]:
+        return actual_path
+
+    candidates: list[str] = []
+    for schema_path in document["paths"]:
+        if _compiled_path_patterns(schema_path).match(actual_path):
+            candidates.append(schema_path)
+    if not candidates:
+        return None
+    return sorted(candidates, key=lambda item: (-item.count("{"), -len(item)))[0]

@@ -15,7 +15,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Accrue Customer Points"
   },
   {
     "service": "accounting",
@@ -33,7 +35,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Activate Customer Points"
   },
   {
     "service": "accounting",
@@ -51,7 +55,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Get Bonus Balance"
   },
   {
     "service": "accounting",
@@ -69,7 +75,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Customer Points Balance"
   },
   {
     "service": "accounting",
@@ -87,7 +95,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Client Points History"
   },
   {
     "service": "accounting",
@@ -105,7 +115,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Create Bonus Hold"
   },
   {
     "service": "accounting",
@@ -123,7 +135,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Release Bonus Hold"
   },
   {
     "service": "accounting",
@@ -141,7 +155,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Activate Gift Certificate"
   },
   {
     "service": "accounting",
@@ -159,7 +175,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Credit Gift Certificate"
   },
   {
     "service": "accounting",
@@ -177,7 +195,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Debit Gift Certificate"
   },
   {
     "service": "accounting",
@@ -195,7 +215,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Refund Gift Certificate"
   },
   {
     "service": "accounting",
@@ -213,7 +235,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Validate Gift Certificate Data"
   },
   {
     "service": "accounting",
@@ -223,16 +247,17 @@
       200,
       422
     ],
-    "observed_statuses": [
-      200
-    ],
+    "observed_statuses": [],
     "missing_statuses": [
+      200,
       422
     ],
     "unexpected_statuses": [],
-    "observation_count": 1,
-    "example_test": "tests/accounting/test_orders.py::test_list_orders",
-    "example_classification": "business"
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "List Orders"
   },
   {
     "service": "accounting",
@@ -242,16 +267,17 @@
       201,
       422
     ],
-    "observed_statuses": [
-      201
-    ],
+    "observed_statuses": [],
     "missing_statuses": [
+      201,
       422
     ],
     "unexpected_statuses": [],
-    "observation_count": 1,
-    "example_test": "tests/accounting/test_orders.py::test_create_and_update_order",
-    "example_classification": "business"
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Create Order"
   },
   {
     "service": "accounting",
@@ -261,16 +287,17 @@
       200,
       422
     ],
-    "observed_statuses": [
-      200
-    ],
+    "observed_statuses": [],
     "missing_statuses": [
+      200,
       422
     ],
     "unexpected_statuses": [],
-    "observation_count": 1,
-    "example_test": "tests/accounting/test_orders.py::test_calculate_order",
-    "example_classification": "business"
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Calculate Order"
   },
   {
     "service": "accounting",
@@ -288,7 +315,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Get Order"
   },
   {
     "service": "accounting",
@@ -306,7 +335,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Update Order"
   },
   {
     "service": "accounting",
@@ -324,7 +355,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Update Order Item"
   },
   {
     "service": "accounting",
@@ -336,18 +369,19 @@
       422,
       500
     ],
-    "observed_statuses": [
-      200
-    ],
+    "observed_statuses": [],
     "missing_statuses": [
+      200,
       401,
       422,
       500
     ],
     "unexpected_statuses": [],
-    "observation_count": 1,
-    "example_test": "tests/accounting/test_products.py::test_list_products",
-    "example_classification": "business"
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение Списка Товаров"
   },
   {
     "service": "accounting",
@@ -361,10 +395,9 @@
       422,
       500
     ],
-    "observed_statuses": [
-      201
-    ],
+    "observed_statuses": [],
     "missing_statuses": [
+      201,
       400,
       401,
       409,
@@ -372,9 +405,11 @@
       500
     ],
     "unexpected_statuses": [],
-    "observation_count": 1,
-    "example_test": "tests/accounting/test_products.py::test_create_product",
-    "example_classification": "business"
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Создание/Обновление Товара"
   },
   {
     "service": "accounting",
@@ -387,19 +422,20 @@
       422,
       500
     ],
-    "observed_statuses": [
-      200
-    ],
+    "observed_statuses": [],
     "missing_statuses": [
+      200,
       400,
       401,
       422,
       500
     ],
     "unexpected_statuses": [],
-    "observation_count": 1,
-    "example_test": "tests/accounting/test_products.py::test_create_products_bulk",
-    "example_classification": "business"
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Массовое Создание/Обновление Товаров"
   },
   {
     "service": "accounting",
@@ -425,7 +461,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение Товара"
   },
   {
     "service": "accounting",
@@ -447,7 +485,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение Списка Категорий Товаров"
   },
   {
     "service": "accounting",
@@ -465,7 +505,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение Категории Товара"
   },
   {
     "service": "accounting",
@@ -487,7 +529,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Assign Promocode From Pool"
   },
   {
     "service": "accounting",
@@ -505,7 +549,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Apply Promotion To Order"
   },
   {
     "service": "accounting",
@@ -523,7 +569,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Apply Promotion To Order Item"
   },
   {
     "service": "accounting",
@@ -541,7 +589,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Get Available Promotions For Order"
   },
   {
     "service": "accounting",
@@ -559,7 +609,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Preview Promotion Application"
   },
   {
     "service": "accounting",
@@ -577,7 +629,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Remove Promotion From Order"
   },
   {
     "service": "accounting",
@@ -593,7 +647,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 0,
+    "summary": "Ping"
   },
   {
     "service": "accounting",
@@ -609,7 +665,3505 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 0,
+    "summary": "Health"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/IAPI/checkauth/",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Проверка ключа авторизации"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/IAPI/user/getUserByEmail/",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить пользователя по email"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/IAPI/user/register/",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/buying/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/app/celebration/organization",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Организовать праздник"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/celebration/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/app/certificate/buy",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Купить"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/certificate/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/certificate/{id}/{email}/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные сертификата"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/booking/{id}/dates",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Даты для регистрации"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/app/content/booking/{id}/registration",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация на мероприятие"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/booking/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/entertainment/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка развлечений"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/entertainment/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная развлечение"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/event/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка афишы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/event/{id}/dates",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Даты для регистрации"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/app/content/event/{id}/registration",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация на мероприятие"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/event/{id}/subEvents",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "События"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/event/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная афишы"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/app/content/father-frost/registration",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация на мероприятие"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/app/content/father-frost/ticket/{number}/validation",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Валидация номера билета"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/father-frost/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/location/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка зон"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/location/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная зоны"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/news-media/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка новостей"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/news-media/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная новость"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/news/archive/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка новостей (архив)"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/news/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка новостей"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/news/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная новость"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/our-object/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка объектов"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/our-object/placement/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная размещение"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/our-object/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная объекта"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/our-object/{id}/view/restaurants",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная объекта (Рестораны)"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/our-object/{id}/view/shops",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная объекта (Магазины)"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/page/structure",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Структура статических страниц"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/page/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение страницы по url"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/page/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение страницы по коду"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/scene/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Летний кинотеатр, КЦ Москва"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/template-page/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная шаблонная страница"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/trade/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка ресторанов"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/content/trade/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная ресторана"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/event/archive/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка афишы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/event/archive/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/event/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/father-frost/admin/autocomplete/{q}",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Поиск номера"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/app/father-frost/admin/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/app/father-frost/admin/{id}/issue",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Выдать"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/location/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/main/view",
+    "declared_statuses": [
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные главной страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/news-media/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/news/archive/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы (архив)"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/news/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/app/order/content/subscribe",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Подписка"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/order/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/our-object/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/personal/discountCard",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/personal/giftCard/{id}",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение информации по подарочной карте"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/personal/point/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "История начислений"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/app/personal/profile/checkConfirmPhone",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Подтверждение телефона через Mobile ID"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/app/personal/profile/checkConfirmPhoneType",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Проверка типа подтверждения телефона"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/app/personal/profile/confirmEmail",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Подтвердить почту"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/app/personal/profile/edit",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Обновление профиля"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/app/personal/profile/security-edit",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Обновление контактных данных"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/app/personal/profile/sendConfirmEmail",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Выслать подтверждение почты"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/app/personal/profile/sendConfirmPhone",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Запуск подтверждения телефона через Mobile ID"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/personal/ticket/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "История покупки билетов"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/personal/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/search/autocomplete",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Автокомплит"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/search/results",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Результаты поиска для детальной страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/sett/view",
+    "declared_statuses": [
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные главной страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/settings/redirects",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Редиректы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/settings/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Обвязка страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/app/vip-express/callback",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Отправить заявку VIP Express"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/app/vip-express/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные VIP Express"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/buying/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/entertainment/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка развлечений"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/entertainment/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная развлечение"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/event/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка афишы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/event/{id}/dates",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Даты для регистрации"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/content/event/{id}/registration",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация на мероприятие"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/event/{id}/subEvents",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "События"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/event/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная афишы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/faq/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить FAQ элементы раздела mobile"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/location/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка зон"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/location/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная зоны"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/news-media/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка новостей"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/news-media/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная новость"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/news/archive/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка новостей (архив)"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/news/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка новостей"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/news/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная новость"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/our-object/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка объектов"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/our-object/placement/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная размещение"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/our-object/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная объекта"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/our-object/{id}/view/restaurants",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная объекта (Рестораны)"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/our-object/{id}/view/shops",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная объекта (Магазины)"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/trade/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка ресторанов"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/trade/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная ресторана"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/event/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/location/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/main/view",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные главной страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/map/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные для карты"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/mindbox",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Майндбокс кастомная операция"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/news-media/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/news/archive/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы (архив)"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/news/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/onboarding/view",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные онбоардинга"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/order/bonus",
+    "declared_statuses": [
+      200,
+      400,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Данные с бонусами"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/order/calendar",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Данные для построения календаря с билетами"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/order/content/subscribe",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Подписка"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/order/save",
+    "declared_statuses": [
+      200,
+      400,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Расчет заказа"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/order/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/order/{id}/pay",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Оплата заказа"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/our-object/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/park/main/view",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные главной страницы в парке"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/children/add",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Редактирование ребенка"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/personal/children/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список детей"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/children/{id}/edit",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Редактирование ребенка"
+  },
+  {
+    "service": "app-content",
+    "method": "DELETE",
+    "path": "/api/mobile/v1/personal/children/{id}/remove",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Удаление ребенка"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/personal/discountCard",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Данные карты пользователя"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/personal/point/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "История начислений"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/profile/checkConfirmPhone",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Подтверждение телефона через Mobile ID"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/profile/checkConfirmPhoneType",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Проверка типа подтверждения телефона"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/profile/confirmEmail",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Подтвердить почту"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/profile/edit",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Обновление профиля"
+  },
+  {
+    "service": "app-content",
+    "method": "DELETE",
+    "path": "/api/mobile/v1/personal/profile/remove",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Удаление профиля"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/profile/security-edit",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Обновление контактных данных"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/profile/sendConfirmEmail",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Выслать подтверждение почты"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/profile/sendConfirmPhone",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Запуск подтверждения телефона через Mobile ID"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/ticket/{id}/{ticketId}/return",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Возврат билета"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/personal/ticket/{orderId}/getTicketsPdf",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить PDF билетов"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/ticket/{ticketId}/changeDate",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Изменить дату билета"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/personal/ticket/{ticketId}/changeDateCalendar",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получения списка возможных дат смены билета"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/personal/tickets/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "История билетов"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/personal/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Данные стартовой страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/search/autocomplete",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Автокомплит"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/search/results",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Результаты поиска для детальной страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/login",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/login/mid/checkAuth",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id после обычной авторизации"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/mid/checkAuth",
+    "declared_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id проверка кода"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/mid/checkType",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id проверка типа авторизации"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/security/mid/keys",
+    "declared_statuses": [],
+    "observed_statuses": [],
+    "missing_statuses": [],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id ключи"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/mid/login",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/mid/login/callback",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id коллбек"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/mid/registration",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация через mid"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/mts/login",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мтс"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/mts/login/callback",
+    "declared_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мтс коллбек"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/mts/registration",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация через мтс"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/park/login",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация в парке"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/refresh",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Рефреш токена"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/registration",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/restore",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Восстановление пароля"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/restore/changePassword",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Восстановление пароля, смена пароля"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/revoke",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Удаление токена"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/security/user",
+    "declared_statuses": [],
+    "observed_statuses": [],
+    "missing_statuses": [],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить текущий профиль"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/yandex/login",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через яндекс"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/yandex/login/callback",
+    "declared_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через яндекс коллбек"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/yandex/registration",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация через яндекс"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/mobile/v1/settings/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Обвязка страницы"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/checkExistUser",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Проверка существования пользователя"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/login",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/login/mid/checkAuth",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id после обычной авторизации"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/mid/checkAuth",
+    "declared_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id проверка кода"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/mid/checkType",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id проверка типа авторизации"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/security/mid/keys",
+    "declared_statuses": [],
+    "observed_statuses": [],
+    "missing_statuses": [],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id ключи"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/mid/login",
+    "declared_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/mid/login/callback",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id коллбек"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/mid/registration",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация через mid"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/mts/login",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мтс"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/mts/login/callback",
+    "declared_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мтс коллбек"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/mts/registration",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация через мтс"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/refresh",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Рефреш токена"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/registration",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/restore",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Восстановление пароля"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/restore/changePassword",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Восстановление пароля, смена пароля"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/revoke",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Удаление токена"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/token",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Токены для Post запросов"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/api/security/user",
+    "declared_statuses": [
+      200,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить текущий профиль"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/yandex/login",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через яндекс"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/yandex/login/callback",
+    "declared_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через яндекс коллбек"
+  },
+  {
+    "service": "app-content",
+    "method": "POST",
+    "path": "/api/security/yandex/registration",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация через яндекс"
+  },
+  {
+    "service": "app-content",
+    "method": "GET",
+    "path": "/ecom/info/view",
+    "declared_statuses": [
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные главной страницы"
   },
   {
     "service": "crm",
@@ -627,7 +4181,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Trigger Automatic Campaign For Customer List"
   },
   {
     "service": "crm",
@@ -651,7 +4207,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Создание Действий Клиентов"
   },
   {
     "service": "crm",
@@ -669,7 +4227,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Массовое Создание Действий Клиентов"
   },
   {
     "service": "crm",
@@ -697,7 +4257,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Обновление Клиентов"
   },
   {
     "service": "crm",
@@ -725,7 +4287,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Создание Клиентов"
   },
   {
     "service": "crm",
@@ -739,19 +4303,22 @@
       429,
       500
     ],
-    "observed_statuses": [],
-    "missing_statuses": [
+    "observed_statuses": [
       200,
+      500
+    ],
+    "missing_statuses": [
       400,
       401,
       422,
-      429,
-      500
+      429
     ],
     "unexpected_statuses": [],
-    "observation_count": 0,
-    "example_test": null,
-    "example_classification": null
+    "observation_count": 3,
+    "example_test": "tests/crm/test_customer_search_regressions.py::test_search_customer_by_unknown_website_id_returns_empty_page_not_500",
+    "example_classification": "infra",
+    "tag_count": 1,
+    "summary": "Поиск Клиентов По Критериям Фильтров"
   },
   {
     "service": "crm",
@@ -769,7 +4336,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация Устройства"
   },
   {
     "service": "crm",
@@ -787,7 +4356,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Отвязка Устройства От Клиента"
   },
   {
     "service": "crm",
@@ -805,7 +4376,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Привязка Устройства К Клиенту"
   },
   {
     "service": "crm",
@@ -821,7 +4394,9 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 0,
+    "summary": "Ping"
   },
   {
     "service": "crm",
@@ -837,6 +4412,1638 @@
     "unexpected_statuses": [],
     "observation_count": 0,
     "example_test": null,
-    "example_classification": null
+    "example_classification": null,
+    "tag_count": 0,
+    "summary": "Health"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/buying/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/entertainment/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка развлечений"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/entertainment/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная развлечение"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/event/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка афишы"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/event/{id}/dates",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Даты для регистрации"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/content/event/{id}/registration",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация на мероприятие"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/event/{id}/subEvents",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "События"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/event/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная афишы"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/faq/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить FAQ элементы раздела mobile"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/location/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка зон"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/location/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная зоны"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/news-media/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка новостей"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/news-media/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная новость"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/news/archive/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка новостей (архив)"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/news/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка новостей"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/news/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная новость"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/our-object/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка объектов"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/our-object/placement/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная размещение"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/our-object/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная объекта"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/our-object/{id}/view/restaurants",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная объекта (Рестораны)"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/our-object/{id}/view/shops",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная объекта (Магазины)"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/trade/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получение списка ресторанов"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/content/trade/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная ресторана"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/event/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/location/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/main/view",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные главной страницы"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/map/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные для карты"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/mindbox",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Майндбокс кастомная операция"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/news-media/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/news/archive/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы (архив)"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/news/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/onboarding/view",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные онбоардинга"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/order/bonus",
+    "declared_statuses": [
+      200,
+      400,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Данные с бонусами"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/order/calendar",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Данные для построения календаря с билетами"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/order/content/subscribe",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Подписка"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/order/save",
+    "declared_statuses": [
+      200,
+      400,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Расчет заказа"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/order/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Данные стартовой страницы"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/order/{id}/pay",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Оплата заказа"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/our-object/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные стартовой страницы"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/park/main/view",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить данные главной страницы в парке"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/children/add",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Редактирование ребенка"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/personal/children/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список детей"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/children/{id}/edit",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Редактирование ребенка"
+  },
+  {
+    "service": "mobile",
+    "method": "DELETE",
+    "path": "/api/mobile/v1/personal/children/{id}/remove",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Удаление ребенка"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/personal/discountCard",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Данные карты пользователя"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/personal/point/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "История начислений"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/profile/checkConfirmPhone",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Подтверждение телефона через Mobile ID"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/profile/checkConfirmPhoneType",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Проверка типа подтверждения телефона"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/profile/confirmEmail",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Подтвердить почту"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/profile/edit",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Обновление профиля"
+  },
+  {
+    "service": "mobile",
+    "method": "DELETE",
+    "path": "/api/mobile/v1/personal/profile/remove",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Удаление профиля"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/profile/security-edit",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Обновление контактных данных"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/profile/sendConfirmEmail",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Выслать подтверждение почты"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/profile/sendConfirmPhone",
+    "declared_statuses": [
+      200,
+      400
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Запуск подтверждения телефона через Mobile ID"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/ticket/{id}/{ticketId}/return",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Возврат билета"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/personal/ticket/{orderId}/getTicketsPdf",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить PDF билетов"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/personal/ticket/{ticketId}/changeDate",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Изменить дату билета"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/personal/ticket/{ticketId}/changeDateCalendar",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получения списка возможных дат смены билета"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/personal/tickets/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "История билетов"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/personal/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Данные стартовой страницы"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/search/autocomplete",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Автокомплит"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/search/results",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Результаты поиска для детальной страницы"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/login",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/login/mid/checkAuth",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id после обычной авторизации"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/mid/checkAuth",
+    "declared_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id проверка кода"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/mid/checkType",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id проверка типа авторизации"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/security/mid/keys",
+    "declared_statuses": [],
+    "observed_statuses": [],
+    "missing_statuses": [],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id ключи"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/mid/login",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/mid/login/callback",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мобильный id коллбек"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/mid/registration",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация через mid"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/mts/login",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мтс"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/mts/login/callback",
+    "declared_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через мтс коллбек"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/mts/registration",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация через мтс"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/park/login",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация в парке"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/refresh",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Рефреш токена"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/registration",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/restore",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Восстановление пароля"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/restore/changePassword",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Восстановление пароля, смена пароля"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/revoke",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Удаление токена"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/security/user",
+    "declared_statuses": [],
+    "observed_statuses": [],
+    "missing_statuses": [],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить текущий профиль"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/yandex/login",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через яндекс"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/yandex/login/callback",
+    "declared_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      201,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация через яндекс коллбек"
+  },
+  {
+    "service": "mobile",
+    "method": "POST",
+    "path": "/api/mobile/v1/security/yandex/registration",
+    "declared_statuses": [
+      200,
+      400,
+      405
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      400,
+      405
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация через яндекс"
+  },
+  {
+    "service": "mobile",
+    "method": "GET",
+    "path": "/api/mobile/v1/settings/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Обвязка страницы"
   }
 ]
