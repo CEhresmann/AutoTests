@@ -3,12 +3,14 @@ from __future__ import annotations
 import contextvars
 import csv
 import json
+import shlex
 from collections import defaultdict
 from dataclasses import asdict, dataclass, field
 from datetime import UTC, datetime
 from html import escape
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlencode
 
 from configs.settings import ARTIFACTS_DIR, REPORTS_DIR
 from utils.openapi import match_openapi_path
@@ -47,7 +49,7 @@ def ensure_jsonable(value: Any) -> Any:
 
 
 def redact_headers(headers: dict[str, Any]) -> dict[str, Any]:
-    sensitive = {"x-api-key", "authorization", "proxy-authorization"}
+    sensitive = {"x-api-key", "authorization", "proxy-authorization", "authkey"}
     result: dict[str, Any] = {}
     for key, value in headers.items():
         if key.lower() in sensitive and value:
@@ -55,6 +57,61 @@ def redact_headers(headers: dict[str, Any]) -> dict[str, Any]:
         else:
             result[key] = ensure_jsonable(value)
     return result
+
+
+def _curl_header_value(service: str, header_name: str, value: Any) -> str:
+    if value in {None, ""}:
+        return ""
+
+    service_env = {
+        "crm": "DREAMCRM",
+        "accounting": "DREAMCRM_ACCOUNTING",
+        "app-content": "DREAMCRM_APP_CONTENT",
+        "mobile": "DREAMCRM_MOBILE",
+    }.get(service)
+    normalized = header_name.lower()
+    if service_env and normalized == "x-api-key":
+        return f"${{{service_env}_API_KEY}}"
+    if service_env and normalized == "authorization":
+        return f"${{{service_env}_AUTHORIZATION}}"
+    if service_env and normalized == "authkey":
+        return f"${{{service_env}_AUTHKEY}}"
+    if value == "***REDACTED***":
+        return "***REDACTED***"
+    return str(value)
+
+
+def build_curl_command(
+    *,
+    service: str,
+    method: str,
+    base_url: str,
+    path: str,
+    request_headers: dict[str, Any],
+    params: dict[str, Any] | None,
+    json_body: Any,
+) -> str:
+    url = f"{base_url}{path}"
+    if params:
+        query = urlencode(params, doseq=True)
+        separator = "&" if "?" in url else "?"
+        url = f"{url}{separator}{query}"
+
+    parts = ["curl", "-i", "-X", method.upper()]
+    ignored_headers = {"accept-encoding", "connection", "content-length", "host", "user-agent"}
+    for key, value in request_headers.items():
+        if key.lower() in ignored_headers or value in {None, ""}:
+            continue
+        header_value = _curl_header_value(service, key, value)
+        parts.extend(["-H", f"{key}: {header_value}"])
+
+    if json_body is not None:
+        if not any(key.lower() == "content-type" for key in request_headers):
+            parts.extend(["-H", "Content-Type: application/json"])
+        parts.extend(["--data-raw", json.dumps(ensure_jsonable(json_body), ensure_ascii=False)])
+
+    parts.append(url)
+    return " ".join(shlex.quote(str(part)) for part in parts)
 
 
 def safe_json_from_response(response) -> Any:
@@ -146,6 +203,15 @@ class ObservationRecorder:
                 "headers": redact_headers(request_headers),
                 "params": ensure_jsonable(params),
                 "json": ensure_jsonable(json_body),
+                "curl": build_curl_command(
+                    service=service,
+                    method=method,
+                    base_url=base_url,
+                    path=path,
+                    request_headers=request_headers,
+                    params=params,
+                    json_body=json_body,
+                ),
             },
             "response": {
                 "status_code": response.status_code,
@@ -192,6 +258,15 @@ class ObservationRecorder:
                 "headers": redact_headers(request_headers),
                 "params": ensure_jsonable(params),
                 "json": ensure_jsonable(json_body),
+                "curl": build_curl_command(
+                    service=service,
+                    method=method,
+                    base_url=base_url,
+                    path=path,
+                    request_headers=request_headers,
+                    params=params,
+                    json_body=json_body,
+                ),
             },
             "response": {
                 "status_code": 0,
@@ -353,6 +428,15 @@ class ObservationRecorder:
 
         observations_html = []
         for observation in self.observations[-50:]:
+            curl = observation.request.get("curl") or build_curl_command(
+                service=observation.service,
+                method=observation.request["method"],
+                base_url=observation.request["base_url"],
+                path=observation.request["path"],
+                request_headers=observation.request.get("headers", {}),
+                params=observation.request.get("params"),
+                json_body=observation.request.get("json"),
+            )
             payload = escape(
                 json.dumps(asdict(observation), ensure_ascii=False, indent=2, default=str)
             )
@@ -365,6 +449,9 @@ class ObservationRecorder:
                     <span class="badge cls">{escape(observation.classification)}</span>
                     <span class="muted">{escape(observation.test.get("nodeid") or "unknown test")}</span>
                   </summary>
+                  <h3>curl</h3>
+                  <pre>{escape(curl)}</pre>
+                  <h3>observation</h3>
                   <pre>{payload}</pre>
                 </details>
                 """
@@ -406,6 +493,15 @@ class ObservationRecorder:
                 continue
             status_blocks = []
             for status, example in passport["examples_by_status"].items():
+                curl = example["request"].get("curl") or build_curl_command(
+                    service=example["service"],
+                    method=example["request"]["method"],
+                    base_url=example["request"]["base_url"],
+                    path=example["request"]["path"],
+                    request_headers=example["request"].get("headers", {}),
+                    params=example["request"].get("params"),
+                    json_body=example["request"].get("json"),
+                )
                 status_blocks.append(
                     f"""
                     <details class="obs-card">
@@ -414,6 +510,9 @@ class ObservationRecorder:
                         <span class="badge cls">{escape(example["classification"])}</span>
                         <span class="muted">{escape(example["test"].get("nodeid") or "unknown test")}</span>
                       </summary>
+                      <h3>curl</h3>
+                      <pre>{escape(curl)}</pre>
+                      <h3>observation</h3>
                       <pre>{escape(json.dumps(example, ensure_ascii=False, indent=2))}</pre>
                     </details>
                     """
@@ -493,6 +592,13 @@ class ObservationRecorder:
 
         total_requests = len(self.observations)
         endpoints_with_drift = sum(1 for row in rows if row["unexpected_statuses"])
+        server_error_requests = sum(1 for observation in self.observations if observation.response["status_code"] >= 500)
+        generated_validation_requests = sum(
+            1
+            for observation in self.observations
+            if "full_api" in observation.test.get("markers", [])
+            and observation.response["status_code"] in {400, 401, 403, 404, 405, 409, 422, 429}
+        )
         html = f"""<!doctype html>
 <html lang="ru">
 <head>
@@ -622,6 +728,11 @@ class ObservationRecorder:
       font-family: Consolas, monospace;
       font-size: 12px;
     }}
+    h3 {{
+      margin: 14px 0 0;
+      font-size: 14px;
+      color: var(--muted);
+    }}
   </style>
 </head>
 <body>
@@ -632,9 +743,12 @@ class ObservationRecorder:
       <div class="stats">
         <div class="stat"><strong>{total_requests}</strong>Наблюдений запросов</div>
         <div class="stat"><strong>{len(rows)}</strong>Методов в OpenAPI</div>
-        <div class="stat"><strong>{endpoints_with_drift}</strong>Методов с unexpected status</div>
+        <div class="stat"><strong>{endpoints_with_drift}</strong>Методов с undocumented status</div>
+        <div class="stat"><strong>{server_error_requests}</strong>Ответов 5xx</div>
+        <div class="stat"><strong>{generated_validation_requests}</strong>Synthetic validation/auth/404</div>
         <div class="stat"><strong>{sum(1 for row in rows if row["observed_statuses"])}</strong>Методов с runtime-данными</div>
       </div>
+      <p class="muted">400/401/403/404/422 от marker full_api часто означают не дефект сервиса, а синтетический запрос без полноценной бизнес-предпосылки или недокументированный error response. 5xx выделены отдельно как первичный риск.</p>
       <p class="muted">Сырые данные: {escape(str(self.observations_path))} | Матрица: {escape(str(self.coverage_json_path))}</p>
     </section>
     {''.join(sections)}

@@ -11,14 +11,14 @@ from configs.settings import OPENAPI_DIR
 
 CRM_SCHEMA_FILE = OPENAPI_DIR / "CRM-EXTERNAL-INTEGRATIONS-openapi.json"
 ACCOUNTING_SCHEMA_FILE = OPENAPI_DIR / "ACCOUNTING-EXTERNAL-INTEGRATIONS-openapi.json"
-#APP_CONTENT_SCHEMA_FILE = OPENAPI_DIR / "dreamisland-back-all-app-content.json"
-#MOBILE_SCHEMA_FILE = OPENAPI_DIR / "dreamisland-back-mobile.json"
+APP_CONTENT_SCHEMA_FILE = OPENAPI_DIR / "dreamisland-back-all-app-content.json"
+MOBILE_SCHEMA_FILE = OPENAPI_DIR / "dreamisland-back-mobile.json"
 
 SCHEMA_FILES = {
     "crm": CRM_SCHEMA_FILE,
     "accounting": ACCOUNTING_SCHEMA_FILE,
-#    "app-content": APP_CONTENT_SCHEMA_FILE,
-#    "mobile": MOBILE_SCHEMA_FILE,
+    "app-content": APP_CONTENT_SCHEMA_FILE,
+    "mobile": MOBILE_SCHEMA_FILE,
 }
 
 

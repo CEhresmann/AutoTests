@@ -33,6 +33,7 @@ markers = [
     "accounting: Accounting external integrations API tests",
     "app_content: dreamisland back all app content contract tests",
     "mobile: dreamisland back mobile contract tests",
+    "full_api: generated live checks for every OpenAPI operation",
     "bulk: bulk operation coverage",
     "integration: scenario tests with live API side effects",
     "regression: regression coverage",

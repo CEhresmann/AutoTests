@@ -18,6 +18,31 @@ Copy-Item .env.example .env
 .\.venv\Scripts\python.exe -m pytest -m contract
 ```
 
+`-m ...` включает только выбранный marker, поэтому остальные тесты pytest покажет как `deselected`.
+Чтобы запускать весь текущий набор без фильтрации, используйте:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest
+```
+
+## Полный live-прогон OpenAPI
+
+Для проверки всех операций, объявленных во всех OpenAPI-схемах:
+
+```powershell
+$env:DREAMCRM_RUN_FULL_OPENAPI_TESTS = "1"
+.\.venv\Scripts\python.exe -m pytest -m full_api
+```
+
+По умолчанию этот режим вызывает только read-only операции. Чтобы также дергать `POST`,
+`PATCH`, `PUT` и `DELETE`, включите отдельный флаг:
+
+```powershell
+$env:DREAMCRM_RUN_FULL_OPENAPI_TESTS = "1"
+$env:DREAMCRM_RUN_MUTATING_OPENAPI_TESTS = "1"
+.\.venv\Scripts\python.exe -m pytest -m full_api
+```
+
 ## Артефакты наблюдений
 
 После запуска pytest автоматически строятся:

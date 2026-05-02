@@ -113,6 +113,17 @@ class APIClient:
     ) -> requests.Response:
         return self.request("PATCH", path, headers=headers, params=params, json=json, timeout=timeout)
 
+    def put(
+        self,
+        path: str,
+        *,
+        headers: dict[str, str] | None = None,
+        params: dict[str, Any] | None = None,
+        json: Any | None = None,
+        timeout: int | None = None,
+    ) -> requests.Response:
+        return self.request("PUT", path, headers=headers, params=params, json=json, timeout=timeout)
+
     def delete(
         self,
         path: str,

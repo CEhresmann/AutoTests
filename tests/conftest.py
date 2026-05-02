@@ -2,7 +2,15 @@ from __future__ import annotations
 
 import pytest
 
-from configs.settings import ACCOUNTING_SETTINGS, CRM_SETTINGS, TEST_DATA
+from configs.settings import (
+    ACCOUNTING_SETTINGS,
+    APP_CONTENT_SETTINGS,
+    APP_CONTENT_TEST_DATA,
+    CRM_SETTINGS,
+    MOBILE_SETTINGS,
+    MOBILE_TEST_DATA,
+    TEST_DATA,
+)
 from utils.api_client import APIClient
 from utils.observability import ObservationRecorder, reset_test_context, set_test_context
 from utils.openapi import (
@@ -22,6 +30,16 @@ def crm_client(observation_recorder: ObservationRecorder) -> APIClient:
 @pytest.fixture(scope="session")
 def accounting_client(observation_recorder: ObservationRecorder) -> APIClient:
     return APIClient(ACCOUNTING_SETTINGS, recorder=observation_recorder)
+
+
+@pytest.fixture(scope="session")
+def app_content_client(observation_recorder: ObservationRecorder) -> APIClient:
+    return APIClient(APP_CONTENT_SETTINGS, recorder=observation_recorder)
+
+
+@pytest.fixture(scope="session")
+def mobile_client(observation_recorder: ObservationRecorder) -> APIClient:
+    return APIClient(MOBILE_SETTINGS, recorder=observation_recorder)
 
 
 @pytest.fixture(scope="session")
@@ -47,6 +65,16 @@ def mobile_openapi() -> dict:
 @pytest.fixture(scope="session")
 def test_data():
     return TEST_DATA
+
+
+@pytest.fixture(scope="session")
+def app_content_test_data():
+    return APP_CONTENT_TEST_DATA
+
+
+@pytest.fixture(scope="session")
+def mobile_test_data():
+    return MOBILE_TEST_DATA
 
 
 @pytest.fixture(autouse=True)
