@@ -72,7 +72,7 @@ def crm_customer_action_payload() -> dict:
     suffix = unique_suffix()
     return prune_payload(
         {
-            "email": TEST_DATA.email,
+            "customer_id": TEST_DATA.customer_id,
             "action_template_system_name": TEST_DATA.action_template_system_name,
             "event_time": utc_now(),
             "external_action_id": f"autotest-action-{suffix}",
@@ -84,7 +84,6 @@ def crm_customer_action_payload() -> dict:
 def crm_customer_action_bulk_payload() -> dict:
     first = crm_customer_action_payload()
     second = crm_customer_action_payload()
-    second["email"] = TEST_DATA.email
     return {"actions": [first, second]}
 
 

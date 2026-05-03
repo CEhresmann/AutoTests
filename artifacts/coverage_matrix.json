@@ -4751,11 +4751,11 @@
       500
     ],
     "observed_statuses": [
-      422
+      201
     ],
     "missing_statuses": [
-      201,
       401,
+      422,
       429,
       500
     ],
@@ -4775,15 +4775,12 @@
       422
     ],
     "observed_statuses": [
-      400
+      200
     ],
     "missing_statuses": [
-      200,
       422
     ],
-    "unexpected_statuses": [
-      400
-    ],
+    "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[crm:POST /api/v1/crm-external-integrations/customer-actions/bulk]",
     "example_classification": "business",
@@ -4835,10 +4832,10 @@
       500
     ],
     "observed_statuses": [
-      207
+      200
     ],
     "missing_statuses": [
-      200,
+      207,
       400,
       401,
       422,

@@ -8,6 +8,17 @@ from urllib.parse import quote
 import pytest
 
 from utils.openapi import load_schema_registry, resolve_ref
+from utils.test_data import (
+    accounting_bulk_product_payload,
+    accounting_calculate_payload,
+    accounting_order_payload,
+    accounting_product_payload,
+    crm_customer_action_bulk_payload,
+    crm_customer_action_payload,
+    crm_customer_payload,
+    crm_customer_search_payload,
+    crm_customer_update_payload,
+)
 
 
 SERVICE_FIXTURES = {
@@ -19,6 +30,16 @@ SERVICE_FIXTURES = {
 
 MUTATING_METHODS = {"POST", "PUT", "PATCH", "DELETE"}
 BUSINESS_STATUSES = {400, 401, 403, 404, 405, 409, 422, 429}
+KNOWN_JSON_BODY_FACTORIES = {
+    ("crm", "POST", "/api/v1/crm-external-integrations/customers"): crm_customer_payload,
+    ("crm", "POST", "/api/v1/crm-external-integrations/customers/search"): crm_customer_search_payload,
+    ("crm", "POST", "/api/v1/crm-external-integrations/customer-actions"): crm_customer_action_payload,
+    ("crm", "POST", "/api/v1/crm-external-integrations/customer-actions/bulk"): crm_customer_action_bulk_payload,
+    ("accounting", "POST", "/api/v1/accounting-external-api/product"): accounting_product_payload,
+    ("accounting", "POST", "/api/v1/accounting-external-api/product/bulk"): accounting_bulk_product_payload,
+    ("accounting", "POST", "/api/v1/accounting-external-api/orders"): accounting_order_payload,
+    ("accounting", "POST", "/api/v1/accounting-external-api/orders/calculate"): accounting_calculate_payload,
+}
 
 
 def iter_openapi_operations() -> list[pytest.ParamSpec]:
@@ -186,6 +207,14 @@ def _request_json(schema_document: dict[str, Any], operation: dict[str, Any], da
     return _sample_json(schema_document, json_schema, data) if json_schema else None
 
 
+def _known_request_json(service: str, method: str, schema_path: str, data: Any) -> Any:
+    if service == "crm" and method == "PATCH" and schema_path == "/api/v1/crm-external-integrations/customers":
+        return crm_customer_update_payload(int(_data_value(data, "customer_id") or 0))
+
+    factory = KNOWN_JSON_BODY_FACTORIES.get((service, method, schema_path))
+    return factory() if factory else None
+
+
 @pytest.mark.full_api
 @pytest.mark.parametrize(("service", "method", "schema_path"), iter_openapi_operations())
 def test_openapi_operation_is_callable(request, service: str, method: str, schema_path: str) -> None:
@@ -205,7 +234,11 @@ def test_openapi_operation_is_callable(request, service: str, method: str, schem
     operation = schema_document["paths"][schema_path][method.lower()]
     actual_path = _replace_path_params(schema_path, operation, data)
     params = _collect_params(operation, data)
-    json_body = _request_json(schema_document, operation, data) if method in MUTATING_METHODS else None
+    json_body = None
+    if method in MUTATING_METHODS:
+        json_body = _known_request_json(service, method, schema_path, data)
+        if json_body is None:
+            json_body = _request_json(schema_document, operation, data)
 
     response = client.request(method, actual_path, params=params or None, json=json_body, timeout=15)
     declared_statuses = {
