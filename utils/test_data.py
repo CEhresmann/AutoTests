@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from uuid import uuid4
 
 from configs.settings import TEST_DATA
@@ -9,6 +9,10 @@ from utils.payload_pruner import prune_payload
 
 def utc_now() -> str:
     return datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def utc_in(days: int) -> str:
+    return (datetime.now(UTC) + timedelta(days=days)).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
 def unique_suffix() -> str:
@@ -87,6 +91,35 @@ def crm_customer_action_bulk_payload() -> dict:
     return {"actions": [first, second]}
 
 
+def crm_campaign_automatic_send_payload(campaign_id: int) -> dict:
+    return {
+        "campaign_id": campaign_id,
+        "customer_ids": [TEST_DATA.customer_id],
+    }
+
+
+def crm_device_payload(device_id: str | None = None) -> dict:
+    suffix = device_id or f"autotest-device-{unique_suffix()}"
+    return prune_payload(
+        {
+            "device_id": suffix,
+            "device_info": {
+                "source": "autotest",
+                "user_agent": "pytest",
+            },
+        }
+    )
+
+
+def crm_device_assign_payload(device_id: str) -> dict:
+    return prune_payload(
+        {
+            "device_id": device_id,
+            "customer_id": TEST_DATA.customer_id,
+        }
+    )
+
+
 def accounting_product_payload() -> dict:
     suffix = unique_suffix()
     return prune_payload(
@@ -152,6 +185,12 @@ def accounting_order_update_payload(contact_point_id: str) -> dict:
     )
 
 
+def accounting_order_item_update_payload(status: str = "ACTIVE") -> dict:
+    return {
+        "status": status,
+    }
+
+
 def accounting_calculate_payload() -> dict:
     suffix = unique_suffix()
     return prune_payload(
@@ -178,4 +217,126 @@ def accounting_calculate_payload() -> dict:
 def accounting_promotion_preview_payload(order_id: int) -> dict:
     return {
         "order_id": order_id,
+    }
+
+
+def accounting_bonus_accrue_payload() -> dict:
+    return prune_payload(
+        {
+            "customer_id": TEST_DATA.customer_id,
+            "amount": 1,
+            "description": "Autotest bonus accrue",
+            "valid_from": utc_now(),
+        }
+    )
+
+
+def accounting_bonus_pending_accrue_payload() -> dict:
+    return prune_payload(
+        {
+            "customer_id": TEST_DATA.customer_id,
+            "amount": 1,
+            "description": "Autotest pending bonus accrue",
+            "valid_from": utc_in(31),
+            "valid_until": utc_in(62),
+        }
+    )
+
+
+def accounting_bonus_activate_payload(bonus_id: str) -> dict:
+    return {
+        "bonus_id": bonus_id,
+    }
+
+
+def accounting_bonus_hold_payload(order_external_id: str) -> dict:
+    return prune_payload(
+        {
+            "customer_id": TEST_DATA.customer_id,
+            "external_order_id": order_external_id,
+            "amount": 1,
+            "channel": "WEB",
+        }
+    )
+
+
+def accounting_bonus_hold_release_payload() -> dict:
+    return {
+        "status": "RELEASED",
+    }
+
+
+def accounting_promotion_apply_payload(order_id: int, promocode: str | None = None) -> dict:
+    payload = {"order_id": order_id}
+    if promocode:
+        payload["promocode"] = promocode
+    return payload
+
+
+def accounting_promotion_apply_to_item_payload(order_id: int, order_item_id: int, promotion_id: int) -> dict:
+    return {
+        "order_id": order_id,
+        "order_item_id": order_item_id,
+        "promotion_id": promotion_id,
+    }
+
+
+def accounting_promotion_remove_payload(order_id: int, promotion_id: int) -> dict:
+    return {
+        "order_id": order_id,
+        "promotion_id": promotion_id,
+    }
+
+
+def accounting_promotion_available_payload(order_id: int) -> dict:
+    return {
+        "order_id": order_id,
+    }
+
+
+def accounting_promocode_assign_payload(pool_id: int) -> dict:
+    return {
+        "pool_id": pool_id,
+        "customer_id": TEST_DATA.customer_id,
+    }
+
+
+def accounting_gift_certificate_activate_payload(order_external_id: str) -> dict:
+    suffix = unique_suffix()
+    return {
+        "nominal_value": 1,
+        "transaction_id": f"autotest-gift-activate-{suffix}",
+        "external_order_id": order_external_id,
+        "customer_id": TEST_DATA.customer_id,
+        "activated_at": utc_now(),
+    }
+
+
+def accounting_gift_certificate_debit_payload() -> dict:
+    suffix = unique_suffix()
+    return {
+        "amount": 1,
+        "transaction_id": f"autotest-gift-debit-{suffix}",
+    }
+
+
+def accounting_gift_certificate_credit_payload() -> dict:
+    suffix = unique_suffix()
+    return {
+        "amount": 1,
+        "transaction_id": f"autotest-gift-credit-{suffix}",
+    }
+
+
+def accounting_gift_certificate_refund_payload() -> dict:
+    suffix = unique_suffix()
+    return {
+        "transaction_id": f"autotest-gift-refund-{suffix}",
+    }
+
+
+def accounting_gift_certificate_validate_payload() -> dict:
+    suffix = unique_suffix()
+    return {
+        "transaction_id": f"autotest-gift-validate-{suffix}",
     }

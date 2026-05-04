@@ -8,18 +8,15 @@
       422
     ],
     "observed_statuses": [
-      500
+      201
     ],
     "missing_statuses": [
-      201,
       422
     ],
-    "unexpected_statuses": [
-      500
-    ],
-    "observation_count": 1,
+    "unexpected_statuses": [],
+    "observation_count": 2,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/bonuses/accrue-customer-points]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Accrue Customer Points"
   },
@@ -32,18 +29,15 @@
       422
     ],
     "observed_statuses": [
-      500
+      200
     ],
     "missing_statuses": [
-      200,
       422
     ],
-    "unexpected_statuses": [
-      500
-    ],
+    "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/bonuses/activate-customer-points]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Activate Customer Points"
   },
@@ -56,18 +50,18 @@
       422
     ],
     "observed_statuses": [
-      500
+      400
     ],
     "missing_statuses": [
       200,
       422
     ],
     "unexpected_statuses": [
-      500
+      400
     ],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:GET /api/v1/accounting-external-api/bonuses/balance]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Get Bonus Balance"
   },
@@ -80,18 +74,15 @@
       422
     ],
     "observed_statuses": [
-      500
+      200
     ],
     "missing_statuses": [
-      200,
       422
     ],
-    "unexpected_statuses": [
-      500
-    ],
+    "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:GET /api/v1/accounting-external-api/bonuses/customer-points-balance]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Customer Points Balance"
   },
@@ -104,18 +95,18 @@
       422
     ],
     "observed_statuses": [
-      500
+      400
     ],
     "missing_statuses": [
       200,
       422
     ],
     "unexpected_statuses": [
-      500
+      400
     ],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:GET /api/v1/accounting-external-api/bonuses/customer-points-history]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Client Points History"
   },
@@ -128,18 +119,15 @@
       422
     ],
     "observed_statuses": [
-      500
+      201
     ],
     "missing_statuses": [
-      201,
       422
     ],
-    "unexpected_statuses": [
-      500
-    ],
-    "observation_count": 1,
+    "unexpected_statuses": [],
+    "observation_count": 2,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/bonuses/hold]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Create Bonus Hold"
   },
@@ -152,18 +140,15 @@
       422
     ],
     "observed_statuses": [
-      500
+      200
     ],
     "missing_statuses": [
-      200,
       422
     ],
-    "unexpected_statuses": [
-      500
-    ],
+    "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:PATCH /api/v1/accounting-external-api/bonuses/hold/{hold_id}]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Release Bonus Hold"
   },
@@ -176,18 +161,15 @@
       422
     ],
     "observed_statuses": [
-      500
-    ],
-    "missing_statuses": [
-      200,
       422
     ],
-    "unexpected_statuses": [
-      500
+    "missing_statuses": [
+      200
     ],
+    "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/gift-certificates/activate]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Activate Gift Certificate"
   },
@@ -200,18 +182,15 @@
       422
     ],
     "observed_statuses": [
-      500
-    ],
-    "missing_statuses": [
-      200,
       422
     ],
-    "unexpected_statuses": [
-      500
+    "missing_statuses": [
+      200
     ],
+    "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/gift-certificates/credit]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Credit Gift Certificate"
   },
@@ -224,18 +203,15 @@
       422
     ],
     "observed_statuses": [
-      500
-    ],
-    "missing_statuses": [
-      200,
       422
     ],
-    "unexpected_statuses": [
-      500
+    "missing_statuses": [
+      200
     ],
+    "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/gift-certificates/debit]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Debit Gift Certificate"
   },
@@ -248,18 +224,15 @@
       422
     ],
     "observed_statuses": [
-      500
-    ],
-    "missing_statuses": [
-      200,
       422
     ],
-    "unexpected_statuses": [
-      500
+    "missing_statuses": [
+      200
     ],
+    "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/gift-certificates/refund]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Refund Gift Certificate"
   },
@@ -272,18 +245,15 @@
       422
     ],
     "observed_statuses": [
-      500
-    ],
-    "missing_statuses": [
-      200,
       422
     ],
-    "unexpected_statuses": [
-      500
+    "missing_statuses": [
+      200
     ],
+    "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/gift-certificates/validate]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Validate Gift Certificate Data"
   },
@@ -296,18 +266,15 @@
       422
     ],
     "observed_statuses": [
-      500
+      200
     ],
     "missing_statuses": [
-      200,
       422
     ],
-    "unexpected_statuses": [
-      500
-    ],
+    "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:GET /api/v1/accounting-external-api/orders]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "List Orders"
   },
@@ -320,18 +287,15 @@
       422
     ],
     "observed_statuses": [
-      500
+      201
     ],
     "missing_statuses": [
-      201,
       422
     ],
-    "unexpected_statuses": [
-      500
-    ],
-    "observation_count": 1,
+    "unexpected_statuses": [],
+    "observation_count": 2,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/orders]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Create Order"
   },
@@ -344,18 +308,15 @@
       422
     ],
     "observed_statuses": [
-      500
+      200
     ],
     "missing_statuses": [
-      200,
       422
     ],
-    "unexpected_statuses": [
-      500
-    ],
+    "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/orders/calculate]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Calculate Order"
   },
@@ -368,18 +329,15 @@
       422
     ],
     "observed_statuses": [
-      500
+      200
     ],
     "missing_statuses": [
-      200,
       422
     ],
-    "unexpected_statuses": [
-      500
-    ],
+    "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:GET /api/v1/accounting-external-api/orders/{external_order_id}]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Get Order"
   },
@@ -392,18 +350,18 @@
       422
     ],
     "observed_statuses": [
-      500
+      404
     ],
     "missing_statuses": [
       200,
       422
     ],
     "unexpected_statuses": [
-      500
+      404
     ],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:PATCH /api/v1/accounting-external-api/orders/{external_order_id}]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Update Order"
   },
@@ -416,18 +374,15 @@
       422
     ],
     "observed_statuses": [
-      500
+      200
     ],
     "missing_statuses": [
-      200,
       422
     ],
-    "unexpected_statuses": [
-      500
-    ],
+    "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:PATCH /api/v1/accounting-external-api/orders/{external_order_id}/items/{external_line_id}]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Update Order Item"
   },
@@ -442,17 +397,17 @@
       500
     ],
     "observed_statuses": [
-      500
+      200
     ],
     "missing_statuses": [
-      200,
       401,
-      422
+      422,
+      500
     ],
     "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:GET /api/v1/accounting-external-api/product]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Получение Списка Товаров"
   },
@@ -469,19 +424,19 @@
       500
     ],
     "observed_statuses": [
-      500
+      201
     ],
     "missing_statuses": [
-      201,
       400,
       401,
       409,
-      422
+      422,
+      500
     ],
     "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/product]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Создание/Обновление Товара"
   },
@@ -497,18 +452,18 @@
       500
     ],
     "observed_statuses": [
-      500
+      200
     ],
     "missing_statuses": [
-      200,
       400,
       401,
-      422
+      422,
+      500
     ],
     "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/product/bulk]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Массовое Создание/Обновление Товаров"
   },
@@ -525,19 +480,19 @@
       500
     ],
     "observed_statuses": [
-      500
+      200
     ],
     "missing_statuses": [
-      200,
       400,
       401,
       404,
-      422
+      422,
+      500
     ],
     "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:GET /api/v1/accounting-external-api/product/{product_id}]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Получение Товара"
   },
@@ -552,17 +507,17 @@
       500
     ],
     "observed_statuses": [
-      500
+      200
     ],
     "missing_statuses": [
-      200,
       401,
-      422
+      422,
+      500
     ],
     "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:GET /api/v1/accounting-external-api/product_category]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Получение Списка Категорий Товаров"
   },
@@ -575,18 +530,15 @@
       422
     ],
     "observed_statuses": [
-      500
+      200
     ],
     "missing_statuses": [
-      200,
       422
     ],
-    "unexpected_statuses": [
-      500
-    ],
+    "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:GET /api/v1/accounting-external-api/product_category/{product_category_id}]",
-    "example_classification": "infra",
+    "example_classification": "business",
     "tag_count": 1,
     "summary": "Получение Категории Товара"
   },
@@ -600,21 +552,17 @@
       409,
       422
     ],
-    "observed_statuses": [
-      500
-    ],
+    "observed_statuses": [],
     "missing_statuses": [
       200,
       404,
       409,
       422
     ],
-    "unexpected_statuses": [
-      500
-    ],
-    "observation_count": 1,
-    "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/promocodes/assign]",
-    "example_classification": "infra",
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
     "tag_count": 1,
     "summary": "Assign Promocode From Pool"
   },
@@ -626,19 +574,15 @@
       200,
       422
     ],
-    "observed_statuses": [
-      500
-    ],
+    "observed_statuses": [],
     "missing_statuses": [
       200,
       422
     ],
-    "unexpected_statuses": [
-      500
-    ],
-    "observation_count": 1,
-    "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/promotions/apply]",
-    "example_classification": "infra",
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
     "tag_count": 1,
     "summary": "Apply Promotion To Order"
   },
@@ -650,19 +594,15 @@
       200,
       422
     ],
-    "observed_statuses": [
-      500
-    ],
+    "observed_statuses": [],
     "missing_statuses": [
       200,
       422
     ],
-    "unexpected_statuses": [
-      500
-    ],
-    "observation_count": 1,
-    "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/promotions/apply-to-item]",
-    "example_classification": "infra",
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
     "tag_count": 1,
     "summary": "Apply Promotion To Order Item"
   },
@@ -674,19 +614,15 @@
       200,
       422
     ],
-    "observed_statuses": [
-      500
-    ],
+    "observed_statuses": [],
     "missing_statuses": [
       200,
       422
     ],
-    "unexpected_statuses": [
-      500
-    ],
-    "observation_count": 1,
-    "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/promotions/available]",
-    "example_classification": "infra",
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
     "tag_count": 1,
     "summary": "Get Available Promotions For Order"
   },
@@ -698,19 +634,15 @@
       200,
       422
     ],
-    "observed_statuses": [
-      500
-    ],
+    "observed_statuses": [],
     "missing_statuses": [
       200,
       422
     ],
-    "unexpected_statuses": [
-      500
-    ],
-    "observation_count": 1,
-    "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/promotions/preview]",
-    "example_classification": "infra",
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
     "tag_count": 1,
     "summary": "Preview Promotion Application"
   },
@@ -722,19 +654,15 @@
       200,
       422
     ],
-    "observed_statuses": [
-      500
-    ],
+    "observed_statuses": [],
     "missing_statuses": [
       200,
       422
     ],
-    "unexpected_statuses": [
-      500
-    ],
-    "observation_count": 1,
-    "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:POST /api/v1/accounting-external-api/promotions/remove]",
-    "example_classification": "infra",
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
     "tag_count": 1,
     "summary": "Remove Promotion From Order"
   },
@@ -4726,16 +4654,15 @@
       200,
       422
     ],
-    "observed_statuses": [
-      200
-    ],
+    "observed_statuses": [],
     "missing_statuses": [
+      200,
       422
     ],
     "unexpected_statuses": [],
-    "observation_count": 1,
-    "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[crm:POST /api/v1/crm-external-integrations/campaigns/automatic/send]",
-    "example_classification": "business",
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
     "tag_count": 1,
     "summary": "Trigger Automatic Campaign For Customer List"
   },
@@ -4893,7 +4820,7 @@
       422
     ],
     "unexpected_statuses": [],
-    "observation_count": 1,
+    "observation_count": 2,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[crm:POST /api/v1/crm-external-integrations/devices]",
     "example_classification": "business",
     "tag_count": 1,
@@ -4929,10 +4856,10 @@
       422
     ],
     "observed_statuses": [
-      422
+      200
     ],
     "missing_statuses": [
-      200
+      422
     ],
     "unexpected_statuses": [],
     "observation_count": 1,
