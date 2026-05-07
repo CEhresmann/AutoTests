@@ -615,6 +615,21 @@ class ObservationRecorder:
       --warn: #b45309;
       --danger: #b91c1c;
     }}
+    .tabs-nav {{
+      display: flex; gap: 4px;
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 14px; padding: 5px;
+      margin-bottom: 20px; box-shadow: 0 4px 12px rgba(55,65,81,.06);
+      width: fit-content;
+    }}
+    .tab-link {{
+      display: block; padding: 8px 22px;
+      border-radius: 10px; text-decoration: none;
+      color: var(--muted); font-size: 14px;
+      font-family: Georgia, serif; transition: background .15s, color .15s;
+    }}
+    .tab-link:hover {{ background: var(--bg); color: var(--ink); }}
+    .tab-link.active {{ background: var(--ink); color: #fff; }}
     body {{
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
@@ -737,6 +752,10 @@ class ObservationRecorder:
 </head>
 <body>
   <div class="wrap">
+    <nav class="tabs-nav">
+      <a href="availability.html" class="tab-link">Доступность</a>
+      <a href="index.html" class="tab-link active">Покрытие API</a>
+    </nav>
     <section class="hero">
       <h1>DREAMCRM API Observation Report</h1>
       <p>Отчёт строится по фактическим request/response из тестов и помогает одновременно видеть OpenAPI-контракт, покрытие кодов ответа и реальные отклонения стенда.</p>

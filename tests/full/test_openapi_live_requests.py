@@ -407,6 +407,11 @@ def test_openapi_operation_is_callable(request, service: str, method: str, schem
                 json_body = crm_device_assign_payload(device_id)
 
     if service == "accounting":
+        if method == "GET" and TEST_DATA.customer_id:
+            # Several accounting GET endpoints declare customer_id/mobile_phone/email as optional
+            # but the API requires at least one identifier — always inject if we have it.
+            param_overrides.setdefault("customer_id", str(TEST_DATA.customer_id))
+
         if schema_path in {
             "/api/v1/accounting-external-api/orders/{external_order_id}",
             "/api/v1/accounting-external-api/orders/{external_order_id}/items/{external_line_id}",

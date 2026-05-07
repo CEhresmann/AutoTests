@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="300">
+  <title>DREAMCRM — Availability Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #f5f1e8;
+      --panel: #fffdf8;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --line: #ded4c2;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: Georgia, serif;
+      color: var(--ink);
+      background: radial-gradient(circle at top left, #efe4cf 0, transparent 30%),
+                  linear-gradient(180deg, #f8f4ec 0%, var(--bg) 100%);
+    }
+    .wrap { width: min(1300px, calc(100% - 48px)); margin: 32px auto 56px; }
+    .hero, .panel {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 18px; box-shadow: 0 10px 30px rgba(55,65,81,.08);
+      padding: 24px; margin-bottom: 20px;
+    }
+    h1, h2 { margin-top: 0; }
+    .hero-top { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+    .status-badge {
+      display: inline-block; border-radius: 999px;
+      padding: 4px 14px; font-size: 13px; font-weight: 700;
+      font-family: Consolas, monospace; letter-spacing: .03em;
+    }
+    .status-badge.up      { background: #dcfce7; color: #15803d; }
+    .status-badge.down    { background: #fee2e2; color: #991b1b; }
+    .status-badge.unknown { background: #f3f4f6; color: #6b7280; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+    .card {
+      border-radius: 16px; border: 1px solid var(--line);
+      padding: 18px 20px;
+    }
+    .card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .card-title { font-size: 18px; font-weight: 700; }
+    .card-stats { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+    .cstat {
+      flex: 1; min-width: 90px;
+      border: 1px solid var(--line); border-radius: 12px;
+      padding: 10px 12px; background: #fff;
+    }
+    .cstat strong { display: block; font-size: 22px; }
+    .cstat span { font-size: 12px; color: var(--muted); }
+    .ribbon { display: flex; flex-wrap: wrap; gap: 3px; align-items: center; }
+    .ribbon-wrap { margin-bottom: 10px; }
+    .ribbon-label { font-size: 11px; color: var(--muted); margin-left: 6px; }
+    .blk {
+      display: inline-block; width: 12px; height: 30px;
+      border-radius: 4px; cursor: default; transition: opacity .15s;
+    }
+    .blk:hover { opacity: .75; }
+    .blk.up   { background: #22c55e; }
+    .blk.slow { background: #f59e0b; }
+    .blk.down { background: #ef4444; }
+    .last-check { font-size: 11px; color: var(--muted); margin: 0; }
+    .chart-box { position: relative; height: 280px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 9px 8px; text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-weight: 700; }
+    .muted { color: var(--muted); font-size: 12px; }
+    .meta { margin-top: 12px; font-size: 12px; color: var(--muted); }
+    .tabs-nav {
+      display: flex; gap: 4px;
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 14px; padding: 5px;
+      margin-bottom: 20px; box-shadow: 0 4px 12px rgba(55,65,81,.06);
+      width: fit-content;
+    }
+    .tab-link {
+      display: block; padding: 8px 22px;
+      border-radius: 10px; text-decoration: none;
+      color: var(--muted); font-size: 14px;
+      font-family: Georgia, serif; transition: background .15s, color .15s;
+    }
+    .tab-link:hover { background: var(--bg); color: var(--ink); }
+    .tab-link.active { background: var(--ink); color: #fff; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="tabs-nav">
+    <a href="availability.html" class="tab-link active">Доступность</a>
+    <a href="index.html" class="tab-link">Покрытие API</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-top">
+      <h1 style="margin:0">DREAMCRM — Availability Dashboard</h1>
+      <span class="status-badge up">ВСЕ СЕРВИСЫ В НОРМЕ</span>
+    </div>
+    <p class="muted">Автоматически обновляется каждые 5 минут (meta refresh). Крон запускает зонды каждые 4 часа.</p>
+    <p class="meta">Всего проверок: <strong>3</strong> &nbsp;|&nbsp; Сгенерирован: 2026-05-07T14:13:25Z</p>
+  </section>
+
+  <section class="panel">
+    <h2>Статус сервисов</h2>
+    <div class="cards">
+      
+    <div class="card" style="border-top: 4px solid #7c3aed; background: #ede9fe20;">
+      <div class="card-head">
+        <span class="card-title" style="color:#7c3aed">ACCOUNTING</span>
+        <span class="status-badge up">ONLINE</span>
+      </div>
+      <div class="card-stats">
+        <div class="cstat">
+          <strong style="color:#16a34a">100.0%</strong>
+          <span>Uptime 24 ч</span>
+        </div>
+        <div class="cstat">
+          <strong style="color:#16a34a">100.0%</strong>
+          <span>Uptime 7 дней</span>
+        </div>
+        <div class="cstat">
+          <strong>653.19 ms</strong>
+          <span>Ответ (последний)</span>
+        </div>
+      </div>
+      <div class="ribbon-wrap">
+        <div class="ribbon"><span class="blk up" title="UP 200.32 ms — 2026-05-07T11:51:05Z"></span><span class="blk up" title="UP 195.13 ms — 2026-05-07T11:51:16Z"></span><span class="blk slow" title="SLOW 653.19 ms — 2026-05-07T11:51:19Z"></span><span class="muted ribbon-label">← 3 проверок (старые слева)</span></div>
+      </div>
+      <p class="muted last-check">Последняя проверка: 2026-05-07T11:51:19Z</p>
+    </div>
+    
+
+    <div class="card" style="border-top: 4px solid #0f766e; background: #ccfbf120;">
+      <div class="card-head">
+        <span class="card-title" style="color:#0f766e">CRM</span>
+        <span class="status-badge up">ONLINE</span>
+      </div>
+      <div class="card-stats">
+        <div class="cstat">
+          <strong style="color:#16a34a">100.0%</strong>
+          <span>Uptime 24 ч</span>
+        </div>
+        <div class="cstat">
+          <strong style="color:#16a34a">100.0%</strong>
+          <span>Uptime 7 дней</span>
+        </div>
+        <div class="cstat">
+          <strong>193.21 ms</strong>
+          <span>Ответ (последний)</span>
+        </div>
+      </div>
+      <div class="ribbon-wrap">
+        <div class="ribbon"><span class="blk slow" title="SLOW 1698.78 ms — 2026-05-07T11:51:05Z"></span><span class="blk slow" title="SLOW 1200.24 ms — 2026-05-07T11:51:16Z"></span><span class="blk up" title="UP 193.21 ms — 2026-05-07T11:51:19Z"></span><span class="muted ribbon-label">← 3 проверок (старые слева)</span></div>
+      </div>
+      <p class="muted last-check">Последняя проверка: 2026-05-07T11:51:19Z</p>
+    </div>
+    
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Время ответа — тренд (последние 48 проверок)</h2>
+    <div class="chart-box">
+      <canvas id="rtChart"></canvas>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Инциденты</h2>
+    <p class="muted">Зафиксированных инцидентов нет.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Журнал проверок (последние 40)</h2>
+    <table><thead><tr><th>Timestamp</th><th>ACCOUNTING</th><th>CRM</th></tr></thead><tbody><tr><td class="muted">2026-05-07T11:51:19Z</td><td style="color:#d97706">✓ 653.19 ms</td><td style="color:#16a34a">✓ 193.21 ms</td></tr><tr><td class="muted">2026-05-07T11:51:16Z</td><td style="color:#16a34a">✓ 195.13 ms</td><td style="color:#d97706">✓ 1200.24 ms</td></tr><tr><td class="muted">2026-05-07T11:51:05Z</td><td style="color:#16a34a">✓ 200.32 ms</td><td style="color:#d97706">✓ 1698.78 ms</td></tr></tbody></table>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  const data = {"labels":["2026-05-07T11:51:05Z", "2026-05-07T11:51:16Z", "2026-05-07T11:51:19Z"],"datasets":[{"label":"ACCOUNTING avg ms","data":[200.32, 195.13, 653.19],"borderColor":"#7c3aed","backgroundColor":"#7c3aed22","tension":0.3,"fill":false,"spanGaps":true},{"label":"CRM avg ms","data":[1698.78, 1200.24, 193.21],"borderColor":"#0f766e","backgroundColor":"#0f766e22","tension":0.3,"fill":false,"spanGaps":true}]};
+  // Trim ISO timestamps to HH:MM for readability
+  data.labels = data.labels.map(function(l) {
+    try { return l.substring(0, 16).replace('T', ' '); } catch(e) { return l; }
+  });
+  new Chart(document.getElementById('rtChart').getContext('2d'), {
+    type: 'line',
+    data: data,
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom' },
+        tooltip: { mode: 'index', intersect: false }
+      },
+      scales: {
+        x: { ticks: { maxRotation: 45, maxTicksLimit: 16 } },
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: 'Response time (ms)' }
+        }
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>
