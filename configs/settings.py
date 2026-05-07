@@ -130,6 +130,27 @@ MOBILE_SETTINGS = APISettings(
     authorization=os.getenv("DREAMCRM_MOBILE_AUTHORIZATION", ""),
 )
 
+MOBILE_SHOP_SETTINGS = APISettings(
+    name="mobile-shop",
+    base_url=os.getenv(
+        "DREAMCRM_MOBILE_SHOP_BASE_URL",
+        os.getenv("DREAMCRM_MOBILE_BASE_URL", "https://dreamisland.ru"),
+    ).rstrip("/"),
+    api_key="",
+    authorization=os.getenv("DREAMCRM_MOBILE_AUTHORIZATION", ""),
+)
+
+MOBILE_SITE_SETTINGS = APISettings(
+    name="mobile-site",
+    base_url=os.getenv(
+        "DREAMCRM_MOBILE_SITE_BASE_URL",
+        "https://back.dreamisland.ru",
+    ).rstrip("/"),
+    api_key="",
+    authorization=os.getenv("DREAMCRM_MOBILE_AUTHORIZATION", ""),
+    authkey=os.getenv("DREAMCRM_MOBILE_SITE_AUTHKEY", ""),
+)
+
 TEST_DATA = TestData(
     email=os.getenv("DREAMCRM_EMAIL", "n.tadzhibaeva@gmail.com"),
     customer_id=_int_env("DREAMCRM_CUSTOMER_ID", 554781),

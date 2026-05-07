@@ -6,6 +6,8 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
+import yaml
+
 from configs.settings import OPENAPI_DIR
 
 
@@ -13,19 +15,26 @@ CRM_SCHEMA_FILE = OPENAPI_DIR / "CRM-EXTERNAL-INTEGRATIONS-openapi.json"
 ACCOUNTING_SCHEMA_FILE = OPENAPI_DIR / "ACCOUNTING-EXTERNAL-INTEGRATIONS-openapi.json"
 APP_CONTENT_SCHEMA_FILE = OPENAPI_DIR / "dreamisland-back-all-app-content.json"
 MOBILE_SCHEMA_FILE = OPENAPI_DIR / "dreamisland-back-mobile.json"
+MOBILE_SHOP_SCHEMA_FILE = OPENAPI_DIR / "Mobile" / "openapi_back_shop_new.yaml"
+MOBILE_SITE_SCHEMA_FILE = OPENAPI_DIR / "Mobile" / "openapi_back_site.yaml"
 
 SCHEMA_FILES = {
     "crm": CRM_SCHEMA_FILE,
     "accounting": ACCOUNTING_SCHEMA_FILE,
     "app-content": APP_CONTENT_SCHEMA_FILE,
     "mobile": MOBILE_SCHEMA_FILE,
+    "mobile-shop": MOBILE_SHOP_SCHEMA_FILE,
+    "mobile-site": MOBILE_SITE_SCHEMA_FILE,
 }
 
 
-@lru_cache(maxsize=8)
+@lru_cache(maxsize=16)
 def load_openapi_schema(path: str | Path) -> dict[str, Any]:
     schema_path = Path(path)
-    return json.loads(schema_path.read_text(encoding="utf-8"))
+    text = schema_path.read_text(encoding="utf-8")
+    if schema_path.suffix in {".yaml", ".yml"}:
+        return yaml.safe_load(text)
+    return json.loads(text)
 
 
 def resolve_ref(document: dict[str, Any], ref: str) -> dict[str, Any]:

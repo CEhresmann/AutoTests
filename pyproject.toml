@@ -11,6 +11,7 @@ dependencies = [
     "jsonschema>=4.23.0,<5.0.0",
     "pytest>=8.3.0,<9.0.0",
     "python-dotenv>=1.0.1,<2.0.0",
+    "pyyaml>=6.0,<7.0",
     "requests>=2.32.0,<3.0.0",
 ]
 
@@ -33,6 +34,8 @@ markers = [
     "accounting: Accounting external integrations API tests",
     "app_content: dreamisland back all app content contract tests",
     "mobile: dreamisland back mobile contract tests",
+    "mobile_shop: dreamisland back shop (new) contract tests",
+    "mobile_site: dreamisland back site contract tests",
     "full_api: generated live checks for every OpenAPI operation",
     "bulk: bulk operation coverage",
     "integration: scenario tests with live API side effects",

@@ -8,6 +8,8 @@ from configs.settings import (
     APP_CONTENT_TEST_DATA,
     CRM_SETTINGS,
     MOBILE_SETTINGS,
+    MOBILE_SHOP_SETTINGS,
+    MOBILE_SITE_SETTINGS,
     MOBILE_TEST_DATA,
     TEST_DATA,
 )
@@ -18,6 +20,8 @@ from utils.openapi import (
     ACCOUNTING_SCHEMA_FILE,
     CRM_SCHEMA_FILE,
     MOBILE_SCHEMA_FILE,
+    MOBILE_SHOP_SCHEMA_FILE,
+    MOBILE_SITE_SCHEMA_FILE,
     load_schema_registry,
     load_openapi_schema,
 )
@@ -43,6 +47,16 @@ def mobile_client(observation_recorder: ObservationRecorder) -> APIClient:
 
 
 @pytest.fixture(scope="session")
+def mobile_shop_client(observation_recorder: ObservationRecorder) -> APIClient:
+    return APIClient(MOBILE_SHOP_SETTINGS, recorder=observation_recorder)
+
+
+@pytest.fixture(scope="session")
+def mobile_site_client(observation_recorder: ObservationRecorder) -> APIClient:
+    return APIClient(MOBILE_SITE_SETTINGS, recorder=observation_recorder)
+
+
+@pytest.fixture(scope="session")
 def crm_openapi() -> dict:
     return load_openapi_schema(CRM_SCHEMA_FILE)
 
@@ -60,6 +74,16 @@ def app_content_openapi() -> dict:
 @pytest.fixture(scope="session")
 def mobile_openapi() -> dict:
     return load_openapi_schema(MOBILE_SCHEMA_FILE)
+
+
+@pytest.fixture(scope="session")
+def mobile_shop_openapi() -> dict:
+    return load_openapi_schema(MOBILE_SHOP_SCHEMA_FILE)
+
+
+@pytest.fixture(scope="session")
+def mobile_site_openapi() -> dict:
+    return load_openapi_schema(MOBILE_SITE_SCHEMA_FILE)
 
 
 @pytest.fixture(scope="session")
