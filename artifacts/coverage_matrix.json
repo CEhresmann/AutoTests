@@ -50,15 +50,12 @@
       422
     ],
     "observed_statuses": [
-      400
+      200
     ],
     "missing_statuses": [
-      200,
       422
     ],
-    "unexpected_statuses": [
-      400
-    ],
+    "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:GET /api/v1/accounting-external-api/bonuses/balance]",
     "example_classification": "business",
@@ -95,15 +92,12 @@
       422
     ],
     "observed_statuses": [
-      400
+      200
     ],
     "missing_statuses": [
-      200,
       422
     ],
-    "unexpected_statuses": [
-      400
-    ],
+    "unexpected_statuses": [],
     "observation_count": 1,
     "example_test": "tests/full/test_openapi_live_requests.py::test_openapi_operation_is_callable[accounting:GET /api/v1/accounting-external-api/bonuses/customer-points-history]",
     "example_classification": "business",
@@ -6791,5 +6785,3145 @@
     "example_classification": "business",
     "tag_count": 1,
     "summary": "Обвязка страницы"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/basket/bonuses",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Применить бонусные баллы"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/basket/certificate",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Применить подарочный сертификат"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/basket/change",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Изменить количество товара в корзине"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "DELETE",
+    "path": "/api/app/basket/delete",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Удалить товары из корзины"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/basket/promocode",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Применить промокод"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/basket/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Просмотр корзины"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/brand/favorites/ids",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "ID избранных брендов"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/brand/favorites/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Избранные бренды"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/brand/favorites/{id}/add",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Добавить бренд в избранное"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "DELETE",
+    "path": "/api/app/brand/favorites/{id}/delete",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Удалить бренд из избранного"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/brand/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Страница брендов"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/brand/{code}/filter",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Фильтры и товары бренда"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/brand/{code}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная страница бренда"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/catalog/category/filter",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить доступные фильтры для категории"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/catalog/category/info",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Информация о категории"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/catalog/category/products",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Товары категории"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/catalog/category/tree",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Дерево категорий"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/catalog/product/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная страница товара"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/catalog/product/{id}/view/track",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Трекинг просмотра товара"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/catalog/subscribe/add",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Подписаться на уведомление о наличии товара"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/catalog/subscribe/check",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Проверить наличие подписки на товар"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/catalog/subscribe/delete",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Отписаться от уведомлений о товаре"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/company/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Страница компании / О нас"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/content/page/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список статических страниц"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/content/page/{code}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Просмотр статической страницы по коду"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/favorites/filter",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Фильтры для избранных товаров"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/favorites/ids",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "ID избранных товаров"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/favorites/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список избранных товаров"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/favorites/product/{id}/add",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Добавить товар в избранное"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "DELETE",
+    "path": "/api/app/favorites/product/{id}/delete",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Удалить товар из избранного"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/form/faq",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Задать вопрос в FAQ"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/form/faq/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список вопросов FAQ"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/form/review",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Добавить отзыв"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/form/review/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список отзывов"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "DELETE",
+    "path": "/api/app/form/review/{id}/delete",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Удалить отзыв"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/form/review/{id}/dislike",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Поставить дизлайк отзыву"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/form/review/{id}/like",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Поставить лайк отзыву"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/form/review/{id}/update",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Обновить отзыв"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/form/subscribe",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Подписка на новости"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/form/support",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Форма обратной связи / поддержка"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/geo/autocomplete",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Автодополнение для ввода города/адреса"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/geo/city",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Текущий город пользователя"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/geo/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список городов для доставки"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/main/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Данные главной страницы"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/order/calculate",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Расчёт стоимости доставки"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/order/cities",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Города для доставки"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/order/deliveries",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Доступные способы доставки"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/order/payments",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Доступные способы оплаты"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/order/pvz",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список пунктов выдачи заказов (ПВЗ)"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/order/save",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Оформить заказ"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/order/{id}/pay",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Оплатить заказ"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/personal/address/add",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Добавить адрес доставки"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/personal/address/{id}/edit",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Редактировать адрес"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "DELETE",
+    "path": "/api/app/personal/address/{id}/remove",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Удалить адрес"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/personal/address/{id}/select-default",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Установить адрес как основной"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/personal/address/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Просмотр адреса"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/personal/addresses/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список адресов доставки"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/personal/discountCard",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Дисконтная карта пользователя"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/personal/notifications/settings",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Настройки уведомлений"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/personal/order/reasons",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Причины отмены заказа"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/personal/order/refund/reasons",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Причины возврата"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/personal/order/{id}/refund/send",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Оформить заявку на возврат"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/personal/orders",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "История заказов"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/personal/orders/{id}/cancel",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Отменить заказ"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/personal/orders/{id}/question",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Задать вопрос по заказу"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/personal/orders/{id}/repeat",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Повторить заказ (добавить товары в корзину)"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/personal/orders/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детали заказа"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/personal/point/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "История бонусных баллов"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/personal/profile",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить профиль текущего пользователя"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/personal/profile/edit",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Редактировать профиль"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/app/personal/profile/password/edit",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Изменить пароль"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/personal/profile/uid",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить анонимный UID пользователя"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/personal/refund/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список заявок на возврат"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/personal/refund/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детали заявки на возврат"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/search/autocomplete",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Автодополнение поиска по каталогу"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/search/detail",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Результаты поиска"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/search/history",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "История поисковых запросов"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "DELETE",
+    "path": "/api/app/search/history/{id}/delete",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Удалить запрос из истории"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/settings/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Настройки приложения (меню, соцсети, футер)"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/sitemap/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Карта сайта"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/stocks/filter",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Фильтры для акций"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/stocks/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список акций"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/app/stocks/{code}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Детальная страница акции"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/login",
+    "declared_statuses": [
+      200,
+      401,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация по логину и паролю"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/login/mid/checkAuth",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Проверка MID авторизации (устаревший маршрут)"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/login/mid/login",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация MID (устаревший маршрут)"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/mid/callback",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Общий callback Mobile ID"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/mid/checkAuth",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Проверить статус MobileID авторизации"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/mid/checkType",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Определить тип MobileID авторизации"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "GET",
+    "path": "/api/security/mid/keys",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Публичные RSA-ключи для MobileID"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/mid/login",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Инициировать авторизацию через Mobile ID"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/mid/login/callback",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Callback Mobile ID авторизации"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/mid/registration",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация через Mobile ID"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/mts/login",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Инициировать OAuth-авторизацию через MTS"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/mts/login/callback",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Callback после авторизации через MTS"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/mts/registration",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Завершить регистрацию через MTS"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/refresh",
+    "declared_statuses": [
+      200,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Обновление access-токена"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/restore",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Запрос восстановления пароля"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/restore/changePassword",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Смена пароля по коду восстановления"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/yandex/login",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Инициировать OAuth-авторизацию через Яндекс"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/yandex/login/callback",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Callback после авторизации через Яндекс"
+  },
+  {
+    "service": "mobile-shop",
+    "method": "POST",
+    "path": "/api/security/yandex/registration",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Завершить регистрацию через Яндекс"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/IAPI/checkauth/",
+    "declared_statuses": [
+      200,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Проверить авторизацию пользователя по CRM-ID и auth_key"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/IAPI/user/getUserByEmail/",
+    "declared_statuses": [
+      200,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Найти пользователя по email"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/IAPI/user/register/",
+    "declared_statuses": [
+      200,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Зарегистрировать пользователя (server-to-server)"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/buying/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Страница «Покупка»"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/app/celebration/organization",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Форма организации праздника"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/celebration/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Страница «Праздник»"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/booking/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Страница бронирования (Hello Kitty и пр.)"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/booking/{id}/dates",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Доступные даты для бронирования"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/app/content/booking/{id}/registration",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Запись на бронирование"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/booking/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Карточка объекта бронирования"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/entertainment/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список развлечений"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/entertainment/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Карточка развлечения"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/event/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список мероприятий"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/event/{id}/dates",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Доступные даты и слоты для мероприятия"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/app/content/event/{id}/registration",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Запись на мероприятие"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/event/{id}/subEvents",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Дочерние мероприятия (sub-events)"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/event/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Карточка мероприятия"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/location/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список локаций"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/location/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Карточка локации"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/news-media/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список публикаций «СМИ о нас»"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/news-media/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Карточка публикации СМИ"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/news/archive/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список новостей в архиве"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/news/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список новостей"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/news/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Карточка новости"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/our-object/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список объектов (ТЦ, парки)"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/our-object/placement/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Карточка арендной площадки (placement)"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/our-object/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Карточка объекта"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/our-object/{id}/view/restaurants",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Рестораны внутри объекта"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/our-object/{id}/view/shops",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Магазины внутри объекта"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/page/structure",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Структура страниц CMS (разделы + страницы)"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/page/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Страница CMS по URL"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/page/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Страница CMS по ID"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/scene/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Карточка сцены"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/trade/list",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список ресторанов / кафе"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/content/trade/{id}/view",
+    "declared_statuses": [
+      200,
+      404
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      404
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Карточка ресторана / кафе"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/event/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Страница «Мероприятия»"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/main/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Главная страница"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/news-media/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Страница «СМИ о нас»"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/news/archive/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Страница архива новостей"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/news/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Страница «Новости»"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/app/order/content/subscribe",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Подписка из раздела «Заказ»"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/order/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Страница «Заказ»"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/our-object/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Страница «Наши объекты»"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/personal/point/list",
+    "declared_statuses": [
+      200,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "История бонусных баллов"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/app/personal/profile/checkConfirmPhone",
+    "declared_statuses": [
+      200,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Подтвердить телефон по SMS-коду"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/app/personal/profile/confirmEmail",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Подтвердить email по коду"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/app/personal/profile/edit",
+    "declared_statuses": [
+      200,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Редактирование профиля (имя, фамилия, дата рождения, дети)"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/app/personal/profile/security-edit",
+    "declared_statuses": [
+      200,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Редактирование email / телефона / пароля (алиас securityEdit)"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/app/personal/profile/securityEdit",
+    "declared_statuses": [
+      200,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Редактирование email / телефона / пароля"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/app/personal/profile/sendConfirmEmail",
+    "declared_statuses": [
+      200,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Отправить код подтверждения email"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/app/personal/profile/sendConfirmPhone",
+    "declared_statuses": [
+      200,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Отправить SMS-код подтверждения телефона"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/personal/ticket/list",
+    "declared_statuses": [
+      200,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список билетов пользователя"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/personal/view",
+    "declared_statuses": [
+      200,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Личный кабинет — главная (баланс, акции, спецпредложения)"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/search/autocomplete",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Автодополнение поиска"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/search/results",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Полнотекстовый поиск"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/settings/redirects",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Список редиректов (fromPath → toPath)"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/settings/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Настройки приложения (меню, контакты, соцсети и пр.)"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/app/trade/view",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Страница «Рестораны»"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/security/login",
+    "declared_statuses": [
+      200,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Авторизация по email и паролю"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/security/refresh",
+    "declared_statuses": [
+      200,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Обновление access-токена по refresh-токену"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/security/registration",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Регистрация нового пользователя по email"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/security/restore",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Запрос восстановления пароля (отправка письма)"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/security/restore/changePassword",
+    "declared_statuses": [
+      200,
+      422
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      422
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Смена пароля по ticket из письма восстановления"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/security/revoke",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Отзыв refresh-токена (выход из системы)"
+  },
+  {
+    "service": "mobile-site",
+    "method": "POST",
+    "path": "/api/security/token",
+    "declared_statuses": [
+      200
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить CSRF-токен"
+  },
+  {
+    "service": "mobile-site",
+    "method": "GET",
+    "path": "/api/security/user",
+    "declared_statuses": [
+      200,
+      401
+    ],
+    "observed_statuses": [],
+    "missing_statuses": [
+      200,
+      401
+    ],
+    "unexpected_statuses": [],
+    "observation_count": 0,
+    "example_test": null,
+    "example_classification": null,
+    "tag_count": 1,
+    "summary": "Получить профиль текущего пользователя"
   }
 ]
