@@ -6,4 +6,5 @@ Requires-Python: >=3.11
 Requires-Dist: jsonschema<5.0.0,>=4.23.0
 Requires-Dist: pytest<9.0.0,>=8.3.0
 Requires-Dist: python-dotenv<2.0.0,>=1.0.1
+Requires-Dist: pyyaml<7.0,>=6.0
 Requires-Dist: requests<3.0.0,>=2.32.0

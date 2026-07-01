@@ -92,8 +92,6 @@ def _extract_services(records: list[dict]) -> list[str]:
 _SERVICE_COLORS = {
     "crm":        ("#0f766e", "#ccfbf1"),
     "accounting": ("#7c3aed", "#ede9fe"),
-    "app-content":("#b45309", "#fef3c7"),
-    "mobile":     ("#1d4ed8", "#dbeafe"),
 }
 
 

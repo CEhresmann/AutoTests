@@ -1,0 +1,3181 @@
+{
+  "components": {
+    "schemas": {
+      "AdditionalData": {
+        "properties": {
+          "id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "format": "uuid",
+                "type": "string"
+              }
+            ],
+            "title": "Id"
+          },
+          "object_type": {
+            "$ref": "#/components/schemas/ObjectTypes"
+          }
+        },
+        "required": [
+          "object_type",
+          "id"
+        ],
+        "title": "AdditionalData",
+        "type": "object"
+      },
+      "AutomaticSendRequest": {
+        "properties": {
+          "campaign_id": {
+            "exclusiveMinimum": 0.0,
+            "title": "Campaign Id",
+            "type": "integer"
+          },
+          "custom_email": {
+            "anyOf": [
+              {
+                "format": "email",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Custom Email"
+          },
+          "customer_ids": {
+            "items": {
+              "type": "integer"
+            },
+            "minItems": 1,
+            "title": "Customer Ids",
+            "type": "array"
+          },
+          "objects": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/AdditionalData"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Objects"
+          }
+        },
+        "required": [
+          "campaign_id",
+          "customer_ids"
+        ],
+        "title": "AutomaticSendRequest",
+        "type": "object"
+      },
+      "AutomaticSendResponse": {
+        "properties": {
+          "campaign_id": {
+            "title": "Campaign Id",
+            "type": "integer"
+          },
+          "ok": {
+            "title": "Ok",
+            "type": "boolean"
+          },
+          "recipient_count": {
+            "title": "Recipient Count",
+            "type": "integer"
+          },
+          "run_id": {
+            "title": "Run Id",
+            "type": "integer"
+          },
+          "scheduled_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scheduled At"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ok",
+          "campaign_id",
+          "run_id",
+          "recipient_count",
+          "status",
+          "scheduled_at"
+        ],
+        "title": "AutomaticSendResponse",
+        "type": "object"
+      },
+      "BulkActionItemResult": {
+        "properties": {
+          "action_template_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Action Template Id"
+          },
+          "customer_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Customer Id"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          },
+          "error_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Code"
+          },
+          "event_time": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Event Time"
+          },
+          "external_action_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "External Action Id"
+          },
+          "id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id"
+          },
+          "index": {
+            "title": "Index",
+            "type": "integer"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "index",
+          "status"
+        ],
+        "title": "BulkActionItemResult",
+        "type": "object"
+      },
+      "CustomFieldResponseSchema": {
+        "properties": {
+          "field_value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Field Value"
+          },
+          "system_name": {
+            "title": "System Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "system_name"
+        ],
+        "title": "CustomFieldResponseSchema",
+        "type": "object"
+      },
+      "CustomerActionBulkCreateRequest": {
+        "properties": {
+          "actions": {
+            "items": {
+              "$ref": "#/components/schemas/CustomerActionBulkItemRequest"
+            },
+            "title": "Actions",
+            "type": "array"
+          }
+        },
+        "required": [
+          "actions"
+        ],
+        "title": "CustomerActionBulkCreateRequest",
+        "type": "object"
+      },
+      "CustomerActionBulkItemRequest": {
+        "properties": {
+          "action_data": {
+            "additionalProperties": true,
+            "title": "Action Data",
+            "type": "object"
+          },
+          "action_template_system_name": {
+            "title": "Action Template System Name",
+            "type": "string"
+          },
+          "contact_point_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contact Point Id"
+          },
+          "custom_fields": {
+            "items": {
+              "$ref": "#/components/schemas/CustomerActionCustomFieldCreateSchema"
+            },
+            "title": "Custom Fields",
+            "type": "array"
+          },
+          "customer_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Customer Id"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "device_id": {
+            "anyOf": [
+              {
+                "maxLength": 255,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Device Id"
+          },
+          "discount_card_number": {
+            "anyOf": [
+              {
+                "maxLength": 255,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Discount Card Number"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "event_time": {
+            "format": "date-time",
+            "title": "Event Time",
+            "type": "string"
+          },
+          "external_action_id": {
+            "anyOf": [
+              {
+                "maxLength": 255,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "External Action Id"
+          },
+          "mobile_phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mobile Phone"
+          },
+          "website_id": {
+            "anyOf": [
+              {
+                "maxLength": 255,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website Id"
+          }
+        },
+        "required": [
+          "action_template_system_name",
+          "event_time"
+        ],
+        "title": "CustomerActionBulkItemRequest",
+        "type": "object"
+      },
+      "CustomerActionBulkResultSchema": {
+        "properties": {
+          "error_count": {
+            "title": "Error Count",
+            "type": "integer"
+          },
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/BulkActionItemResult"
+            },
+            "title": "Results",
+            "type": "array"
+          },
+          "success": {
+            "title": "Success",
+            "type": "boolean"
+          },
+          "success_count": {
+            "title": "Success Count",
+            "type": "integer"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "success",
+          "total",
+          "success_count",
+          "error_count",
+          "results"
+        ],
+        "title": "CustomerActionBulkResultSchema",
+        "type": "object"
+      },
+      "CustomerActionCreateRequest": {
+        "properties": {
+          "action_data": {
+            "additionalProperties": true,
+            "title": "Action Data",
+            "type": "object"
+          },
+          "action_template_system_name": {
+            "title": "Action Template System Name",
+            "type": "string"
+          },
+          "contact_point_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contact Point Id"
+          },
+          "custom_fields": {
+            "items": {
+              "$ref": "#/components/schemas/CustomerActionCustomFieldCreateSchema"
+            },
+            "title": "Custom Fields",
+            "type": "array"
+          },
+          "customer_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Customer Id"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "device_id": {
+            "anyOf": [
+              {
+                "maxLength": 255,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Device Id"
+          },
+          "discount_card_number": {
+            "anyOf": [
+              {
+                "maxLength": 255,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Discount Card Number"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "event_time": {
+            "format": "date-time",
+            "title": "Event Time",
+            "type": "string"
+          },
+          "external_action_id": {
+            "anyOf": [
+              {
+                "maxLength": 255,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "External Action Id"
+          },
+          "mobile_phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mobile Phone"
+          },
+          "website_id": {
+            "anyOf": [
+              {
+                "maxLength": 255,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website Id"
+          }
+        },
+        "required": [
+          "action_template_system_name",
+          "event_time"
+        ],
+        "title": "CustomerActionCreateRequest",
+        "type": "object"
+      },
+      "CustomerActionCustomFieldCreateSchema": {
+        "properties": {
+          "system_name": {
+            "title": "System Name",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "system_name"
+        ],
+        "title": "CustomerActionCustomFieldCreateSchema",
+        "type": "object"
+      },
+      "CustomerActionCustomFieldResponseSchema": {
+        "properties": {
+          "field_value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Field Value"
+          },
+          "system_name": {
+            "title": "System Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "system_name"
+        ],
+        "title": "CustomerActionCustomFieldResponseSchema",
+        "type": "object"
+      },
+      "CustomerActionResultSchema": {
+        "properties": {
+          "action_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Action Data"
+          },
+          "action_template_id": {
+            "title": "Action Template Id",
+            "type": "integer"
+          },
+          "contact_point_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contact Point Id"
+          },
+          "custom_fields": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/CustomerActionCustomFieldResponseSchema"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Custom Fields"
+          },
+          "customer_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Customer Id"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "device_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Device Id"
+          },
+          "event_time": {
+            "format": "date-time",
+            "title": "Event Time",
+            "type": "string"
+          },
+          "external_action_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "External Action Id"
+          },
+          "id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id"
+          },
+          "integration_point_id": {
+            "title": "Integration Point Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "action_template_id",
+          "integration_point_id",
+          "event_time"
+        ],
+        "title": "CustomerActionResultSchema",
+        "type": "object"
+      },
+      "CustomerBaseSchema": {
+        "properties": {
+          "birth_date": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "const": "..**",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Birth Date"
+          },
+          "custom_fields": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/CustomFieldResponseSchema"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Custom Fields"
+          },
+          "discount_card_issued_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Discount Card Issued At"
+          },
+          "discount_card_number": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Discount Card Number"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "email_subscription_status": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email Subscription Status"
+          },
+          "external_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "External Id"
+          },
+          "first_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Name"
+          },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "is_email_confirmed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Email Confirmed"
+          },
+          "is_email_invalid": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Email Invalid"
+          },
+          "is_mobile_phone_confirmed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Mobile Phone Confirmed"
+          },
+          "is_mobile_phone_invalid": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Mobile Phone Invalid"
+          },
+          "last_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Name"
+          },
+          "middle_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Middle Name"
+          },
+          "mindbox_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mindbox Id"
+          },
+          "mobile_phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mobile Phone"
+          },
+          "pending_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pending Email"
+          },
+          "pending_mobile_phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pending Mobile Phone"
+          },
+          "push_subscription_status": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Push Subscription Status"
+          },
+          "registration_date": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Registration Date"
+          },
+          "sex": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SexEnum",
+                "maxLength": 1000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "timezone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Timezone"
+          },
+          "website_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website Id"
+          }
+        },
+        "required": [
+          "id",
+          "email",
+          "mobile_phone"
+        ],
+        "title": "CustomerBaseSchema",
+        "type": "object"
+      },
+      "CustomerCustomFieldCreateSchema": {
+        "properties": {
+          "field_value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Field Value"
+          },
+          "system_name": {
+            "title": "System Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "system_name"
+        ],
+        "title": "CustomerCustomFieldCreateSchema",
+        "type": "object"
+      },
+      "CustomerFilterSchema": {
+        "properties": {
+          "birth_date_from": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Birth Date From"
+          },
+          "birth_date_to": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Birth Date To"
+          },
+          "change_date_time_utc_from": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Change Date Time Utc From"
+          },
+          "change_date_time_utc_to": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Change Date Time Utc To"
+          },
+          "custom_fields": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Custom Fields"
+          },
+          "discount_card_number": {
+            "anyOf": [
+              {
+                "maxLength": 255,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Discount Card Number"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "first_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Name"
+          },
+          "ids": {
+            "default": [],
+            "items": {
+              "type": "integer"
+            },
+            "title": "Ids",
+            "type": "array"
+          },
+          "last_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Name"
+          },
+          "mobile_phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mobile Phone"
+          },
+          "sex": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SexEnum",
+                "maxLength": 1000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "website_id": {
+            "anyOf": [
+              {
+                "maxLength": 255,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website Id"
+          }
+        },
+        "title": "CustomerFilterSchema",
+        "type": "object"
+      },
+      "CustomersBulkCreateSchema": {
+        "properties": {
+          "customers": {
+            "items": {
+              "$ref": "#/components/schemas/CustomersCreateSchema"
+            },
+            "title": "Customers",
+            "type": "array"
+          }
+        },
+        "required": [
+          "customers"
+        ],
+        "title": "CustomersBulkCreateSchema",
+        "type": "object"
+      },
+      "CustomersBulkResponseSchema": {
+        "properties": {
+          "customers": {
+            "items": {
+              "$ref": "#/components/schemas/CustomerBaseSchema"
+            },
+            "title": "Customers",
+            "type": "array"
+          },
+          "error_count": {
+            "title": "Error Count",
+            "type": "integer"
+          },
+          "errors": {
+            "items": {
+              "$ref": "#/components/schemas/NotSuccessError"
+            },
+            "title": "Errors",
+            "type": "array"
+          },
+          "success": {
+            "title": "Success",
+            "type": "boolean"
+          },
+          "success_count": {
+            "title": "Success Count",
+            "type": "integer"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "success",
+          "total",
+          "success_count",
+          "error_count",
+          "customers",
+          "errors"
+        ],
+        "title": "CustomersBulkResponseSchema",
+        "type": "object"
+      },
+      "CustomersBulkUpdateSchema": {
+        "properties": {
+          "customers": {
+            "items": {
+              "$ref": "#/components/schemas/CustomersUpdateSchema"
+            },
+            "title": "Customers",
+            "type": "array"
+          }
+        },
+        "required": [
+          "customers"
+        ],
+        "title": "CustomersBulkUpdateSchema",
+        "type": "object"
+      },
+      "CustomersCreateSchema": {
+        "properties": {
+          "birth_date": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "examples": [
+              "1990-05-15T00:00:00Z"
+            ],
+            "title": "Birth Date"
+          },
+          "custom_fields": {
+            "items": {
+              "$ref": "#/components/schemas/CustomerCustomFieldCreateSchema"
+            },
+            "title": "Custom Fields",
+            "type": "array"
+          },
+          "device_id": {
+            "anyOf": [
+              {
+                "maxLength": 255,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Device Id"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "email_subscription_status": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email Subscription Status"
+          },
+          "external_id": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "External Id"
+          },
+          "first_name": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Name"
+          },
+          "is_email_confirmed": {
+            "default": false,
+            "title": "Is Email Confirmed",
+            "type": "boolean"
+          },
+          "is_email_invalid": {
+            "default": false,
+            "title": "Is Email Invalid",
+            "type": "boolean"
+          },
+          "last_name": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Name"
+          },
+          "middle_name": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Middle Name"
+          },
+          "mindbox_id": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mindbox Id"
+          },
+          "mobile_phone": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mobile Phone"
+          },
+          "pending_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pending Email"
+          },
+          "pending_mobile_phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pending Mobile Phone"
+          },
+          "push_subscription_status": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Push Subscription Status"
+          },
+          "push_token": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Push Token"
+          },
+          "sex": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SexEnum",
+                "maxLength": 1000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "timezone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "IANA timezone identifier",
+            "examples": [
+              "Europe/Moscow",
+              "UTC",
+              "Asia/Tokyo"
+            ],
+            "title": "Timezone"
+          },
+          "website_id": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website Id"
+          }
+        },
+        "title": "CustomersCreateSchema",
+        "type": "object"
+      },
+      "CustomersPageResponseSchema": {
+        "properties": {
+          "customers": {
+            "items": {
+              "$ref": "#/components/schemas/CustomerBaseSchema"
+            },
+            "title": "Customers",
+            "type": "array"
+          },
+          "page": {
+            "title": "Page",
+            "type": "integer"
+          },
+          "page_size": {
+            "title": "Page Size",
+            "type": "integer"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          },
+          "total_pages": {
+            "title": "Total Pages",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "total",
+          "page",
+          "page_size",
+          "total_pages",
+          "customers"
+        ],
+        "title": "CustomersPageResponseSchema",
+        "type": "object"
+      },
+      "CustomersSearchRequestSchema": {
+        "properties": {
+          "filter": {
+            "$ref": "#/components/schemas/CustomerFilterSchema"
+          },
+          "page": {
+            "default": 1,
+            "title": "Page",
+            "type": "integer"
+          },
+          "page_size": {
+            "default": 20,
+            "title": "Page Size",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "filter"
+        ],
+        "title": "CustomersSearchRequestSchema",
+        "type": "object"
+      },
+      "CustomersUpdateSchema": {
+        "properties": {
+          "birth_date": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "examples": [
+              "1990-05-15T00:00:00Z"
+            ],
+            "title": "Birth Date"
+          },
+          "custom_fields": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/CustomerCustomFieldCreateSchema"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Custom Fields"
+          },
+          "device_id": {
+            "anyOf": [
+              {
+                "maxLength": 255,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Device Id"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "email_subscription_status": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email Subscription Status"
+          },
+          "external_id": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "External Id"
+          },
+          "first_name": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Name"
+          },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "is_email_confirmed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Email Confirmed"
+          },
+          "is_email_invalid": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Email Invalid"
+          },
+          "is_mobile_phone_confirmed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Mobile Phone Confirmed"
+          },
+          "is_mobile_phone_invalid": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Mobile Phone Invalid"
+          },
+          "last_name": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Name"
+          },
+          "middle_name": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Middle Name"
+          },
+          "mindbox_id": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mindbox Id"
+          },
+          "mobile_phone": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mobile Phone"
+          },
+          "pending_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pending Email"
+          },
+          "pending_mobile_phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pending Mobile Phone"
+          },
+          "push_subscription_status": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Push Subscription Status"
+          },
+          "push_token": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Push Token"
+          },
+          "sex": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SexEnum",
+                "maxLength": 1000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "timezone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "IANA timezone identifier",
+            "examples": [
+              "Europe/Moscow",
+              "UTC",
+              "Asia/Tokyo"
+            ],
+            "title": "Timezone"
+          },
+          "website_id": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website Id"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "title": "CustomersUpdateSchema",
+        "type": "object"
+      },
+      "DeviceAssignRequest": {
+        "properties": {
+          "customer_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Customer Id"
+          },
+          "device_id": {
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Device Id",
+            "type": "string"
+          },
+          "discount_card_number": {
+            "anyOf": [
+              {
+                "maxLength": 255,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Discount Card Number"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "mobile_phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mobile Phone"
+          },
+          "website_id": {
+            "anyOf": [
+              {
+                "maxLength": 255,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website Id"
+          }
+        },
+        "required": [
+          "device_id"
+        ],
+        "title": "DeviceAssignRequest",
+        "type": "object"
+      },
+      "DeviceCreateRequest": {
+        "properties": {
+          "device_id": {
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Device Id",
+            "type": "string"
+          },
+          "device_info": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Device Info"
+          }
+        },
+        "required": [
+          "device_id"
+        ],
+        "title": "DeviceCreateRequest",
+        "type": "object"
+      },
+      "DeviceResponseSchema": {
+        "properties": {
+          "customer_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Customer Id"
+          },
+          "device_id": {
+            "title": "Device Id",
+            "type": "string"
+          },
+          "device_info": {
+            "additionalProperties": true,
+            "title": "Device Info",
+            "type": "object"
+          },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "last_activity_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Activity At"
+          }
+        },
+        "required": [
+          "id",
+          "device_id",
+          "device_info"
+        ],
+        "title": "DeviceResponseSchema",
+        "type": "object"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "NotSuccessError": {
+        "properties": {
+          "error": {
+            "title": "Error",
+            "type": "string"
+          },
+          "error_code": {
+            "title": "Error Code",
+            "type": "string"
+          },
+          "ids": {
+            "additionalProperties": true,
+            "title": "Ids",
+            "type": "object"
+          },
+          "index": {
+            "title": "Index",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "index",
+          "ids",
+          "error",
+          "error_code"
+        ],
+        "title": "NotSuccessError",
+        "type": "object"
+      },
+      "ObjectTypes": {
+        "enum": [
+          "customer_action",
+          "promocode",
+          "order",
+          "product",
+          "wallet",
+          "bonus",
+          "gift_certificate"
+        ],
+        "title": "ObjectTypes",
+        "type": "string"
+      },
+      "SexEnum": {
+        "enum": [
+          "male",
+          "female"
+        ],
+        "title": "SexEnum",
+        "type": "string"
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "APIKeyHeader": {
+        "in": "header",
+        "name": "X-API-Key",
+        "type": "apiKey"
+      }
+    }
+  },
+  "info": {
+    "title": "CRM-EXTERNAL-INTEGRATIONS",
+    "version": "0.1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/v1/crm-external-integrations/campaigns/automatic/send": {
+      "post": {
+        "operationId": "Trigger_automatic_campaign_for_customer_list_api_v1_crm_external_integrations_campaigns_automatic_send_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AutomaticSendRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AutomaticSendResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "summary": "Trigger Automatic Campaign For Customer List",
+        "tags": [
+          "Campaigns"
+        ]
+      }
+    },
+    "/api/v1/crm-external-integrations/customer-actions": {
+      "post": {
+        "description": "Создание действия клиента.\n\n**Идентификация клиента:**\nКлиент может быть найден по одному из следующих идентификаторов:\n- `email` - Email адрес клиента\n- `mobile_phone` - Номер телефона клиента\n- `customer_id` - Внешний ID клиента\n- `website_id` - ID клиента на сайте партнёра\n- `discount_card_number` - Номер карты лояльности клиента\n- `device_id` - Идентификатор устройства (если устройство привязано к клиенту, клиент будет определён автоматически; если не привязано — действие будет создано без клиента)\n\n**Обязательные поля:**\n- Один из: `email`, `mobile_phone`, `customer_id`, `website_id`, `discount_card_number`, `device_id`\n- `action_template_system_name` - Системное имя шаблона действия\n- `event_time` - Время события\n\n**Необязательные поля:**\n- `external_action_id` - Внешний идентификатор действия (макс. 255 символов)\n- `contact_point_id` - Поле external_id из объекта contact_point\n- `custom_fields` - Массив дополнительных полей действия\n\n**Дополнительные поля (custom_fields):**\nКаждое дополнительное поле содержит:\n- `system_name` - Системное имя поля (должно существовать в БД и быть активным)\n- `value` - Значение поля (опционально)\n\n**Ответ:**\n- 201: Запись успешно создана",
+        "operationId": "Создание_действий_клиентов_api_v1_crm_external_integrations_customer_actions_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerActionCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "with_custom_fields": {
+                    "summary": "С дополнительными полями",
+                    "value": {
+                      "action_data": {
+                        "amount": 2499.99,
+                        "currency": "RUB",
+                        "order_id": "ORD-1002"
+                      },
+                      "action_template_id": 12,
+                      "contact_point_id": 18,
+                      "custom_fields": [
+                        {
+                          "field_value": "SUMMER2024",
+                          "system_name": "promo_code"
+                        },
+                        {
+                          "field_value": "150",
+                          "system_name": "loyalty_points"
+                        },
+                        {
+                          "field_value": "express",
+                          "system_name": "delivery_type"
+                        }
+                      ],
+                      "customer_id": 501,
+                      "description": "Покупка в интернет-магазине",
+                      "event_time": "2024-05-20T10:15:00",
+                      "external_action_id": "EXT-12346",
+                      "id": 102,
+                      "integration_point_id": 3
+                    }
+                  },
+                  "without_custom_fields": {
+                    "summary": "Без дополнительных полей",
+                    "value": {
+                      "action_data": {
+                        "amount": 1999.99,
+                        "currency": "RUB",
+                        "order_id": "ORD-1001"
+                      },
+                      "action_template_id": 12,
+                      "contact_point_id": 18,
+                      "customer_id": 501,
+                      "description": "Покупка в интернет-магазине",
+                      "event_time": "2024-05-20T10:15:00",
+                      "external_action_id": "EXT-12345",
+                      "id": 101,
+                      "integration_point_id": 3
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerActionResultSchema"
+                }
+              }
+            },
+            "description": "Запись успешно создана"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "detail": "Отсутствует или неверный API-ключ в заголовке X-API-Key",
+                  "error": "Не авторизован",
+                  "error_code": "UNAUTHORIZED",
+                  "path": "/api/v1/customer-actions",
+                  "timestamp": "2024-01-15T14:30:00Z"
+                }
+              }
+            },
+            "description": "Не авторизован (отсутствует или неверный API-ключ)"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "contact_point_not_found": {
+                    "summary": "Точка контакта не найдена",
+                    "value": {
+                      "detail": "Точка контакта 'cp-123' не найдена для точки интеграции 'sdk_api'"
+                    }
+                  },
+                  "custom_field_not_found": {
+                    "summary": "Дополнительное поле не найдено или неактивно",
+                    "value": {
+                      "detail": "Пользовательские поля не найдены или неактивны: deep_link_opened"
+                    }
+                  },
+                  "customer_identifier_missing": {
+                    "summary": "Не указан ни один идентификатор клиента",
+                    "value": {
+                      "detail": "Не указан ни один идентификатор клиента (требуется один из: customer_id, email, mobile_phone, website_id, discount_card_number, device_id)"
+                    }
+                  },
+                  "customer_not_found": {
+                    "summary": "Клиент не найден",
+                    "value": {
+                      "detail": "Клиент не найден по идентификаторам: email=user@example.com, website_id=abc"
+                    }
+                  },
+                  "integration_point_not_allowed": {
+                    "summary": "Шаблон действия не разрешён для точки интеграции",
+                    "value": {
+                      "detail": "Шаблон действия 'app_open' не разрешён для точки интеграции 'sdk_api'"
+                    }
+                  },
+                  "template_not_found": {
+                    "summary": "Шаблон действия не найден или неактивен",
+                    "value": {
+                      "detail": "Шаблон действия 'app_open' не найден или неактивен"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Ошибка валидации или идентификации. Возможные причины:\n- Шаблон действия не найден или неактивен\n- Шаблон действия не разрешён для данной точки интеграции\n- Не указан ни один идентификатор клиента\n- Клиент не найден по указанным идентификаторам\n- Точка контакта (contact_point) не найдена\n- Дополнительное поле (custom_field) не найдено или неактивно\n- Время события находится в будущем (более 5 минут от текущего времени сервера)"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "detail": "Превышен максимум 50 запросов в минуту. Повторите попытку после указанного времени.",
+                  "error": "Превышен лимит частоты запросов",
+                  "error_code": "RATE_LIMIT_EXCEEDED",
+                  "path": "/api/v1/customer-actions",
+                  "retry_after": 45,
+                  "timestamp": "2024-01-15T14:30:00Z"
+                }
+              }
+            },
+            "description": "Превышен лимит частоты запросов (слишком много запросов)"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "detail": "Произошла непредвиденная ошибка. Свяжитесь с поддержкой API, если проблема не исчезнет.",
+                  "error": "Внутренняя ошибка сервера",
+                  "error_code": "INTERNAL_ERROR",
+                  "path": "/api/v1/customer-actions",
+                  "timestamp": "2024-01-15T14:30:00Z"
+                }
+              }
+            },
+            "description": "Внутренняя ошибка сервера"
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "summary": "Создание Действий Клиентов",
+        "tags": [
+          "Actions"
+        ]
+      }
+    },
+    "/api/v1/crm-external-integrations/customer-actions/bulk": {
+      "post": {
+        "description": "Массовое создание действий клиентов за один запрос.\n\n**Ограничения:**\n- Минимум: 1 действие\n- Максимум: 50 действий на запрос\n\n**Поведение:**\n- Каждое действие обрабатывается независимо\n- При частичном успехе возвращается HTTP 207\n- Если все действия завершились ошибкой, возвращается HTTP 400\n- `device_id` — если указан и не найден в БД, будет создан автоматически\n\n**Ответ:**\n- 200: Все действия успешно созданы\n- 207: Частичный успех\n- 400: Все действия завершились ошибкой",
+        "operationId": "Массовое_создание_действий_клиентов_api_v1_crm_external_integrations_customer_actions_bulk_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerActionBulkCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerActionBulkResultSchema"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "summary": "Массовое Создание Действий Клиентов",
+        "tags": [
+          "Actions"
+        ]
+      }
+    },
+    "/api/v1/crm-external-integrations/customers": {
+      "patch": {
+        "description": "Обновление одного или нескольких клиентов за один запрос.\n\n**Ограничения:**\n- Минимум: 1 клиент\n- Максимум: 50 клиентов на запрос\n\n**Идентификация:**\nКлиенты идентифицируются по:\n- `ids.id` — ID в базе данных\n\n**Поведение:**\n- Обновляются только предоставленные поля (частичное обновление)\n- Для обновления custom_fields нужно передать полный объект custom_fields\n- Если клиент не найден, он включается в массив ошибок\n\n**Ответ:**\n- 200: Все клиенты успешно обновлены\n- 207: Частичный успех (некоторые обновлены, некоторые с ошибкой)",
+        "operationId": "Обновление_клиентов_api_v1_crm_external_integrations_customers_patch",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomersBulkUpdateSchema"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "customers": [
+                    {
+                      "birth_date": "1985-07-01T00:00:00",
+                      "custom_fields": [
+                        {
+                          "field_value": "gold",
+                          "system_name": "vip_level"
+                        }
+                      ],
+                      "discount_card_number": "CARD-300",
+                      "email": "alexey@example.com",
+                      "external_id": "ext-300",
+                      "first_name": "Алексей",
+                      "id": 300,
+                      "is_email_confirmed": true,
+                      "is_email_invalid": false,
+                      "is_mobile_phone_confirmed": true,
+                      "is_mobile_phone_invalid": false,
+                      "last_name": "Смирнов",
+                      "mindbox_id": "mind-300",
+                      "mobile_phone": "+79990004455",
+                      "pending_email": "alexey.new@example.com",
+                      "registration_date": "2020-01-01T00:00:00",
+                      "sex": "male",
+                      "timezone": "Europe/Moscow",
+                      "website_id": "site-ru"
+                    },
+                    {
+                      "birth_date": "1992-11-11T00:00:00",
+                      "custom_fields": [],
+                      "discount_card_number": "CARD-301",
+                      "email": "svetlana@example.com",
+                      "external_id": "ext-301",
+                      "first_name": "Светлана",
+                      "id": 301,
+                      "is_email_confirmed": true,
+                      "is_email_invalid": false,
+                      "is_mobile_phone_confirmed": false,
+                      "is_mobile_phone_invalid": false,
+                      "last_name": "Кузнецова",
+                      "mindbox_id": "mind-301",
+                      "mobile_phone": "+79990005566",
+                      "pending_mobile_phone": "+79990005500",
+                      "registration_date": "2019-05-20T09:15:00",
+                      "sex": "female",
+                      "timezone": "Europe/Moscow",
+                      "website_id": "site-ru"
+                    }
+                  ],
+                  "error_count": 0,
+                  "errors": [],
+                  "success": true,
+                  "success_count": 2,
+                  "total": 2
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CustomersBulkResponseSchema"
+                }
+              }
+            },
+            "description": "Все клиенты успешно обновлены"
+          },
+          "207": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "customers": [
+                    {
+                      "birth_date": "1991-06-02T00:00:00",
+                      "custom_fields": [],
+                      "discount_card_number": "CARD-302",
+                      "email": "dmitry@example.com",
+                      "external_id": "ext-302",
+                      "first_name": "Дмитрий",
+                      "id": 302,
+                      "is_email_confirmed": true,
+                      "is_email_invalid": false,
+                      "is_mobile_phone_confirmed": true,
+                      "is_mobile_phone_invalid": false,
+                      "last_name": "Орлов",
+                      "mindbox_id": "mind-302",
+                      "mobile_phone": "+79990006677",
+                      "registration_date": "2018-03-25T12:30:00",
+                      "sex": "male",
+                      "timezone": "Europe/Moscow",
+                      "website_id": "site-ru"
+                    }
+                  ],
+                  "error_count": 1,
+                  "errors": [
+                    {
+                      "error": "Клиент с указанными идентификаторами не найден",
+                      "error_code": "NOT_FOUND_ERROR",
+                      "ids": {
+                        "external_id": "ext-missing",
+                        "mindbox_id": "mind-missing",
+                        "website_id": "site-ru"
+                      },
+                      "index": 1
+                    }
+                  ],
+                  "success": false,
+                  "success_count": 1,
+                  "total": 2
+                }
+              }
+            },
+            "description": "Частичный успех (часть клиентов обновилась, часть с ошибкой)"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "detail": "Не пройдена валидация запроса",
+                  "error": "Ошибка валидации",
+                  "error_code": "VALIDATION_ERROR",
+                  "path": "/api/v1/customers",
+                  "timestamp": "2024-05-15T12:00:00+00:00",
+                  "validation_errors": [
+                    {
+                      "field": "customers",
+                      "message": "должно содержать минимум 1 и максимум 50 элементов"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Нарушение ограничений размера пакета или структуры данных"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "detail": "Проверьте токен авторизации",
+                  "error": "Недостаточно прав",
+                  "error_code": "UNAUTHORIZED",
+                  "path": "/api/v1/customers",
+                  "timestamp": "2024-05-15T12:00:00+00:00"
+                }
+              }
+            },
+            "description": "Нет доступа к Mindbox API"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "detail": "Повторите запрос позже",
+                  "error": "Исчерпан лимит запросов",
+                  "error_code": "RATE_LIMIT_EXCEEDED",
+                  "path": "/api/v1/customers",
+                  "timestamp": "2024-05-15T12:00:00+00:00"
+                }
+              }
+            },
+            "description": "Превышен лимит запросов к внешней системе"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "detail": "Попробуйте повторить запрос позже",
+                  "error": "Внутренняя ошибка сервиса",
+                  "error_code": "INTERNAL_ERROR",
+                  "path": "/api/v1/customers",
+                  "timestamp": "2024-05-15T12:00:00+00:00"
+                }
+              }
+            },
+            "description": "Неожиданная ошибка сервера"
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "summary": "Обновление Клиентов",
+        "tags": [
+          "Customers"
+        ]
+      },
+      "post": {
+        "description": "Создание одного или нескольких клиентов за один запрос.\n\n**Ограничения:**\n- Минимум: 1 клиент\n- Максимум: 50 клиентов на запрос\n\n**Идентификация:**\nДолжен быть передано минимум одно из трех полей:\n- `website_id` — ID пользователя сайта\n\n- `email`\n\n- `mobile_phone`\n\n**Ответ:**\n- 201: Все клиенты успешно созданы\n- 207: Частичный успех (некоторые клиенты созданы, некоторые с ошибкой)\n- Возвращает массив успешно созданных клиентов и массив ошибок",
+        "operationId": "Создание_клиентов_api_v1_crm_external_integrations_customers_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomersBulkCreateSchema"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "customers": [
+                    {
+                      "birth_date": "1990-05-15T00:00:00",
+                      "custom_fields": [
+                        {
+                          "field_value": "123456",
+                          "system_name": "loyalty_card_number"
+                        },
+                        {
+                          "field_value": "Москва",
+                          "system_name": "favorite_store"
+                        }
+                      ],
+                      "discount_card_number": "CARD-501",
+                      "email": "ivan@example.com",
+                      "external_id": "ext-501",
+                      "first_name": "Иван",
+                      "id": 501,
+                      "is_email_confirmed": true,
+                      "is_email_invalid": false,
+                      "is_mobile_phone_confirmed": true,
+                      "is_mobile_phone_invalid": false,
+                      "last_name": "Петров",
+                      "middle_name": "Иванович",
+                      "mindbox_id": "mind-501",
+                      "mobile_phone": "+79990001122",
+                      "registration_date": "2024-02-01T08:30:00",
+                      "sex": "male",
+                      "timezone": "Europe/Moscow",
+                      "website_id": "site-ru"
+                    },
+                    {
+                      "birth_date": "1994-09-21T00:00:00",
+                      "custom_fields": [],
+                      "discount_card_number": "CARD-502",
+                      "email": "maria@example.com",
+                      "external_id": "ext-502",
+                      "first_name": "Мария",
+                      "id": 502,
+                      "is_email_confirmed": true,
+                      "is_email_invalid": false,
+                      "is_mobile_phone_confirmed": true,
+                      "is_mobile_phone_invalid": false,
+                      "last_name": "Иванова",
+                      "mindbox_id": "mind-502",
+                      "mobile_phone": "+79990002233",
+                      "registration_date": "2024-02-05T10:15:00",
+                      "sex": "female",
+                      "timezone": "Europe/Moscow",
+                      "website_id": "site-ru"
+                    }
+                  ],
+                  "error_count": 0,
+                  "errors": [],
+                  "success": true,
+                  "success_count": 2,
+                  "total": 2
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CustomersBulkResponseSchema"
+                }
+              }
+            },
+            "description": "Все клиенты успешно созданы"
+          },
+          "207": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "customers": [
+                    {
+                      "birth_date": "1988-03-10T00:00:00",
+                      "custom_fields": [
+                        {
+                          "field_value": "landing",
+                          "system_name": "source"
+                        }
+                      ],
+                      "discount_card_number": "CARD-700",
+                      "email": "ruslan@example.com",
+                      "external_id": "ext-700",
+                      "first_name": "Руслан",
+                      "id": 700,
+                      "is_email_confirmed": true,
+                      "is_email_invalid": false,
+                      "is_mobile_phone_confirmed": true,
+                      "is_mobile_phone_invalid": false,
+                      "last_name": "Кириллов",
+                      "mindbox_id": "mind-700",
+                      "mobile_phone": "+79990003344",
+                      "registration_date": "2024-02-10T12:00:00",
+                      "sex": "male",
+                      "timezone": "Europe/Moscow",
+                      "website_id": "site-ru"
+                    }
+                  ],
+                  "error_count": 1,
+                  "errors": [
+                    {
+                      "error": "Клиент с таким email уже существует",
+                      "error_code": "DUPLICATE_EMAIL",
+                      "ids": {
+                        "external_id": "ext-duplicate",
+                        "mindbox_id": "mind-duplicate",
+                        "website_id": "site-ru"
+                      },
+                      "index": 1
+                    }
+                  ],
+                  "success": false,
+                  "success_count": 1,
+                  "total": 2
+                }
+              }
+            },
+            "description": "Частичный успех (некоторые клиенты созданы, некоторые с ошибкой)"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "detail": "Не пройдена валидация запроса",
+                  "error": "Ошибка валидации",
+                  "error_code": "VALIDATION_ERROR",
+                  "path": "/api/v1/customers",
+                  "timestamp": "2024-05-15T12:00:00+00:00",
+                  "validation_errors": [
+                    {
+                      "field": "customers",
+                      "message": "должно содержать минимум 1 и максимум 50 элементов"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Неверный запрос (ошибка валидации, неверные параметры)"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "detail": "Отсутствует или неверный API-ключ в заголовке X-API-Key",
+                  "error": "Не авторизован",
+                  "error_code": "UNAUTHORIZED",
+                  "path": "/api/v1/crm-external-integrations/customers",
+                  "timestamp": "2024-01-15T14:30:00Z"
+                }
+              }
+            },
+            "description": "Не авторизован (отсутствует или неверный API-ключ)"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "detail": "Превышен максимум 50 запросов в минуту. Повторите попытку после указанного времени.",
+                  "error": "Превышен лимит частоты запросов",
+                  "error_code": "RATE_LIMIT_EXCEEDED",
+                  "path": "/api/v1/crm-external-integrations/customers",
+                  "retry_after": 45,
+                  "timestamp": "2024-01-15T14:30:00Z"
+                }
+              }
+            },
+            "description": "Превышен лимит частоты запросов (слишком много запросов)"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "detail": "Произошла непредвиденная ошибка. Свяжитесь с поддержкой API, если проблема не исчезнет.",
+                  "error": "Внутренняя ошибка сервера",
+                  "error_code": "INTERNAL_ERROR",
+                  "path": "/api/v2/external/crm/customers",
+                  "timestamp": "2024-01-15T14:30:00Z"
+                }
+              }
+            },
+            "description": "Внутренняя ошибка сервера"
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "summary": "Создание Клиентов",
+        "tags": [
+          "Customers"
+        ]
+      }
+    },
+    "/api/v1/crm-external-integrations/customers/search": {
+      "post": {
+        "description": "Поиск и получение клиентов на основе критериев фильтра.\n\nОграничения:\n- Максимум 50 результатов на страницу\n- Используйте пагинацию для больших наборов результатов\n\nОпции фильтра:\n- По id\n- По website_id (ID клиента на сайте партнёра)\n- По discount_card_number (номер карты лояльности)\n- По контактной информации (email, mobile_phone)\n- По личной информации (first_name, last_name, диапазон birth_date)\n- По полу\n- По диапазону дат регистрации/обновления\n- По пользовательским полям\n\nПагинация:\n- По умолчанию page: 1\n- По умолчанию page_size: 20\n- Максимальный page_size: 50",
+        "operationId": "Поиск_клиентов_по_критериям_фильтров_api_v1_crm_external_integrations_customers_search_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomersSearchRequestSchema"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "customers": [
+                    {
+                      "birth_date": "1993-04-18T00:00:00",
+                      "custom_fields": [
+                        {
+                          "field_value": "books",
+                          "system_name": "favorite_category"
+                        }
+                      ],
+                      "discount_card_number": "CARD-1001",
+                      "email": "natalia@example.com",
+                      "external_id": "ext-1001",
+                      "first_name": "Наталья",
+                      "id": 1001,
+                      "is_email_confirmed": true,
+                      "is_email_invalid": false,
+                      "is_mobile_phone_confirmed": true,
+                      "is_mobile_phone_invalid": false,
+                      "last_name": "Соколова",
+                      "mindbox_id": "mind-1001",
+                      "mobile_phone": "+79990007788",
+                      "registration_date": "2023-07-15T09:10:00",
+                      "sex": "female",
+                      "timezone": "Europe/Moscow",
+                      "website_id": "site-ru"
+                    },
+                    {
+                      "birth_date": "1989-12-09T00:00:00",
+                      "custom_fields": [],
+                      "discount_card_number": "CARD-1002",
+                      "email": "grigory@example.com",
+                      "external_id": "ext-1002",
+                      "first_name": "Григорий",
+                      "id": 1002,
+                      "is_email_confirmed": true,
+                      "is_email_invalid": false,
+                      "is_mobile_phone_confirmed": true,
+                      "is_mobile_phone_invalid": false,
+                      "last_name": "Беляев",
+                      "mindbox_id": "mind-1002",
+                      "mobile_phone": "+79990008899",
+                      "registration_date": "2022-03-11T11:00:00",
+                      "sex": "male",
+                      "timezone": "Europe/Moscow",
+                      "website_id": "site-ru"
+                    }
+                  ],
+                  "page": 2,
+                  "page_size": 20,
+                  "total": 125,
+                  "total_pages": 7
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CustomersPageResponseSchema"
+                }
+              }
+            },
+            "description": "Список клиентов найден и возвращён постранично"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "detail": "Проверьте тело запроса",
+                  "error": "Ошибка валидации",
+                  "error_code": "VALIDATION_ERROR",
+                  "path": "/api/v1/customers/search",
+                  "timestamp": "2024-05-15T12:00:00+00:00"
+                }
+              }
+            },
+            "description": "Ошибка структуры поискового запроса"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "detail": "Проверьте токен авторизации",
+                  "error": "Недостаточно прав",
+                  "error_code": "UNAUTHORIZED",
+                  "path": "/api/v1/customers/search",
+                  "timestamp": "2024-05-15T12:00:00+00:00"
+                }
+              }
+            },
+            "description": "Нет доступа к Mindbox API"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "detail": [
+                    {
+                      "input": {
+                        "filter": {
+                          "birth_date_from": "2024-12-01T00:00:00",
+                          "birth_date_to": "2024-11-01T00:00:00",
+                          "website_id": "site-ru"
+                        },
+                        "page": 1,
+                        "page_size": 20
+                      },
+                      "loc": [
+                        "body",
+                        "filter"
+                      ],
+                      "msg": "\"birth_date_from\" не может быть больше \"birth_date_to\"",
+                      "type": "value_error"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Ошибка валидации параметров фильтра"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "detail": "Повторите запрос позже",
+                  "error": "Исчерпан лимит запросов",
+                  "error_code": "RATE_LIMIT_EXCEEDED",
+                  "path": "/api/v1/customers/search",
+                  "timestamp": "2024-05-15T12:00:00+00:00"
+                }
+              }
+            },
+            "description": "Превышен лимит запросов к внешней системе"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "detail": "Попробуйте повторить запрос позже",
+                  "error": "Внутренняя ошибка сервиса",
+                  "error_code": "INTERNAL_ERROR",
+                  "path": "/api/v1/customers/search",
+                  "timestamp": "2024-05-15T12:00:00+00:00"
+                }
+              }
+            },
+            "description": "Неожиданная ошибка сервера"
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "summary": "Поиск Клиентов По Критериям Фильтров",
+        "tags": [
+          "Customers"
+        ]
+      }
+    },
+    "/api/v1/crm-external-integrations/devices": {
+      "post": {
+        "description": "Регистрация устройства без привязки к клиенту.\n\n**Поведение:**\n- Если устройство с указанным device_id уже существует, оно будет возвращено\n- Если передан device_info, он будет записан (или обновлён) на устройстве\n\n**Ответ:**\n- 201: Устройство успешно создано или найдено",
+        "operationId": "Регистрация_устройства_api_v1_crm_external_integrations_devices_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "device_id": "sdk-abc-123-def",
+                  "device_info": {
+                    "app_version": "1.2.0",
+                    "os": "iOS"
+                  },
+                  "id": 1
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceResponseSchema"
+                }
+              }
+            },
+            "description": "Устройство успешно создано или найдено"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "summary": "Регистрация Устройства",
+        "tags": [
+          "Devices"
+        ]
+      }
+    },
+    "/api/v1/crm-external-integrations/devices/assign": {
+      "delete": {
+        "description": "Отвязка устройства от клиента (customer_id устанавливается в null).\n\n**Ответ:**\n- 200: Устройство успешно отвязано от клиента\n- 404: Устройство не найдено",
+        "operationId": "Отвязка_устройства_от_клиента_api_v1_crm_external_integrations_devices_assign_delete",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "device_id",
+            "required": true,
+            "schema": {
+              "title": "Device Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "device_id": "sdk-abc-123-def",
+                  "device_info": {},
+                  "id": 1,
+                  "last_activity_at": "2024-05-20T10:15:00"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceResponseSchema"
+                }
+              }
+            },
+            "description": "Устройство успешно отвязано от клиента"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "detail": "Устройство не найдено"
+                }
+              }
+            },
+            "description": "Устройство не найдено"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "summary": "Отвязка Устройства От Клиента",
+        "tags": [
+          "Devices"
+        ]
+      },
+      "post": {
+        "description": "Привязка устройства к клиенту по device_id.\n\n**Поведение:**\n- Если устройство с указанным device_id не существует, оно будет создано автоматически\n- Клиент идентифицируется по одному из параметров: customer_id, email, mobile_phone, website_id или discount_card_number\n- Если клиент по указанным идентификаторам не найден, он будет автоматически создан во внешнем customers-сервисе\n- Устройство может быть привязано только к одному клиенту\n\n**Ответ:**\n- 200: Устройство успешно привязано к клиенту\n- 422: Не указан ни один идентификатор клиента либо клиент не найден",
+        "operationId": "Привязка_устройства_к_клиенту_api_v1_crm_external_integrations_devices_assign_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceAssignRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "customer_id": 501,
+                  "device_id": "sdk-abc-123-def",
+                  "device_info": {},
+                  "id": 1,
+                  "last_activity_at": "2024-05-20T10:15:00"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceResponseSchema"
+                }
+              }
+            },
+            "description": "Устройство успешно привязано к клиенту"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "customer_identifier_missing": {
+                    "summary": "Не указан ни один идентификатор клиента",
+                    "value": {
+                      "detail": "Не указан ни один идентификатор клиента"
+                    }
+                  },
+                  "customer_not_found": {
+                    "summary": "Клиент не найден",
+                    "value": {
+                      "detail": "Клиент не найден"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Ошибка валидации или идентификации. Возможные причины:\n- Не указан ни один идентификатор клиента\n- Клиент не найден по указанным идентификаторам"
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "summary": "Привязка Устройства К Клиенту",
+        "tags": [
+          "Devices"
+        ]
+      }
+    },
+    "/api/v1/customers/ping": {
+      "get": {
+        "operationId": "ping_api_v1_customers_ping_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Ping"
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Health"
+      }
+    }
+  }
+}

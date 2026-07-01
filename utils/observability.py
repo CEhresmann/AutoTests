@@ -66,8 +66,6 @@ def _curl_header_value(service: str, header_name: str, value: Any) -> str:
     service_env = {
         "crm": "DREAMCRM",
         "accounting": "DREAMCRM_ACCOUNTING",
-        "app-content": "DREAMCRM_APP_CONTENT",
-        "mobile": "DREAMCRM_MOBILE",
     }.get(service)
     normalized = header_name.lower()
     if service_env and normalized == "x-api-key":

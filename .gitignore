@@ -1,12 +1,9 @@
 # Secrets
 .env
 
-# OpenAPI specs (may contain internal details)
-OpenApi/
-
 # Test artifacts (raw JSONL/JSON/CSV, regenerated on each run)
 artifacts/
-
+DreamCRM_Contracts.md
 # Python
 .venv
 .pytest_cache

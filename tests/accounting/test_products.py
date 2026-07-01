@@ -49,5 +49,7 @@ def test_create_products_bulk(accounting_client, accounting_openapi: dict) -> No
     schema = response_schema(accounting_openapi, "/api/v1/accounting-external-api/product/bulk", "post", 200)
     data = validate_response_against_openapi(schema_document=accounting_openapi, response=response, schema=schema)
     assert data["total"] == len(payload["items"])
-    assert data["success_count"] + data["error_count"] == data["total"]
+    # Контракт bulk-товаров: created/updated/errors (не success_count/error_count).
+    assert data["created"] + data["updated"] + data["errors"] == data["total"]
+    assert len(data["results"]) == data["total"]
 

@@ -98,3 +98,24 @@ def test_calculate_order(accounting_client, accounting_openapi: dict) -> None:
     data = validate_response_against_openapi(schema_document=accounting_openapi, response=response, schema=schema)
     assert isinstance(data.get("items", []), list)
     assert "errors" in data
+
+
+@pytest.mark.accounting
+@pytest.mark.integration
+@pytest.mark.regression
+def test_update_order_item_status(accounting_client) -> None:
+    from utils.test_data import accounting_order_item_update_payload
+
+    order = accounting_order_payload()
+    line_id = order["items"][0]["external_line_id"]
+    create = accounting_client.post("/api/v1/accounting-external-api/orders", json=order)
+    assert create.status_code == 201, create.text
+
+    response = accounting_client.patch(
+        f"/api/v1/accounting-external-api/orders/{order['external_order_id']}/items/{line_id}",
+        json=accounting_order_item_update_payload("ACTIVE"),
+    )
+    assert response.status_code == 200, response.text
+    data = response.json()
+    assert data["external_line_id"] == line_id
+    assert data["status"].lower() == "active"

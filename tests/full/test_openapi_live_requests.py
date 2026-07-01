@@ -9,9 +9,7 @@ from uuid import uuid4
 import pytest
 
 from configs.settings import (
-    ACCOUNTING_ORDER_ITEM_ID,
     ACCOUNTING_PROMOCODE_POOL_ID,
-    ACCOUNTING_PROMOTION_ID,
     CRM_CAMPAIGN_ID,
     TEST_DATA,
 )
@@ -27,11 +25,6 @@ from utils.test_data import (
     accounting_order_payload,
     accounting_order_update_payload,
     accounting_order_item_update_payload,
-    accounting_promotion_apply_payload,
-    accounting_promotion_apply_to_item_payload,
-    accounting_promotion_available_payload,
-    accounting_promotion_remove_payload,
-    accounting_promotion_preview_payload,
     accounting_promocode_assign_payload,
     accounting_product_payload,
     accounting_gift_certificate_activate_payload,
@@ -53,12 +46,9 @@ from utils.test_data import (
 SERVICE_FIXTURES = {
     "crm": ("crm_client", "crm_openapi", "test_data"),
     "accounting": ("accounting_client", "accounting_openapi", "test_data"),
-    "app-content": ("app_content_client", "app_content_openapi", "app_content_test_data"),
-    "mobile": ("mobile_client", "mobile_openapi", "mobile_test_data"),
 }
 
 MUTATING_METHODS = {"POST", "PUT", "PATCH", "DELETE"}
-BUSINESS_STATUSES = {400, 401, 403, 404, 405, 409, 422, 429}
 _RESOURCE_CACHE: dict[str, Any] = {}
 KNOWN_JSON_BODY_FACTORIES = {
     ("crm", "POST", "/api/v1/crm-external-integrations/customers"): crm_customer_payload,
@@ -77,24 +67,6 @@ KNOWN_JSON_BODY_FACTORIES = {
     ("accounting", "POST", "/api/v1/accounting-external-api/orders"): accounting_order_payload,
     ("accounting", "POST", "/api/v1/accounting-external-api/orders/calculate"): accounting_calculate_payload,
     ("accounting", "POST", "/api/v1/accounting-external-api/bonuses/accrue-customer-points"): accounting_bonus_accrue_payload,
-    ("accounting", "POST", "/api/v1/accounting-external-api/promotions/apply"): lambda: accounting_promotion_apply_payload(
-        TEST_DATA.promotion_order_id or 1
-    ),
-    ("accounting", "POST", "/api/v1/accounting-external-api/promotions/preview"): lambda: accounting_promotion_preview_payload(
-        TEST_DATA.promotion_order_id or 1
-    ),
-    ("accounting", "POST", "/api/v1/accounting-external-api/promotions/apply-to-item"): lambda: accounting_promotion_apply_to_item_payload(
-        TEST_DATA.promotion_order_id or 1,
-        1,
-        1,
-    ),
-    ("accounting", "POST", "/api/v1/accounting-external-api/promotions/remove"): lambda: accounting_promotion_remove_payload(
-        TEST_DATA.promotion_order_id or 1,
-        1,
-    ),
-    ("accounting", "POST", "/api/v1/accounting-external-api/promotions/available"): lambda: accounting_promotion_available_payload(
-        TEST_DATA.promotion_order_id or 1
-    ),
     ("accounting", "POST", "/api/v1/accounting-external-api/promocodes/assign"): lambda: accounting_promocode_assign_payload(
         ACCOUNTING_PROMOCODE_POOL_ID or 1
     ),
@@ -441,32 +413,6 @@ def test_openapi_operation_is_callable(request, service: str, method: str, schem
             if method == "PATCH":
                 path_overrides["hold_id"] = _ensure_accounting_hold_id(client)
                 json_body = accounting_bonus_hold_release_payload()
-        elif schema_path == "/api/v1/accounting-external-api/promotions/apply":
-            if TEST_DATA.promotion_order_id is None:
-                pytest.skip("Set DREAMCRM_PROMOTION_ORDER_ID to call promotion apply")
-            json_body = accounting_promotion_apply_payload(TEST_DATA.promotion_order_id)
-        elif schema_path == "/api/v1/accounting-external-api/promotions/preview":
-            if TEST_DATA.promotion_order_id is None:
-                pytest.skip("Set DREAMCRM_PROMOTION_ORDER_ID to call promotions preview")
-            json_body = accounting_promotion_preview_payload(TEST_DATA.promotion_order_id)
-        elif schema_path == "/api/v1/accounting-external-api/promotions/apply-to-item":
-            if TEST_DATA.promotion_order_id is None or ACCOUNTING_ORDER_ITEM_ID is None or ACCOUNTING_PROMOTION_ID is None:
-                pytest.skip(
-                    "Set DREAMCRM_PROMOTION_ORDER_ID, DREAMCRM_ACCOUNTING_ORDER_ITEM_ID and DREAMCRM_ACCOUNTING_PROMOTION_ID to call promotion apply-to-item"
-                )
-            json_body = accounting_promotion_apply_to_item_payload(
-                TEST_DATA.promotion_order_id,
-                ACCOUNTING_ORDER_ITEM_ID,
-                ACCOUNTING_PROMOTION_ID,
-            )
-        elif schema_path == "/api/v1/accounting-external-api/promotions/remove":
-            if TEST_DATA.promotion_order_id is None or ACCOUNTING_PROMOTION_ID is None:
-                pytest.skip("Set DREAMCRM_PROMOTION_ORDER_ID to call promotion remove")
-            json_body = accounting_promotion_remove_payload(TEST_DATA.promotion_order_id, ACCOUNTING_PROMOTION_ID)
-        elif schema_path == "/api/v1/accounting-external-api/promotions/available":
-            if TEST_DATA.promotion_order_id is None:
-                pytest.skip("Set DREAMCRM_PROMOTION_ORDER_ID to call promotions available")
-            json_body = accounting_promotion_available_payload(TEST_DATA.promotion_order_id)
         elif schema_path == "/api/v1/accounting-external-api/promocodes/assign":
             if ACCOUNTING_PROMOCODE_POOL_ID is None:
                 pytest.skip("Set DREAMCRM_ACCOUNTING_PROMOCODE_POOL_ID to call promocodes assign")
@@ -498,9 +444,12 @@ def test_openapi_operation_is_callable(request, service: str, method: str, schem
         int(code) for code in operation.get("responses", {}) if str(code).isdigit()
     }
 
+    # 5xx — всегда провал (баг сервера).
     assert response.status_code < 500, response.text
+    # Контрактная проверка: код ответа обязан быть среди задекларированных в спеке.
+    # Раньше здесь был blanket-обход через BUSINESS_STATUSES, который маскировал
+    # НЕзадекларированные 4xx (напр. 400/404 там, где спека их не описывает) —
+    # убрано, чтобы full-прогон ловил расхождения контракта.
     assert (
-        not declared_statuses
-        or response.status_code in declared_statuses
-        or response.status_code in BUSINESS_STATUSES
-    ), response.text
+        not declared_statuses or response.status_code in declared_statuses
+    ), f"{response.status_code} not in declared {sorted(declared_statuses)}: {response.text}"

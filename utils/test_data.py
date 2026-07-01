@@ -125,7 +125,7 @@ def accounting_product_payload() -> dict:
     return prune_payload(
         {
             "external_id": f"autotest-product-{suffix}",
-            "external_system": "Ecom",
+            "external_system": "ECOM",
             "name": f"Autotest Product {suffix}",
             "price": 100.0,
             "category": {
@@ -153,7 +153,9 @@ def accounting_order_payload() -> dict:
     return prune_payload(
         {
             "external_order_id": f"autotest-order-{suffix}",
-            "external_system": "Ecom",
+            # enum стенда — заглавными: ECOM/TICKET_SYSTEM/GIFT_CARDS/...
+            "external_system": "ECOM",
+            "contact_point_id": TEST_DATA.contact_point_id or "ecom_web",
             "website_id": TEST_DATA.website_id,
             "email": TEST_DATA.email,
             "mobile_phone": TEST_DATA.mobile_phone,
@@ -186,9 +188,12 @@ def accounting_order_update_payload(contact_point_id: str) -> dict:
 
 
 def accounting_order_item_update_payload(status: str = "ACTIVE") -> dict:
-    return {
-        "status": status,
-    }
+    return prune_payload(
+        {
+            "status": status,
+            "contact_point_id": TEST_DATA.contact_point_id or "ecom_web",
+        }
+    )
 
 
 def accounting_calculate_payload() -> dict:
@@ -212,12 +217,6 @@ def accounting_calculate_payload() -> dict:
             },
         }
     )
-
-
-def accounting_promotion_preview_payload(order_id: int) -> dict:
-    return {
-        "order_id": order_id,
-    }
 
 
 def accounting_bonus_accrue_payload() -> dict:
@@ -266,34 +265,6 @@ def accounting_bonus_hold_release_payload() -> dict:
     }
 
 
-def accounting_promotion_apply_payload(order_id: int, promocode: str | None = None) -> dict:
-    payload = {"order_id": order_id}
-    if promocode:
-        payload["promocode"] = promocode
-    return payload
-
-
-def accounting_promotion_apply_to_item_payload(order_id: int, order_item_id: int, promotion_id: int) -> dict:
-    return {
-        "order_id": order_id,
-        "order_item_id": order_item_id,
-        "promotion_id": promotion_id,
-    }
-
-
-def accounting_promotion_remove_payload(order_id: int, promotion_id: int) -> dict:
-    return {
-        "order_id": order_id,
-        "promotion_id": promotion_id,
-    }
-
-
-def accounting_promotion_available_payload(order_id: int) -> dict:
-    return {
-        "order_id": order_id,
-    }
-
-
 def accounting_promocode_assign_payload(pool_id: int) -> dict:
     return {
         "pool_id": pool_id,
@@ -335,8 +306,12 @@ def accounting_gift_certificate_refund_payload() -> dict:
     }
 
 
-def accounting_gift_certificate_validate_payload() -> dict:
+def accounting_gift_certificate_validate_payload(certificate_number: str | None = None) -> dict:
     suffix = unique_suffix()
-    return {
+    payload: dict = {
         "transaction_id": f"autotest-gift-validate-{suffix}",
     }
+    # Стенд требует certificate_id ИЛИ certificate_number (иначе 422).
+    if certificate_number:
+        payload["certificate_number"] = certificate_number
+    return payload
